@@ -283,6 +283,8 @@
       cursor: pointer;
       transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
       padding: 0;
+      position: relative;
+      overflow: hidden;
     }
     .theme-toggle:hover {
       color: var(--copper-lt);
@@ -290,17 +292,136 @@
       background: var(--copper-soft-bg);
       transform: translateY(-1px);
     }
-    .theme-toggle svg { width: 16px; height: 16px; }
-    .theme-toggle .icon-sun { display: none; }
-    .theme-toggle .icon-moon { display: block; }
-    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
-    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+    .theme-toggle:active { transform: scale(0.92); }
+    .theme-toggle svg {
+      width: 16px; height: 16px;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    }
+    .theme-toggle .icon-sun  { transform: rotate(-90deg) scale(0.4); opacity: 0; position: absolute; }
+    .theme-toggle .icon-moon { transform: rotate(0deg)   scale(1);   opacity: 1; }
+    [data-theme="light"] .theme-toggle .icon-sun  { transform: rotate(0deg)  scale(1);   opacity: 1; position: static; }
+    [data-theme="light"] .theme-toggle .icon-moon { transform: rotate(90deg) scale(0.4); opacity: 0; position: absolute; }
+
+    /* View Transitions API — circular reveal from button */
+    @supports (view-transition-name: root) {
+      ::view-transition-old(root) { animation: none; }
+      ::view-transition-new(root) {
+        animation: theme-clip-in 0.55s cubic-bezier(0.65, 0, 0.35, 1) both;
+      }
+      @keyframes theme-clip-in {
+        from { clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+        to   { clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+      }
+    }
+
+    /* ── MOBILE NAV (hamburger + drawer) ── */
+    .nav-burger {
+      display: none;
+      width: 42px; height: 42px;
+      align-items: center; justify-content: center;
+      background: var(--nav-pill-bg);
+      border: 1px solid var(--nav-pill-border);
+      color: var(--fg-muted);
+      border-radius: 999px;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-burger:hover, .nav-burger:focus-visible {
+      color: var(--copper-lt);
+      border-color: var(--copper-glow-40);
+      background: var(--copper-soft-bg);
+      outline: none;
+    }
+    .nav-burger svg { width: 18px; height: 18px; }
+
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.36s cubic-bezier(0.65, 0, 0.35, 1);
+      visibility: hidden;
+    }
+    .mobile-drawer.open { transform: translateX(0); visibility: visible; }
+    .mobile-drawer-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-drawer-head .nav-logo img { height: 44px; }
+    .mobile-drawer-close {
+      width: 42px; height: 42px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--nav-pill-bg);
+      border: 1px solid var(--nav-pill-border);
+      color: var(--fg-muted);
+      border-radius: 999px;
+      cursor: pointer;
+      padding: 0;
+    }
+    .mobile-drawer-close svg { width: 18px; height: 18px; }
+    .mobile-drawer-links {
+      list-style: none;
+      padding: 32px 0 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-drawer-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 4px;
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .mobile-drawer-links a:hover, .mobile-drawer-links a:focus-visible {
+      color: var(--copper-lt);
+      padding-left: 12px;
+      outline: none;
+    }
+    .mobile-drawer-links a::after {
+      content: '→';
+      font-family: system-ui, sans-serif;
+      font-size: 1.125rem;
+      color: var(--copper);
+      opacity: 0.7;
+    }
+    .mobile-drawer-cta {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 16px 24px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px var(--copper-glow-40);
+    }
 
     @media (max-width: 860px) {
-      nav { padding: 0 20px; height: 72px; grid-template-columns: auto 1fr auto; }
-      .nav-logo img { height: 44px; }
+      nav { padding: 0 20px; height: 68px; grid-template-columns: auto 1fr auto; }
+      .nav-logo img { height: 40px; }
       .nav-links { display: none; }
-      .nav-cta { padding: 9px 16px; font-size: 0.75rem; }
+      .nav-cta { display: none; }
+      .nav-burger { display: inline-flex; }
     }
 
     /* ── HERO ── */
@@ -1529,16 +1650,35 @@
     @media (max-width: 640px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .hero { padding: 88px 24px 48px; }
-      .hero-stats { gap: 24px; flex-wrap: wrap; }
-      section { padding: 56px 24px; }
-      .products-grid { grid-template-columns: 1fr; }
-      .materials-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 92px 22px 56px; gap: 36px; }
+      .hero h1 { font-size: clamp(2.2rem, 9vw, 2.8rem); }
+      .hero-desc { font-size: 1rem; margin-bottom: 28px; }
+      .hero-3d { height: 320px; }
+      .hero-actions { flex-direction: column; gap: 12px; align-items: stretch; }
+      .hero-actions .btn-primary, .hero-actions .btn-outline {
+        justify-content: center; padding: 14px 22px; font-size: 0.95rem;
+      }
+      .hero-stats { gap: 18px; flex-wrap: wrap; }
+      .hero-stats > div { flex: 1 1 30%; min-width: 0; }
+      .stat-val { font-size: 1.625rem; }
+      .stat-label { font-size: 0.7rem; }
+      section { padding: 64px 22px; }
+      .section-title { font-size: clamp(1.7rem, 6vw, 2.2rem); }
+      .products-grid { grid-template-columns: 1fr; gap: 16px; }
+      .materials-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .process-steps { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      footer { padding: 40px 24px 28px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      footer { padding: 40px 22px 28px; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       .materials-header, .products-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    @media (max-width: 380px) {
+      .hero { padding: 88px 18px 48px; }
+      .hero h1 { font-size: 2rem; }
+      .hero-tag { font-size: 0.7rem; padding: 5px 12px; }
+      section { padding: 56px 18px; }
+      .footer-top { padding: 0; }
     }
   </style>
 </head>
@@ -1562,8 +1702,35 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
       <a href="planer.html" class="nav-cta">3D Planer</a>
+      <button type="button" class="nav-burger" id="navBurger" aria-label="Meni" aria-controls="mobileDrawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile drawer -->
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-head">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo.png" alt="Eldo Design" />
+      </a>
+      <button type="button" class="mobile-drawer-close" id="drawerClose" aria-label="Zatvori meni">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="proizvodi.html">Proizvodi</a></li>
+      <li><a href="#galerija">Galerija</a></li>
+      <li><a href="#process">Proces</a></li>
+      <li><a href="#faq">Pitanja</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <a href="planer.html" class="mobile-drawer-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Otvori 3D Planer
+    </a>
+  </aside>
+
   <section class="hero" id="home">
     <div class="hero-text">
       <div class="hero-tag">Kuhinje po meri</div>
@@ -2089,15 +2256,60 @@
       }
     });
 
-    // Theme toggle
+    // Theme toggle (works on all .theme-toggle buttons — main nav + drawer)
     (function () {
-      var btn = document.querySelector('.theme-toggle');
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        var next = cur === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', next);
-        try { localStorage.setItem('eldo-theme', next); } catch (e) {}
+      var btns = document.querySelectorAll('.theme-toggle');
+      if (!btns.length) return;
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+          var next = cur === 'light' ? 'dark' : 'light';
+
+          var rect = btn.getBoundingClientRect();
+          var x = rect.left + rect.width / 2;
+          var y = rect.top + rect.height / 2;
+          document.documentElement.style.setProperty('--theme-x', x + 'px');
+          document.documentElement.style.setProperty('--theme-y', y + 'px');
+
+          var apply = function () {
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('eldo-theme', next); } catch (e) {}
+          };
+
+          if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.startViewTransition(apply);
+          } else {
+            apply();
+          }
+        });
+      });
+    })();
+
+    // Mobile drawer
+    (function () {
+      var burger = document.getElementById('navBurger');
+      var drawer = document.getElementById('mobileDrawer');
+      var closeBtn = document.getElementById('drawerClose');
+      if (!burger || !drawer) return;
+      var open = function () {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      };
+      var close = function () {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+      burger.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      drawer.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', close);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) close();
       });
     })();
   </script>

@@ -79,6 +79,46 @@
 
     html { scroll-behavior: smooth; }
 
+    /* ── THEME TRANSITION ── */
+    /* Smooth cross-fade for elements that don't get reveal-animated */
+    body, nav, .overlay-nav, .prod-card, .prod-img-wrap, .prod-body,
+    .filter-btn, .search-wrap input, .theme-toggle, .nav-cta,
+    .nav-links a, .nav-social a, footer, .overlay-back, .view-toggle,
+    .overlay-img-side, .overlay-categories, .spec-row, .colors-img,
+    .btn, .empty-state {
+      transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+    }
+
+    /* Theme-toggle icon flip */
+    .theme-toggle svg { transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; }
+    .theme-toggle .icon-sun  { transform: rotate(-90deg) scale(0.4); opacity: 0; position: absolute; }
+    .theme-toggle .icon-moon { transform: rotate(0deg)   scale(1);   opacity: 1; }
+    [data-theme="light"] .theme-toggle .icon-sun  { transform: rotate(0deg)  scale(1);   opacity: 1; position: static; }
+    [data-theme="light"] .theme-toggle .icon-moon { transform: rotate(90deg) scale(0.4); opacity: 0; position: absolute; }
+    .theme-toggle { position: relative; overflow: hidden; }
+    .theme-toggle:active { transform: scale(0.92); }
+
+    /* View Transitions API — circular reveal from button */
+    @supports (view-transition-name: root) {
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.55s;
+        animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+      }
+      ::view-transition-old(root) { animation: none; }
+      ::view-transition-new(root) {
+        animation-name: theme-clip-in;
+      }
+      @keyframes theme-clip-in {
+        from { clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+        to   { clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .theme-toggle svg, body, nav, .overlay-nav, .prod-card { transition: none; }
+    }
+
     body {
       background: var(--bg);
       color: var(--fg);
@@ -261,10 +301,113 @@
     .nav-cta:active { transform: translateY(0); }
 
     @media (max-width: 860px) {
-      nav { padding: 0 20px; height: 72px; grid-template-columns: auto 1fr auto; }
-      .nav-logo img { height: 44px; }
+      nav { padding: 0 20px; height: 68px; grid-template-columns: auto 1fr auto; }
+      .nav-logo img { height: 40px; }
       .nav-links { display: none; }
-      .nav-cta { padding: 9px 16px; font-size: 0.75rem; }
+      .nav-cta { display: none; }
+      .nav-burger { display: inline-flex; }
+    }
+
+    /* ── MOBILE NAV (hamburger + drawer) ── */
+    .nav-burger {
+      display: none;
+      width: 42px; height: 42px;
+      align-items: center; justify-content: center;
+      background: var(--nav-pill-bg);
+      border: 1px solid var(--nav-pill-border);
+      color: var(--fg-muted);
+      border-radius: 999px;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-burger:hover, .nav-burger:focus-visible {
+      color: var(--copper-lt);
+      border-color: var(--copper-glow-40);
+      background: var(--copper-soft-bg);
+      outline: none;
+    }
+    .nav-burger svg { width: 18px; height: 18px; }
+
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.36s cubic-bezier(0.65, 0, 0.35, 1);
+      visibility: hidden;
+    }
+    .mobile-drawer.open { transform: translateX(0); visibility: visible; }
+    .mobile-drawer-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-drawer-head .nav-logo img { height: 44px; }
+    .mobile-drawer-close {
+      width: 42px; height: 42px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--nav-pill-bg);
+      border: 1px solid var(--nav-pill-border);
+      color: var(--fg-muted);
+      border-radius: 999px;
+      cursor: pointer;
+      padding: 0;
+    }
+    .mobile-drawer-close svg { width: 18px; height: 18px; }
+    .mobile-drawer-links {
+      list-style: none;
+      padding: 32px 0 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-drawer-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 4px;
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .mobile-drawer-links a:hover, .mobile-drawer-links a:focus-visible {
+      color: var(--copper-lt);
+      padding-left: 12px;
+      outline: none;
+    }
+    .mobile-drawer-links a::after {
+      content: '→';
+      font-family: system-ui, sans-serif;
+      font-size: 1.125rem;
+      color: var(--copper);
+      opacity: 0.7;
+    }
+    .mobile-drawer-cta {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 16px 24px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px var(--copper-glow-40);
     }
 
     /* ── PAGE HEAD ── */
@@ -864,14 +1007,44 @@
     @media (max-width: 720px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .page-head { padding: 110px 24px 32px; }
-      .filters, .results-meta, .prod-grid { padding-left: 24px; padding-right: 24px; }
-      .search-wrap { margin-left: 0; width: 100%; }
+      .page-head { padding: 100px 22px 28px; gap: 18px; }
+      .page-head .section-title { font-size: clamp(1.9rem, 7.5vw, 2.4rem); }
+      .page-head .section-sub { font-size: 0.875rem; max-width: 100%; }
+      .filters {
+        padding: 0 22px;
+        gap: 8px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .filters::-webkit-scrollbar { display: none; }
+      .filter-btn { flex-shrink: 0; padding: 9px 14px; font-size: 0.8rem; }
+      .results-meta, .prod-grid { padding-left: 22px; padding-right: 22px; }
+      .prod-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .prod-body { padding: 12px 14px 14px; }
+      .prod-name { font-size: 0.875rem; }
+      .prod-meta { font-size: 0.7rem; }
+      .search-wrap {
+        margin-left: 0;
+        width: 100%;
+        order: 99;
+        position: sticky;
+        left: 0;
+      }
       .search-wrap input { width: 100%; }
-      .overlay-nav { padding: 0 20px; }
-      .overlay-content { grid-template-columns: 1fr; padding: 32px 24px 64px; gap: 36px; }
-      .overlay-img-side { padding: 32px; min-height: 280px; position: static; }
-      .overlay-img-side img { max-height: 280px; }
+      .overlay-nav { padding: 0 20px; height: 68px; grid-template-columns: auto 1fr auto; }
+      .overlay-nav .nav-logo img { height: 40px; }
+      .overlay-nav .nav-cta { display: none; }
+      .overlay-back { padding: 8px 12px; font-size: 0.75rem; }
+      .overlay-back span, .overlay-back-text { display: none; }
+      .overlay-content { grid-template-columns: 1fr; padding: 28px 22px 56px; gap: 28px; }
+      .overlay-img-side { padding: 28px; min-height: 240px; position: static; }
+      .overlay-img-side img { max-height: 240px; }
+    }
+
+    @media (max-width: 420px) {
+      .prod-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -889,21 +1062,40 @@
       <li><a href="index.html#contact">Kontakt</a></li>
     </ul>
     <div class="nav-right">
-      <div class="nav-social">
-        <a href="https://www.instagram.com/eldo_design_namestaj_" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://www.facebook.com/EldoDesignNis1" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-        </a>
-      </div>
       <button type="button" class="theme-toggle" aria-label="Promeni temu" title="Promeni temu">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
       <a href="planer.html" class="nav-cta">3D Planer</a>
+      <button type="button" class="nav-burger" id="navBurger" aria-label="Meni" aria-controls="mobileDrawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile drawer -->
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-head">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Eldo Design" />
+      </a>
+      <button type="button" class="mobile-drawer-close" id="drawerClose" aria-label="Zatvori meni">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="index.html">Početna</a></li>
+      <li><a href="proizvodi.html">Proizvodi</a></li>
+      <li><a href="index.html#galerija">Galerija</a></li>
+      <li><a href="index.html#process">Proces</a></li>
+      <li><a href="index.html#faq">Pitanja</a></li>
+      <li><a href="index.html#contact">Kontakt</a></li>
+    </ul>
+    <a href="planer.html" class="mobile-drawer-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Otvori 3D Planer
+    </a>
+  </aside>
 
   <header class="page-head">
     <div>
@@ -936,14 +1128,6 @@
         <img src="assets/logo.png" alt="Eldo Design" />
       </a>
       <div class="nav-right">
-        <div class="nav-social">
-          <a href="https://www.instagram.com/eldo_design_namestaj_" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.facebook.com/EldoDesignNis1" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-          </a>
-        </div>
         <button type="button" class="theme-toggle" aria-label="Promeni temu" title="Promeni temu">
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -1351,15 +1535,59 @@
         console.error(err);
       });
 
-    // Theme toggle (works for both nav + overlay buttons)
+    // Theme toggle (works for both nav + overlay buttons) — circular reveal animation
     document.querySelectorAll('.theme-toggle').forEach(function (btn) {
-      btn.addEventListener('click', function () {
+      btn.addEventListener('click', function (ev) {
         var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
         var next = cur === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', next);
-        try { localStorage.setItem('eldo-theme', next); } catch (e) {}
+
+        // origin point for the circular reveal (center of clicked button)
+        var rect = btn.getBoundingClientRect();
+        var x = rect.left + rect.width / 2;
+        var y = rect.top + rect.height / 2;
+        document.documentElement.style.setProperty('--theme-x', x + 'px');
+        document.documentElement.style.setProperty('--theme-y', y + 'px');
+
+        var apply = function () {
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('eldo-theme', next); } catch (e) {}
+        };
+
+        if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.startViewTransition(apply);
+        } else {
+          apply();
+        }
       });
     });
+
+    // Mobile drawer
+    (function () {
+      var burger = document.getElementById('navBurger');
+      var drawer = document.getElementById('mobileDrawer');
+      var closeBtn = document.getElementById('drawerClose');
+      if (!burger || !drawer) return;
+      var open = function () {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      };
+      var close = function () {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+      burger.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      drawer.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', close);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) close();
+      });
+    })();
   </script>
 </body>
 </html>
