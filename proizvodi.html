@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('eldo-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <title>Proizvodi — Eldo Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        hsl(225, 25%, 9%);
+      --bg2:       hsl(225, 25%, 12%);
+      --bg3:       hsl(225, 22%, 15%);
+      --border:    hsl(225, 18%, 20%);
+      --border-strong: hsl(225, 18%, 30%);
+      --fg:        hsl(220, 15%, 88%);
+      --fg-muted:  hsl(220, 10%, 55%);
+      --copper:    hsl(30, 72%, 50%);
+      --copper-lt: hsl(30, 72%, 62%);
+      --copper-dk: hsl(30, 65%, 38%);
+      --white:     hsl(30, 15%, 97%);
+
+      --nav-bg:           hsla(225, 28%, 7%, 0.78);
+      --nav-border:       hsla(225, 18%, 22%, 0.6);
+      --nav-pill-bg:      hsla(225, 22%, 14%, 0.4);
+      --nav-pill-border:  hsla(225, 18%, 22%, 0.5);
+      --copper-soft-bg:   hsl(30, 72%, 50%, 0.10);
+      --copper-soft-bd:   hsl(30, 72%, 50%, 0.30);
+      --copper-glow-30:   hsla(30, 72%, 50%, 0.30);
+      --copper-glow-40:   hsla(30, 72%, 50%, 0.40);
+      --copper-glow-50:   hsla(30, 72%, 50%, 0.50);
+      --filter-pill-bg:   hsl(225, 18%, 22%);
+      --card-img-tag-bg:  hsla(225, 25%, 9%, 0.85);
+      --overlay-pill-bg:  hsla(225, 22%, 8%, 0.85);
+
+      color-scheme: dark;
+    }
+
+    [data-theme="light"] {
+      --bg:        hsl(35, 30%, 97%);
+      --bg2:       hsl(35, 28%, 94%);
+      --bg3:       hsl(35, 22%, 90%);
+      --border:    hsl(30, 18%, 84%);
+      --border-strong: hsl(30, 18%, 72%);
+      --fg:        hsl(225, 22%, 14%);
+      --fg-muted:  hsl(225, 10%, 42%);
+      --copper:    hsl(28, 78%, 42%);
+      --copper-lt: hsl(28, 72%, 36%);
+      --copper-dk: hsl(28, 65%, 32%);
+      --white:     hsl(225, 25%, 11%);
+
+      --nav-bg:           hsla(35, 30%, 97%, 0.82);
+      --nav-border:       hsla(30, 18%, 80%, 0.7);
+      --nav-pill-bg:      hsla(35, 25%, 90%, 0.6);
+      --nav-pill-border:  hsla(30, 18%, 80%, 0.7);
+      --copper-soft-bg:   hsl(28, 78%, 50%, 0.10);
+      --copper-soft-bd:   hsl(28, 78%, 42%, 0.30);
+      --copper-glow-30:   hsla(28, 78%, 42%, 0.30);
+      --copper-glow-40:   hsla(28, 78%, 42%, 0.40);
+      --copper-glow-50:   hsla(28, 78%, 42%, 0.50);
+      --filter-pill-bg:   hsl(35, 22%, 86%);
+      --card-img-tag-bg:  hsla(35, 30%, 97%, 0.92);
+      --overlay-pill-bg:  hsla(35, 30%, 97%, 0.9);
+
+      color-scheme: light;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 40px;
+      height: 88px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid var(--nav-border);
+    }
+    nav::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        var(--copper-glow-40) 20%,
+        var(--copper-glow-40) 80%,
+        transparent 100%);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      justify-self: start;
+    }
+    .nav-logo img {
+      height: 56px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .nav-logo:hover img { transform: scale(1.05); }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+      justify-self: center;
+      background: var(--nav-pill-bg);
+      border: 1px solid var(--nav-pill-border);
+      padding: 5px;
+      border-radius: 999px;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--fg-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      padding: 9px 18px;
+      border-radius: 999px;
+      transition: color 0.2s ease, background 0.2s ease;
+      display: inline-block;
+    }
+    .nav-links a:hover {
+      color: var(--white);
+      background: var(--nav-pill-bg);
+      box-shadow:
+        inset 0 0 0 1px var(--copper-glow-30),
+        0 2px 8px hsla(225, 40%, 4%, 0.18);
+    }
+    .nav-links a:hover::before,
+    .nav-links a.active::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--copper);
+      box-shadow: 0 0 10px var(--copper-glow-50);
+    }
+    .nav-links a.active {
+      color: var(--white);
+      background: var(--nav-pill-bg);
+      box-shadow:
+        inset 0 0 0 1px var(--copper-glow-30),
+        0 2px 8px hsla(225, 40%, 4%, 0.18);
+    }
+
+    .nav-right {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-social a {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-muted);
+      border-radius: 999px;
+      transition: color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .nav-social a:hover {
+      color: var(--copper-lt);
+      background: var(--copper-soft-bg);
+      transform: translateY(-1px);
+    }
+    .nav-social svg { width: 18px; height: 18px; }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--nav-pill-bg);
+      border: 1px solid var(--nav-pill-border);
+      color: var(--fg-muted);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .theme-toggle:hover {
+      color: var(--copper-lt);
+      border-color: var(--copper-glow-40);
+      background: var(--copper-soft-bg);
+      transform: translateY(-1px);
+    }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 11px 22px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+      box-shadow:
+        0 4px 14px var(--copper-glow-40),
+        inset 0 1px 0 hsla(0, 0%, 100%, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow:
+        0 6px 20px var(--copper-glow-50),
+        inset 0 1px 0 hsla(0, 0%, 100%, 0.22);
+    }
+    .nav-cta:active { transform: translateY(0); }
+
+    @media (max-width: 860px) {
+      nav { padding: 0 20px; height: 72px; grid-template-columns: auto 1fr auto; }
+      .nav-logo img { height: 44px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 9px 16px; font-size: 0.75rem; }
+    }
+
+    /* ── PAGE HEAD ── */
+    .page-head {
+      padding: 140px 48px 48px;
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .section-tag {
+      color: var(--copper-lt);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--white);
+    }
+    .section-sub {
+      color: var(--fg-muted);
+      font-size: 0.9375rem;
+      max-width: 380px;
+      line-height: 1.65;
+    }
+
+    /* ── FILTERS ── */
+    .filters {
+      max-width: 1320px;
+      margin: 0 auto 28px;
+      padding: 0 48px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--fg-muted);
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .filter-btn .pill {
+      display: inline-block;
+      margin-left: 6px;
+      background: var(--filter-pill-bg);
+      color: var(--fg-muted);
+      font-size: 0.6875rem;
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .filter-btn:hover { color: var(--fg); border-color: var(--border-strong); }
+    .filter-btn.active {
+      background: var(--copper-soft-bg);
+      border-color: var(--copper-glow-50);
+      color: var(--copper-lt);
+    }
+    .filter-btn.active .pill {
+      background: var(--copper-glow-30);
+      color: var(--copper-lt);
+    }
+    .search-wrap {
+      margin-left: auto;
+      position: relative;
+    }
+    .search-wrap input {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      padding: 9px 16px 9px 38px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.8125rem;
+      width: 240px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-wrap input:focus { border-color: var(--copper-glow-50); }
+    .search-wrap input::placeholder { color: var(--fg-muted); }
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: var(--fg-muted);
+      pointer-events: none;
+    }
+
+    .results-meta {
+      max-width: 1320px;
+      margin: 0 auto 18px;
+      padding: 0 48px;
+      color: var(--fg-muted);
+      font-size: 0.8125rem;
+    }
+    .results-meta strong { color: var(--fg); }
+
+    /* ── PRODUCT GRID ── */
+    .prod-grid {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 48px 96px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .prod-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+    }
+    .prod-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--copper-glow-40);
+      box-shadow: 0 18px 40px hsla(225, 30%, 4%, 0.18), 0 0 0 1px var(--copper-glow-30);
+    }
+    .prod-card .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--card-img-tag-bg);
+      backdrop-filter: blur(8px);
+      color: var(--fg-muted);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-weight: 500;
+      z-index: 2;
+    }
+    .prod-img-wrap {
+      aspect-ratio: 1/1;
+      background: var(--bg3);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .prod-img-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 70%, var(--card-img-tag-bg) 100%);
+      pointer-events: none;
+    }
+    .prod-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px hsla(225, 40%, 4%, 0.4));
+      transition: transform 0.4s ease;
+    }
+    .prod-card:hover .prod-img { transform: scale(1.05); }
+    .prod-body {
+      padding: 16px 18px 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .prod-name {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: -0.005em;
+      line-height: 1.35;
+      min-height: 2.7em;
+    }
+    .prod-meta {
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .prod-meta .dim {
+      background: var(--bg3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .prod-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+    .prod-price {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--copper-lt);
+      letter-spacing: -0.01em;
+      font-variant-numeric: tabular-nums;
+    }
+    .prod-price-currency {
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+      margin-left: 4px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 80px 20px;
+      text-align: center;
+      color: var(--fg-muted);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+    }
+    .empty-state strong { color: var(--fg); display: block; margin-bottom: 6px; font-weight: 600; font-size: 1rem; }
+
+    /* ── DETAIL FULL-SCREEN ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: none;
+      flex-direction: column;
+      z-index: 200;
+      overflow-y: auto;
+      animation: fadeIn 0.2s ease;
+    }
+    .overlay.open { display: flex; }
+    body.overlay-open > nav { display: none; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .overlay-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 40px;
+      height: 88px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid var(--nav-border);
+    }
+    .overlay-nav::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        var(--copper-glow-40) 20%,
+        var(--copper-glow-40) 80%,
+        transparent 100%);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .overlay-nav .overlay-back { justify-self: start; }
+    .overlay-nav .nav-logo { justify-self: center; }
+    .overlay-nav .nav-right { justify-self: end; }
+    .overlay-nav .nav-logo img { height: 56px; display: block; }
+    .overlay-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      padding: 8px 16px 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .overlay-back:hover {
+      border-color: var(--copper-glow-50);
+      color: var(--copper-lt);
+    }
+
+    .overlay-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 48px 96px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 64px;
+      width: 100%;
+    }
+    .view-toggle {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      display: flex;
+      gap: 2px;
+      padding: 3px;
+      background: var(--overlay-pill-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .view-toggle button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--fg-muted);
+      font: 500 0.65rem/1 var(--font-sans);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .view-toggle button svg { width: 11px; height: 11px; }
+    .view-toggle button:hover { color: var(--fg); }
+    .view-toggle button.active {
+      background: linear-gradient(135deg, hsl(30, 72%, 50%), hsl(28, 65%, 42%));
+      color: var(--white);
+      box-shadow: 0 2px 8px var(--copper-glow-30);
+    }
+    .view-3d-hint {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: var(--fg-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      pointer-events: none;
+      opacity: 0.7;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ov-3d {
+      width: 100%;
+      height: 480px;
+      max-height: 480px;
+      max-width: 100%;
+      background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+      border-radius: 12px;
+      display: none;
+      box-sizing: border-box;
+      --poster-color: transparent;
+    }
+    .ov-3d.active { display: block; }
+    .overlay-img-side img.hidden { display: none; }
+
+    /* Texture/color swatches za 3D pogled */
+    .tex-swatches {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: none;
+      gap: 6px;
+      padding: 6px 8px;
+      background: var(--overlay-pill-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .tex-swatches.active { display: flex; }
+    .tex-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid hsla(0, 0%, 100%, 0.15);
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .tex-swatch:hover { transform: scale(1.1); border-color: hsla(0, 0%, 100%, 0.4); }
+    .tex-swatch.active {
+      border-color: var(--copper-lt);
+      box-shadow: 0 0 0 2px var(--copper-glow-30);
+      transform: scale(1.1);
+    }
+    @media (max-width: 720px) {
+      .ov-3d { height: 280px; }
+    }
+
+    .overlay-img-side {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      position: sticky;
+      border-radius: 20px;
+      padding: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      top: 96px;
+      align-self: start;
+      overflow: hidden;
+    }
+    .overlay-img-side img {
+      max-width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 48px hsla(225, 40%, 4%, 0.25));
+    }
+    .overlay-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .overlay-crumb {
+      color: var(--fg-muted);
+      font-size: 0.8125rem;
+      margin-bottom: 18px;
+    }
+    .overlay-crumb a { color: var(--fg-muted); text-decoration: none; }
+    .overlay-crumb a:hover { color: var(--copper-lt); }
+    .overlay-crumb .sep { margin: 0 8px; opacity: 0.5; }
+    .overlay-name {
+      font-size: clamp(1.875rem, 3.4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .overlay-tagline {
+      font-size: 1.0625rem;
+      color: var(--fg);
+      line-height: 1.55;
+      margin-bottom: 22px;
+      max-width: 56ch;
+    }
+    .overlay-categories {
+      padding: 14px 0 16px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+      font-size: 0.9375rem;
+      margin-bottom: 32px;
+    }
+    .overlay-categories .label { color: var(--fg-muted); font-weight: 500; margin-right: 6px; }
+    .ov-section { margin-bottom: 32px; }
+    .ov-section h3 {
+      color: var(--copper-lt);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .specs {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 1rem;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-row .key { color: var(--fg-muted); }
+    .spec-row .val { color: var(--white); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .materials-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .materials-list li {
+      color: var(--fg);
+      font-size: 1rem;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .materials-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--copper);
+    }
+    .colors-img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 18px;
+      display: block;
+    }
+    .colors-note {
+      margin-top: 10px;
+      color: var(--fg-muted);
+      font-size: 0.8125rem;
+    }
+    .overlay-price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .overlay-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--copper-lt);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .overlay-price-currency {
+      font-size: 1rem;
+      color: var(--fg-muted);
+      font-weight: 500;
+    }
+    .overlay-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-secondary {
+      flex: 1;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--copper);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--copper-lt); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--fg);
+    }
+    .btn-secondary:hover { border-color: var(--border-strong); background: var(--bg3); }
+
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 48px;
+      text-align: center;
+      color: var(--fg-muted);
+      font-size: 0.8125rem;
+    }
+
+    @media (max-width: 720px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-head { padding: 110px 24px 32px; }
+      .filters, .results-meta, .prod-grid { padding-left: 24px; padding-right: 24px; }
+      .search-wrap { margin-left: 0; width: 100%; }
+      .search-wrap input { width: 100%; }
+      .overlay-nav { padding: 0 20px; }
+      .overlay-content { grid-template-columns: 1fr; padding: 32px 24px 64px; gap: 36px; }
+      .overlay-img-side { padding: 32px; min-height: 280px; position: static; }
+      .overlay-img-side img { max-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Eldo Design" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="proizvodi.html" class="active">Proizvodi</a></li>
+      <li><a href="index.html#galerija">Galerija</a></li>
+      <li><a href="index.html#process">Proces</a></li>
+      <li><a href="index.html#faq">Pitanja</a></li>
+      <li><a href="index.html#contact">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://www.instagram.com/eldo_design_namestaj_" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/EldoDesignNis1" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+      </div>
+      <button type="button" class="theme-toggle" aria-label="Promeni temu" title="Promeni temu">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="planer.html" class="nav-cta">3D Planer</a>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div>
+      <div class="section-tag">Katalog</div>
+      <h1 class="section-title">Svi naši proizvodi</h1>
+    </div>
+    <p class="section-sub">Pregledajte kompletan asortiman — kuhinjski elementi, ugradni aparati i radne ploče. Svi proizvodi izrađeni po meri.</p>
+  </header>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-cat="all">Sve <span class="pill" id="pillAll">0</span></button>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="searchInput" type="search" placeholder="Pretraga proizvoda…" />
+    </div>
+  </div>
+
+  <div class="results-meta" id="resultsMeta">Učitavanje…</div>
+
+  <main class="prod-grid" id="prodGrid"></main>
+
+  <!-- Detail full-screen view -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-nav">
+      <button class="overlay-back" id="overlayClose">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Nazad na katalog
+      </button>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Eldo Design" />
+      </a>
+      <div class="nav-right">
+        <div class="nav-social">
+          <a href="https://www.instagram.com/eldo_design_namestaj_" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/EldoDesignNis1" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          </a>
+        </div>
+        <button type="button" class="theme-toggle" aria-label="Promeni temu" title="Promeni temu">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a href="planer.html" class="nav-cta">3D Planer</a>
+      </div>
+    </div>
+    <div class="overlay-content">
+      <div class="overlay-img-side">
+        <div class="view-toggle" id="viewToggle">
+          <button data-view="img" class="active" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            Slika
+          </button>
+          <button data-view="3d" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            3D
+          </button>
+        </div>
+        <img id="ovImg" alt="" />
+        <model-viewer
+          id="ov3d"
+          class="ov-3d"
+          alt="3D model proizvoda"
+          camera-controls
+          touch-action="pan-y"
+          auto-rotate
+          auto-rotate-delay="2500"
+          rotation-per-second="15deg"
+          interaction-prompt="none"
+          shadow-intensity="0.6"
+          shadow-softness="0.8"
+          environment-image="neutral"
+          exposure="1.15"
+          camera-orbit="30deg 75deg auto"
+          field-of-view="35deg"
+          min-camera-orbit="auto auto auto"
+          max-camera-orbit="auto auto auto"
+        ></model-viewer>
+        <div class="tex-swatches" id="texSwatches">
+          <button class="tex-swatch active" data-tex="assets/textures/front-bela-sjaj.jpg" data-bright="1.8" style="background-image: url('assets/textures/front-bela-sjaj.jpg')" title="Bela sjaj"></button>
+          <button class="tex-swatch" data-tex="assets/textures/front-sivi-hrast.jpg" data-bright="1.4" data-rotated="1" style="background-image: url('assets/textures/front-sivi-hrast.jpg')" title="Sivi hrast"></button>
+          <button class="tex-swatch" data-tex="assets/textures/front-beli-hrast.jpg" data-bright="1.5" data-rotated="1" style="background-image: url('assets/textures/front-beli-hrast.jpg')" title="Beli hrast"></button>
+          <button class="tex-swatch" data-tex="assets/textures/front-K003.jpg" data-bright="1.4" data-rotated="1" style="background-image: url('assets/textures/front-K003.jpg')" title="Prirodni hrast"></button>
+          <button class="tex-swatch" data-tex="assets/textures/front-zelena.jpg" data-bright="1.3" style="background-image: url('assets/textures/front-zelena.jpg')" title="Zelena"></button>
+          <button class="tex-swatch" data-tex="assets/textures/front-krem.jpg" data-bright="1.6" style="background-image: url('assets/textures/front-krem.jpg')" title="Krem"></button>
+          <button class="tex-swatch" data-tex="assets/textures/front-crna.jpg" data-bright="2" style="background-image: url('assets/textures/front-crna.jpg')" title="Crna"></button>
+        </div>
+      </div>
+      <div class="overlay-body">
+        <div class="overlay-crumb" id="ovCrumb"></div>
+        <h1 class="overlay-name" id="ovName"></h1>
+        <p class="overlay-tagline" id="ovTagline"></p>
+        <div class="overlay-categories" id="ovCategories"></div>
+
+        <div class="ov-section">
+          <h3>Dimenzije</h3>
+          <div class="specs" id="ovSpecs"></div>
+        </div>
+
+        <div class="ov-section" id="ovMaterialsSection">
+          <h3>Materijal i izrada</h3>
+          <ul class="materials-list" id="ovMaterials"></ul>
+        </div>
+
+        <div class="ov-section" id="ovColorsSection">
+          <h3>Boje i dezeni</h3>
+          <img class="colors-img" src="assets/boje-materijala.jpg" alt="Boje i dezeni — Eldo Design" />
+          <div class="colors-note">10 dezena u ponudi — medijapan visoki sjaj i iverica.</div>
+        </div>
+
+        <div class="overlay-price-block">
+          <div class="overlay-price" id="ovPrice"></div>
+          <div class="overlay-price-currency">RSD</div>
+        </div>
+
+        <div class="overlay-actions">
+          <a href="index.html#contact" class="btn-primary">Zatraži ponudu</a>
+          <a href="planer.html" class="btn-secondary">Otvori u 3D planeru</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Eldo Design • Niš • Matejevački put 94
+  </footer>
+
+  <script>
+    const CATEGORY_LABELS = {
+      'donji': 'Donji elementi',
+      'viseci': 'Gornji elementi',
+      'aparati-i-sudopere': 'Aparati i sudopere',
+      'ploce-i-obloge': 'Ploče i obloge'
+    };
+
+    // 3D model mapping — id → glb fajl
+    const MODEL_MAP = {
+      "bez-rucica-30":"el_30cm_2.glb","bez-rucica-40":"el_40cm_2.glb","bez-rucica-45":"el_45cm_2.glb",
+      "bez-rucica-50":"el_50cm_2.glb","bez-rucica-60":"el_60cm_2.glb","bez-rucica-70":"el_70cm_2.glb",
+      "bez-rucica-80":"el_80cm_2.glb","bez-rucica-flase-20":"za_flase_20cm_2.glb",
+      "bez-rucica-fioke-50":"fioke_50cm_2.glb","bez-rucica-fioke-60":"fioke_50cm_3.glb",
+      "bez-rucica-fioke-70":"fioke_70cm.glb","bez-rucica-90":"el_90cm_2.glb",
+      "bez-rucica-ugao-100":"el_ugao_100cm_2.glb","bez-rucica-ugao-100-desno":"el_ugao_100cm_desno_krilo_2.glb",
+      "bez-rucica-ugradni-sporet-60":"ugradni_sporet_60cm_2.glb","bez-rucica-stub-rernu-60":"stub_rernu_60cm_2.glb",
+      "bez-rucica-stub-rernu-95":"stub_rernu_60cm_95_2.glb",
+      "el-30":"el_30cm.glb","el-40":"el_40cm.glb","el-45":"el_45cm.glb","el-50":"el_50cm.glb",
+      "el-60":"el_60cm.glb","el-70":"el_70cm.glb","el-80":"el_80cm.glb","el-90":"el_90cm.glb",
+      "el-ugao-100":"el_ugao_100cm.glb","el-ugao-100-desno":"el_ugao_100cm_desno_krilo.glb",
+      "fioke-50":"fioke_50cm.glb","fioke-flase-20":"fioke_flase_20cm.glb",
+      "ugradni-sporet-60":"ugradni_sporet_60cm.glb","sudopera-80":"kitchen_sink.glb",
+      "sudopera-mala":"kitchen_sink_small.glb","masina-za-sudove-60":"dishwasher.glb",
+      "masina-za-sudove-45":"dishwasher.glb","sporet-60":"stove.glb",
+      "radna-ploca-200":"Radna_ploca_200cm.glb","zidna-obloga-200":"Radna_ploca_200cm.glb",
+      "stub-rernu-60":"stub_rernu_60cm.glb","stub-rernu-60-95":"stub_rernu_60cm_95.glb",
+      "frizider-60":"fridge.glb",
+      "gornji-30":"gornji_30cm.glb","gornji-40":"gornji_40cm.glb","gornji-45":"gornji_45cm.glb",
+      "gornji-50":"gornji_el_50cm.glb","gornji-60":"gornji_60cm.glb","gornji-70":"gornji_70cm.glb",
+      "gornji-80":"gornji_80cm.glb","gornji-90":"gornji_90cm.glb",
+      "gornji-aspirator":"gornji_ugradni_aspirator.glb",
+      "gornji-95-30":"gornji_30cm_95.glb","gornji-95-40":"gornji_40cm_95.glb",
+      "gornji-95-45":"gornji_45cm_95.glb","gornji-95-50":"gornji_50cm_95_sa_rucicama.glb",
+      "gornji-95-60":"gornji_60cm_95_sa_rucicama.glb","gornji-95-70":"gornji_70cm_95_sa_rucicama.glb",
+      "gornji-95-80":"gornji_80cm_95_sa_rucicama.glb","gornji-95-90":"gornji_90cm_95_sa_rucicama.glb",
+      "gornji-95-aspirator":"gornji_ugradni_aspirator_95.glb",
+      "gornji-bez-rucica-30":"gornji_30cm_bez_rucica.glb","gornji-bez-rucica-40":"gornji_40cm_bez_rucica.glb",
+      "gornji-bez-rucica-45":"gornji_45cm_bez_rucica.glb","gornji-bez-rucica-50":"gornji_50cm_bez_rucica.glb",
+      "gornji-bez-rucica-60":"gornji_60cm_bez_rucica.glb","gornji-bez-rucica-70":"gornji_70cm_bez_rucica.glb",
+      "gornji-bez-rucica-80":"gornji_80cm_bez_rucica.glb","gornji-bez-rucica-90":"gornji_90cm_bez_rucica.glb",
+      "gornji-bez-rucica-95-30":"gornji_30cm_bez_rucica_95.glb","gornji-bez-rucica-95-40":"gornji_40cm_bez_rucica_95.glb",
+      "gornji-bez-rucica-95-45":"gornji_45cm_bez_rucica_95.glb","gornji-bez-rucica-95-50":"gornji_50cm_bez_rucica_95.glb",
+      "gornji-bez-rucica-95-60":"gornji_60cm_bez_rucica_95.glb","gornji-bez-rucica-95-70":"gornji_70cm_bez_rucica_95.glb",
+      "gornji-bez-rucica-95-80":"gornji_80cm_bez_rucica_95.glb","gornji-bez-rucica-95-90":"gornji_90cm_bez_rucica_95.glb",
+      "gornji-bez-rucica-95-aspirator":"gornji_60cm_bez_rucica_91_aspirator.glb"
+    };
+    const SUBCATEGORY_LABELS = {
+      'bez-rucica': 'Bez ručica',
+      'sa-rucicama': 'Sa ručicama',
+      'viseci-bez-rucica': 'Viseći bez ručica 80cm',
+      'viseci-bez-rucica-90': 'Viseći bez ručica 95cm',
+      'viseci-elementi': 'Viseći sa ručicama 80cm',
+      'viseci-elementi-95': 'Viseći sa ručicama 95cm'
+    };
+
+    const grid = document.getElementById('prodGrid');
+    const filtersEl = document.getElementById('filters');
+    const searchInput = document.getElementById('searchInput');
+    const meta = document.getElementById('resultsMeta');
+    const pillAll = document.getElementById('pillAll');
+
+    let products = [];
+    let activeCat = 'all';
+
+    function fmtPrice(p) {
+      if (!p) return '—';
+      return p.toLocaleString('sr-RS');
+    }
+
+    function render() {
+      const q = searchInput.value.trim().toLowerCase();
+      const filtered = products.filter(p => {
+        if (activeCat !== 'all' && p.category !== activeCat) return false;
+        if (q && !p.name.toLowerCase().includes(q)) return false;
+        return true;
+      });
+
+      meta.innerHTML = `<strong>${filtered.length}</strong> ${filtered.length === 1 ? 'proizvod' : 'proizvoda'}`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><strong>Nema rezultata</strong>Pokušajte sa drugom pretragom ili kategorijom.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((p, i) => {
+        const dims = [p.width, p.depth, p.height].filter(Boolean).join('×');
+        const subLabel = p.subcategory && SUBCATEGORY_LABELS[p.subcategory];
+        return `
+          <div class="prod-card" data-idx="${products.indexOf(p)}">
+            ${subLabel ? `<div class="badge">${subLabel}</div>` : ''}
+            <div class="prod-img-wrap">
+              <img class="prod-img" src="${p.image}" alt="${p.name}" loading="lazy" />
+            </div>
+            <div class="prod-body">
+              <div class="prod-name">${p.name}</div>
+              <div class="prod-meta">
+                ${dims ? `<span class="dim">${dims} cm</span>` : ''}
+                <span>${CATEGORY_LABELS[p.category] || p.category}</span>
+              </div>
+              <div class="prod-price-row">
+                <div class="prod-price">${fmtPrice(p.price)}<span class="prod-price-currency">RSD</span></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function buildFilters() {
+      const counts = {};
+      products.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
+      pillAll.textContent = products.length;
+
+      const order = ['donji', 'viseci', 'aparati-i-sudopere', 'ploce-i-obloge'];
+      const search = filtersEl.querySelector('.search-wrap');
+      order.forEach(cat => {
+        if (!counts[cat]) return;
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.cat = cat;
+        btn.innerHTML = `${CATEGORY_LABELS[cat] || cat} <span class="pill">${counts[cat]}</span>`;
+        filtersEl.insertBefore(btn, search);
+      });
+    }
+
+    filtersEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      filtersEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCat = btn.dataset.cat;
+      render();
+    });
+
+    searchInput.addEventListener('input', render);
+
+    // Detail full-screen view
+    const overlay = document.getElementById('overlay');
+
+    // Toggle slika ↔ 3D
+    function setView(view) {
+      const img = document.getElementById('ovImg');
+      const m = document.getElementById('ov3d');
+      const sw = document.getElementById('texSwatches');
+      document.querySelectorAll('#viewToggle button').forEach(b => {
+        b.classList.toggle('active', b.dataset.view === view);
+      });
+      if (view === '3d') {
+        img.classList.add('hidden');
+        m.classList.add('active');
+        sw.classList.add('active');
+      } else {
+        img.classList.remove('hidden');
+        m.classList.remove('active');
+        sw.classList.remove('active');
+      }
+    }
+    document.getElementById('viewToggle').addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-view]');
+      if (btn) setView(btn.dataset.view);
+    });
+
+    // Texture swap — primenjuje teksturu na "front" mesh-ove modela
+    // Preuzeto iz planera: front meshevi imaju materijale sa imenima koja sadrže
+    // CarPaint_Simple_White, A458, FrontColor, ili Color_M01
+    async function applyFrontTexture(texPath, brightness) {
+      const m = document.getElementById('ov3d');
+      if (!m || !m.model) return;
+      try {
+        const tex = await m.createTexture(texPath);
+        const frontPattern = /CarPaint_Simple_White|A458|FrontColor|Color_M01/i;
+        // u planeru se brightness primenjuje preko emissive boje
+        const b = parseFloat(brightness) || 1.5;
+        // baseColorFactor scale (clamp na 1 da ne overexpose-uje)
+        const factor = Math.min(1, b / 1.8);
+        m.model.materials.forEach(mat => {
+          const name = mat.name || '';
+          if (frontPattern.test(name)) {
+            try {
+              mat.pbrMetallicRoughness.baseColorTexture.setTexture(tex);
+              mat.pbrMetallicRoughness.setBaseColorFactor([factor, factor, factor, 1]);
+              if (mat.pbrMetallicRoughness.setMetallicFactor) {
+                mat.pbrMetallicRoughness.setMetallicFactor(0);
+              }
+              if (mat.pbrMetallicRoughness.setRoughnessFactor) {
+                mat.pbrMetallicRoughness.setRoughnessFactor(0.4);
+              }
+            } catch (err) { /* skip materials without textures */ }
+          }
+        });
+      } catch (e) {
+        console.warn('Texture apply failed:', e);
+      }
+    }
+
+    document.getElementById('texSwatches').addEventListener('click', (e) => {
+      const btn = e.target.closest('.tex-swatch');
+      if (!btn) return;
+      document.querySelectorAll('.tex-swatch').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFrontTexture(btn.dataset.tex, btn.dataset.bright);
+    });
+
+    // Pri load-u novog modela, primeni trenutno aktivnu teksturu (ili prvu po default-u)
+    document.getElementById('ov3d').addEventListener('load', () => {
+      const active = document.querySelector('.tex-swatch.active') ||
+                     document.querySelector('.tex-swatch');
+      if (active) applyFrontTexture(active.dataset.tex, active.dataset.bright);
+    });
+
+    function openProduct(p) {
+      document.getElementById('ovImg').src = p.image;
+      document.getElementById('ovImg').alt = p.fullName || p.name;
+
+      // 3D model — fallback na default ako proizvod nema svoj
+      const modelFile = MODEL_MAP[p.id];
+      const ov3d = document.getElementById('ov3d');
+      const toggleEl = document.getElementById('viewToggle');
+      if (modelFile) {
+        ov3d.setAttribute('src', 'assets/models/' + modelFile);
+        toggleEl.style.display = 'flex';
+      } else {
+        ov3d.removeAttribute('src');
+        toggleEl.style.display = 'none';
+      }
+
+      // Reset na 'Slika' pogled svaki put
+      setView('img');
+      document.getElementById('ovName').textContent = p.fullName || p.name;
+      document.getElementById('ovTagline').textContent = p.tagline ||
+        'Donji kuhinjski element bez ručica — push-to-open mehanizam, čist front bez vidljivih okova. Modularan i kombinuje se sa ostalim Eldo elementima.';
+
+      // Breadcrumb
+      const cat = CATEGORY_LABELS[p.category] || p.category;
+      const sub = SUBCATEGORY_LABELS[p.subcategory];
+      document.getElementById('ovCrumb').innerHTML =
+        `<a href="proizvodi.html">Katalog</a><span class="sep">/</span>${cat}` +
+        (sub ? `<span class="sep">/</span>${sub}` : '');
+
+      // Categories line
+      const cats = p.categories && p.categories.length
+        ? p.categories
+        : [cat, sub].filter(Boolean);
+      document.getElementById('ovCategories').innerHTML =
+        `<span class="label">Kategorije:</span>${cats.join(', ')}`;
+
+      // Specs
+      const specs = [];
+      if (p.width)  specs.push(['Širina', p.width + ' cm']);
+      if (p.depth)  specs.push(['Dubina', p.depth + ' cm']);
+      if (p.height) specs.push(['Visina', p.height + ' cm']);
+      if (p.wallMounted) specs.push(['Montaža', 'Zidna']);
+      document.getElementById('ovSpecs').innerHTML = specs.map(([k, v]) =>
+        `<div class="spec-row"><span class="key">${k}</span><span class="val">${v}</span></div>`
+      ).join('');
+
+      // Materials
+      const matsSection = document.getElementById('ovMaterialsSection');
+      if (p.materials && p.materials.length) {
+        document.getElementById('ovMaterials').innerHTML = p.materials.map(m =>
+          `<li>${m}</li>`
+        ).join('');
+        matsSection.style.display = '';
+      } else {
+        matsSection.style.display = 'none';
+      }
+
+      // Price
+      document.getElementById('ovPrice').textContent = fmtPrice(p.priceDetail || p.price);
+
+      overlay.classList.add('open');
+      overlay.scrollTop = 0;
+      document.body.classList.add('overlay-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProduct() {
+      overlay.classList.remove('open');
+      document.body.classList.remove('overlay-open');
+      document.body.style.overflow = '';
+    }
+
+    grid.addEventListener('click', (e) => {
+      const card = e.target.closest('.prod-card');
+      if (!card) return;
+      const p = products[parseInt(card.dataset.idx)];
+      openProduct(p);
+    });
+
+    document.getElementById('overlayClose').addEventListener('click', closeProduct);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeProduct();
+    });
+
+    // Load catalog
+    fetch('catalog.json')
+      .then(r => r.arrayBuffer())
+      .then(buf => JSON.parse(new TextDecoder('utf-8').decode(buf)))
+      .then(data => {
+        products = data;
+        // Pre-select category from ?cat=...
+        const params = new URLSearchParams(location.search);
+        const catParam = params.get('cat');
+        if (catParam) activeCat = catParam;
+        buildFilters();
+        render();
+        // Auto-open product if ?id=xxx in URL
+        const id = params.get('id');
+        if (id) {
+          const p = products.find(p => p.id === id);
+          if (p) openProduct(p);
+        }
+      })
+      .catch(err => {
+        meta.innerHTML = '<strong style="color: hsl(0, 60%, 65%)">Greška pri učitavanju kataloga.</strong>';
+        console.error(err);
+      });
+
+    // Theme toggle (works for both nav + overlay buttons)
+    document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        var next = cur === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('eldo-theme', next); } catch (e) {}
+      });
+    });
+  </script>
+</body>
+</html>

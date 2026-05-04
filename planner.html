@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eldo Design — 3D Planer Kuhinje</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:hsl(225,25%,9%);--bg2:hsl(225,25%,12%);--bg3:hsl(225,22%,15%);
+  --border:hsl(225,18%,20%);--fg:hsl(220,15%,88%);--fg-m:hsl(220,10%,55%);
+  --copper:hsl(30,72%,50%);--copper-lt:hsl(30,72%,62%);--white:hsl(30,15%,97%);
+}
+html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;background:var(--bg);color:var(--fg)}
+
+/* ── LAYOUT ── */
+#app{display:flex;height:100vh;width:100vw;overflow:hidden}
+#sidebar{width:300px;flex-shrink:0;display:flex;flex-direction:column;height:100%;
+  background:linear-gradient(180deg,hsl(225,25%,13%) 0%,hsl(225,25%,10%) 100%);
+  border-right:1px solid hsl(225,20%,16%);overflow:hidden}
+#main{flex:1;display:flex;flex-direction:column;position:relative;overflow:hidden}
+
+/* ── SIDEBAR HEADER ── */
+.sb-head{padding:14px 16px;border-bottom:1px solid hsl(225,20%,18%);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.sb-head img{height:32px}
+.sb-title{font-size:13px;font-weight:600;color:var(--white)}
+.sb-sub{font-size:10px;color:var(--fg-m);margin-top:1px}
+.back-site{margin-left:auto;font-size:10px;color:var(--fg-m);text-decoration:none;padding:5px 8px;border-radius:5px;border:1px solid var(--border);transition:all .2s;white-space:nowrap}
+.back-site:hover{color:var(--fg);border-color:hsl(225,18%,30%)}
+
+/* ── TABS ── */
+.tabs{display:flex;border-bottom:1px solid hsl(225,20%,18%);flex-shrink:0}
+.tab{flex:1;padding:10px;font-size:11px;font-weight:600;background:none;border:none;cursor:pointer;
+  color:var(--fg-m);border-bottom:2px solid transparent;transition:all .2s}
+.tab.active{color:var(--copper-lt);border-bottom-color:var(--copper);background:hsl(225,22%,14%)}
+
+/* ── SCROLL AREA ── */
+.sb-scroll{flex:1;overflow-y:auto;overflow-x:hidden;padding:14px 14px 80px;
+  scrollbar-width:thin;scrollbar-color:hsl(225,18%,22%) transparent}
+
+/* ── SECTION ── */
+.sb-sec{margin-bottom:18px}
+.sb-sec-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:hsl(30,60%,58%);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sb-sec-title svg{opacity:.7}
+
+/* ── INPUTS ── */
+.dim-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.dim-item label{display:block;font-size:10px;color:var(--fg-m);margin-bottom:4px}
+.dim-input{width:100%;background:hsl(225,22%,15%);border:1px solid hsl(225,18%,22%);
+  color:var(--fg);border-radius:6px;padding:6px 8px;font-size:12px;font-family:'Inter',sans-serif;
+  transition:border-color .2s}
+.dim-input:focus{outline:none;border-color:var(--copper)}
+
+/* ── WALL COLORS ── */
+.wall-swatches{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.wall-sw{width:22px;height:22px;border-radius:5px;border:2px solid transparent;cursor:pointer;transition:all .15s}
+.wall-sw.active,.wall-sw:hover{border-color:var(--copper);transform:scale(1.15)}
+
+/* ── CATEGORY GRID ── */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cat-card{background:hsl(225,22%,14%);border:1px solid var(--border);border-radius:10px;
+  padding:10px 8px;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.cat-card:hover,.cat-card.active{border-color:hsl(30,72%,50%,.45);background:hsl(225,22%,17%)}
+.cat-card.active{box-shadow:0 0 0 1.5px hsl(30,72%,50%,.4)}
+.cat-img{width:100%;height:64px;border-radius:7px;object-fit:cover;background:hsl(225,22%,12%)}
+.cat-label{font-size:10px;font-weight:600;color:hsl(220,15%,72%);line-height:1.3}
+
+/* ── ITEM GRID ── */
+.back-btn{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--copper-lt);
+  background:none;border:none;cursor:pointer;padding:4px 0;margin-bottom:10px;transition:color .2s}
+.back-btn:hover{color:var(--copper)}
+.item-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.item-card{background:hsl(225,22%,13%);border:1px solid var(--border);border-radius:9px;
+  padding:8px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.item-card::after{content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,hsl(30,72%,50%,.1),transparent);opacity:0;transition:opacity .2s}
+.item-card:hover::after{opacity:1}
+.item-card:hover{border-color:hsl(30,72%,50%,.45);transform:translateY(-2px)}
+.item-card:active{transform:translateY(0)}
+.item-img{width:100%;height:72px;border-radius:6px;object-fit:contain;background:hsl(225,22%,11%);padding:4px}
+.item-name{font-size:10px;font-weight:500;color:hsl(220,15%,80%);margin-top:6px;line-height:1.3;text-align:center}
+.item-price{font-size:9px;font-weight:600;color:var(--copper-lt);margin-top:2px;text-align:center}
+.item-add-badge{position:absolute;top:6px;right:6px;width:18px;height:18px;border-radius:50%;
+  background:var(--copper);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.7);transition:all .2s}
+.item-card:hover .item-add-badge{opacity:1;transform:scale(1)}
+
+/* ── SELECTION PANEL ── */
+#sel-panel{background:hsl(225,22%,12%);border:1px solid hsl(225,18%,20%);border-radius:10px;padding:12px;margin-bottom:12px}
+.sel-name{font-size:12px;font-weight:700;color:var(--white);margin-bottom:10px}
+.sel-dims{display:flex;gap:6px;margin-bottom:10px}
+.sel-dim{background:hsl(225,22%,16%);border-radius:6px;padding:5px 8px;flex:1;text-align:center}
+.sel-dim span:first-child{font-size:9px;font-weight:700;color:var(--copper);display:block}
+.sel-dim span:last-child{font-size:11px;font-weight:600;color:hsl(220,15%,80%)}
+
+.texture-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:10px}
+.tex-btn{border-radius:7px;overflow:hidden;border:2px solid transparent;cursor:pointer;
+  aspect-ratio:1;transition:all .2s;padding:0}
+.tex-btn img{width:100%;height:100%;object-fit:cover;display:block}
+.tex-btn.active,.tex-btn:hover{border-color:var(--copper)}
+
+.sel-actions{display:flex;gap:6px}
+.sel-btn{flex:1;padding:8px 4px;border-radius:7px;border:none;cursor:pointer;font-size:11px;font-weight:600;
+  transition:all .2s;display:flex;align-items:center;justify-content:center;gap:4px}
+.sel-btn.rot{background:hsl(220,50%,20%,.4);color:hsl(220,72%,68%);border:1px solid hsl(220,40%,30%,.4)}
+.sel-btn.rot:hover{background:hsl(220,50%,25%,.6)}
+.sel-btn.del{background:hsl(0,50%,20%,.4);color:hsl(0,72%,68%);border:1px solid hsl(0,40%,30%,.4)}
+.sel-btn.del:hover{background:hsl(0,50%,25%,.6)}
+
+/* ── PONUDA PANEL ── */
+.ponuda-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;
+  background:hsl(225,22%,14%);border:1px solid var(--border);margin-bottom:6px}
+.ponuda-item-name{flex:1;font-size:11px;font-weight:500;color:hsl(220,15%,80%)}
+.ponuda-item-price{font-size:11px;font-weight:700;color:var(--copper-lt)}
+.ponuda-item-del{width:20px;height:20px;border-radius:50%;background:hsl(0,50%,20%,.5);
+  color:hsl(0,72%,68%);border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.ponuda-item-del:hover{background:hsl(0,50%,30%,.7)}
+.ponuda-total{display:flex;justify-content:space-between;align-items:center;padding:12px;
+  background:hsl(30,72%,50%,.1);border:1px solid hsl(30,72%,50%,.25);border-radius:8px;margin-top:8px}
+.ponuda-total-label{font-size:11px;font-weight:600;color:var(--fg-m)}
+.ponuda-total-val{font-size:16px;font-weight:800;color:var(--copper-lt)}
+.ponuda-empty{text-align:center;padding:24px;color:var(--fg-m);font-size:12px;font-style:italic}
+
+/* ── PRINT BTN ── */
+.print-btn{width:100%;padding:10px;background:linear-gradient(135deg,hsl(30,72%,52%),hsl(30,65%,42%));
+  color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;
+  margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s}
+.print-btn:hover{filter:brightness(1.1)}
+
+/* ── CANVAS TOOLBAR ── */
+#toolbar{position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:10}
+.tool-btn{background:hsl(225,25%,12%,.92);border:1px solid var(--border);color:var(--fg-m);
+  border-radius:7px;padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;
+  backdrop-filter:blur(8px);transition:all .2s;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.tool-btn:hover{color:var(--fg);border-color:hsl(225,18%,32%)}
+.tool-btn.active{color:var(--copper-lt);border-color:hsl(30,72%,50%,.5)}
+
+/* ── CANVAS STATUS ── */
+#status{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+  background:hsl(225,25%,10%,.9);border:1px solid var(--border);border-radius:20px;
+  padding:6px 14px;font-size:11px;color:var(--fg-m);backdrop-filter:blur(8px);pointer-events:none}
+
+/* ── LOADING OVERLAY ── */
+#loading{position:absolute;inset:0;background:hsl(225,25%,9%,.85);display:none;
+  align-items:center;justify-content:center;flex-direction:column;gap:12px;z-index:50;backdrop-filter:blur(4px)}
+#loading.show{display:flex}
+.spinner{width:36px;height:36px;border-radius:50%;border:3px solid hsl(225,18%,22%);
+  border-top-color:var(--copper);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:12px;color:var(--fg-m)}
+
+/* ── CANVAS ── */
+#canvas{display:block;width:100%!important;height:100%!important;cursor:grab}
+#canvas:active{cursor:grabbing}
+#canvas.dragging{cursor:move}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:hsl(225,18%,22%);border-radius:2px}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div class="sb-head">
+      <img src="assets/eldo-logo.png" alt="Eldo Design"/>
+      <div>
+        <div class="sb-title">Planer Kuhinje</div>
+        <div class="sb-sub">3D konfigurator</div>
+      </div>
+      <a href="index.html" class="back-site">← Nazad</a>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('katalog',this)">Katalog</button>
+      <button class="tab" onclick="switchTab('ponuda',this)">Ponuda</button>
+    </div>
+
+    <!-- KATALOG TAB -->
+    <div id="tab-katalog" class="sb-scroll">
+
+      <!-- Room dimensions -->
+      <div class="sb-sec">
+        <div class="sb-sec-title">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 3v18"/></svg>
+          Dimenzije prostorije
+        </div>
+        <div class="dim-grid">
+          <div class="dim-item">
+            <label>Širina</label>
+            <input id="in-w" class="dim-input" type="number" value="400" min="100" max="2000" onchange="updateRoom()"/>
+          </div>
+          <div class="dim-item">
+            <label>Dužina</label>
+            <input id="in-l" class="dim-input" type="number" value="300" min="100" max="2000" onchange="updateRoom()"/>
+          </div>
+          <div class="dim-item">
+            <label>Visina</label>
+            <input id="in-h" class="dim-input" type="number" value="240" min="100" max="400" onchange="updateRoom()"/>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <div style="font-size:10px;color:var(--fg-m);margin-bottom:6px">Boja zida</div>
+          <div class="wall-swatches" id="wall-swatches"></div>
+        </div>
+      </div>
+
+      <!-- Selection panel (hidden by default) -->
+      <div id="sel-panel" style="display:none"></div>
+
+      <!-- Catalog -->
+      <div class="sb-sec">
+        <div class="sb-sec-title">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Katalog nameštaja
+        </div>
+        <div id="catalog-view"></div>
+      </div>
+
+    </div><!-- /tab-katalog -->
+
+    <!-- PONUDA TAB -->
+    <div id="tab-ponuda" class="sb-scroll" style="display:none">
+      <div class="sb-sec">
+        <div class="sb-sec-title">Specifikacija</div>
+        <div id="ponuda-list"></div>
+        <div id="ponuda-total" style="display:none" class="ponuda-total">
+          <span class="ponuda-total-label">Ukupno (bez ugradnje):</span>
+          <span class="ponuda-total-val" id="total-val">0 RSD</span>
+        </div>
+        <button class="print-btn" onclick="printPonuda()">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Štampaj ponudu
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+  <!-- MAIN CANVAS -->
+  <div id="main">
+    <div id="toolbar">
+      <button class="tool-btn" onclick="resetCamera()">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        Reset prikaz
+      </button>
+      <button class="tool-btn" id="btn-dims" onclick="toggleDims()" title="Prikaži dimenzije">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18M3 21h18M3 3v18M21 3v18"/></svg>
+        Dimenzije
+      </button>
+      <button class="tool-btn" onclick="clearAll()">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+        Očisti sve
+      </button>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="status">Kliknite na element u katalogu da ga dodate → Kliknite na objekat da ga izaberete</div>
+    <div id="loading">
+      <div class="spinner"></div>
+      <div class="loading-text">Učitavanje modela...</div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ── CATALOG DATA ──────────────────────────────────────────────────────
+const CATALOG = [
+  { id:'donji', label:'Donji elementi', img:'assets/img/kuhinjski-category.jpg',
+    subs:[
+      { id:'sa-r', label:'Sa ručicama', img:'assets/img/element-sa-rucicama-60cm.png',
+        items:[
+          {id:'el-30',name:'Element 30cm',img:'assets/img/element-sa-rucicama-60cm.png',model:'assets/models/el_30cm.glb',w:30,h:85,d:60,price:5400,rot:[0,Math.PI*1.5,0],scale:0.001},
+          {id:'el-40',name:'Element 40cm',img:'assets/img/element-sa-rucicama-60cm.png',model:'assets/models/el_40cm.glb',w:40,h:85,d:60,price:6200,rot:[0,Math.PI*1.5,0],scale:0.001},
+          {id:'el-50',name:'Element 50cm',img:'assets/img/element-sa-rucicama-60cm.png',model:'assets/models/el_50cm.glb',w:50,h:85,d:60,price:7500,rot:[0,Math.PI*1.5,0],scale:0.001},
+          {id:'el-60',name:'Element 60cm',img:'assets/img/element-sa-rucicama-60cm.png',model:'assets/models/el_60cm.glb',w:60,h:85,d:60,price:8200,rot:[0,Math.PI*1.5,0],scale:0.001},
+          {id:'el-70',name:'Element 70cm',img:'assets/img/element-sa-rucicama-60cm.png',model:'assets/models/el_70cm.glb',w:70,h:85,d:60,price:9100,rot:[0,Math.PI*1.5,0],scale:0.001},
+          {id:'el-80',name:'Element 80cm',img:'assets/img/element-sa-rucicama-60cm.png',model:'assets/models/el_80cm.glb',w:80,h:85,d:60,price:10500,rot:[0,Math.PI*1.5,0],scale:0.001},
+          {id:'el-90',name:'Element 90cm',img:'assets/img/element-sa-rucicama-60cm.png',model:'assets/models/el_90cm.glb',w:90,h:85,d:60,price:11800,rot:[0,Math.PI*1.5,0],scale:0.001},
+          {id:'fioke-50',name:'Fioke 50cm',img:'assets/img/fioke-50cm.png',model:'assets/models/fioke_50cm.glb',w:50,h:85,d:60,price:12400,rot:[0,Math.PI*1.5,0],scale:0.001},
+        ]
+      },
+      { id:'bez-r', label:'Bez ručica', img:'assets/img/donji-fioke-50cm.png',
+        items:[
+          {id:'bez-60',name:'Bez ručica 60cm',img:'assets/img/donji-fioke-50cm.png',model:'assets/models/el_60cm_2.glb',w:60,h:85,d:60,price:8000,rot:[0,0,0],scale:0.001},
+          {id:'bez-80',name:'Bez ručica 80cm',img:'assets/img/donji-fioke-50cm.png',model:'assets/models/el_80cm.glb',w:80,h:85,d:60,price:10200,rot:[0,0,0],scale:0.001},
+        ]
+      }
+    ]
+  },
+  { id:'gornji', label:'Gornji elementi', img:'assets/img/ormani-category.png',
+    subs:[
+      { id:'g-sa-r', label:'Sa ručicama 70cm', img:'assets/img/viseci-sa-rucicama.png',
+        items:[
+          {id:'g-30',name:'Gornji 30cm',img:'assets/img/viseci-sa-rucicama.png',model:'assets/models/gornji_30cm.glb',w:30,h:70,d:35,price:3800,rot:[0,0,0],scale:0.001,wall:true},
+          {id:'g-40',name:'Gornji 40cm',img:'assets/img/viseci-sa-rucicama.png',model:'assets/models/gornji_40cm.glb',w:40,h:70,d:35,price:4500,rot:[0,0,0],scale:0.001,wall:true},
+          {id:'g-50',name:'Gornji 50cm',img:'assets/img/viseci-sa-rucicama.png',model:'assets/models/gornji_50cm.glb',w:50,h:70,d:35,price:5300,rot:[0,0,0],scale:0.001,wall:true},
+          {id:'g-60',name:'Gornji 60cm',img:'assets/img/viseci-sa-rucicama.png',model:'assets/models/gornji_60cm.glb',w:60,h:70,d:35,price:5900,rot:[0,0,0],scale:0.001,wall:true},
+          {id:'g-70',name:'Gornji 70cm',img:'assets/img/viseci-sa-rucicama.png',model:'assets/models/gornji_70cm.glb',w:70,h:70,d:35,price:6500,rot:[0,0,0],scale:0.001,wall:true},
+          {id:'g-80',name:'Gornji 80cm',img:'assets/img/viseci-sa-rucicama.png',model:'assets/models/gornji_80cm.glb',w:80,h:70,d:35,price:7200,rot:[0,0,0],scale:0.001,wall:true},
+          {id:'g-90',name:'Gornji 90cm',img:'assets/img/viseci-sa-rucicama.png',model:'assets/models/gornji_90cm.glb',w:90,h:70,d:35,price:7900,rot:[0,0,0],scale:0.001,wall:true},
+          {id:'g-asp',name:'Ugradni aspirator',img:'assets/img/viseci-aspirator.png',model:'assets/models/gornji_ugradni_aspirator.glb',w:60,h:70,d:35,price:9400,rot:[0,0,0],scale:0.001,wall:true},
+        ]
+      }
+    ]
+  },
+  { id:'aparati', label:'Aparati i sudopere', img:'assets/img/sudopera-80.png',
+    items:[
+      {id:'sudopera',name:'Sudopera 80cm',img:'assets/img/sudopera-80.png',model:'assets/models/kitchen_sink.glb',w:80,h:85,d:60,price:12000,rot:[0,0,0],scale:1},
+      {id:'sporet',name:'Šporet 60cm',img:'assets/img/stove-preview.png',model:'assets/models/stove.glb',w:60,h:85,d:60,price:30000,rot:[0,Math.PI*1.5,0],scale:1},
+      {id:'masina',name:'Mašina za sudove',img:'assets/img/dishwasher-preview.png',model:'assets/models/dishwasher.glb',w:60,h:82,d:60,price:28000,rot:[0,0,0],scale:1},
+      {id:'frizider',name:'Frižider',img:'assets/img/sudopera-80.png',model:'assets/models/fridge.glb',w:60,h:175,d:60,price:45000,rot:[0,0,0],scale:0.001},
+      {id:'aspirator',name:'Aspirator',img:'assets/img/viseci-aspirator.png',model:'assets/models/kitchen-hood.glb',w:60,h:76,d:41,price:18000,rot:[0,0,0],scale:0.004024,wall:true,fixedY:1.5},
+      {id:'indukcija',name:'Indukciona ploča',img:'assets/img/induction-cooktop-preview.png',model:'assets/models/induction-cooktop.glb',w:60,h:1,d:44,price:24000,rot:[0,Math.PI/2,0],scale:0.493},
+      {id:'rerna',name:'Ugradna rerna',img:'assets/img/built-in-oven-preview.png',model:'assets/models/built-in-oven.glb',w:60,h:60,d:52,price:22000,rot:[0,0,0],scale:1},
+    ]
+  },
+  { id:'ploce', label:'Radne ploče', img:'assets/img/radne-ploce.png',
+    items:[
+      {id:'ploca',name:'Radna ploča 200cm',img:'assets/img/radne-ploce.png',model:'assets/models/Radna_ploca_200cm.glb',w:200,h:4,d:60,price:9400,rot:[0,Math.PI*1.5,0],scale:0.001,pricePerCm:47},
+    ]
+  }
+];
+
+const FRONT_TEXTURES = [
+  {id:'bela-sjaj',name:'Bela sjaj',path:'assets/textures/front-bela-sjaj.jpg'},
+  {id:'sivi-hrast',name:'Sivi hrast',path:'assets/textures/front-sivi-hrast.jpg'},
+  {id:'zelena',name:'Zelena',path:'assets/textures/front-zelena.jpg'},
+  {id:'crna',name:'Crna',path:'assets/textures/front-crna.jpg'},
+  {id:'krem',name:'Krem',path:'assets/textures/front-krem.jpg'},
+  {id:'beli-hrast',name:'Beli hrast',path:'assets/textures/front-beli-hrast.jpg'},
+  {id:'k003',name:'Prirodni hrast',path:'assets/textures/front-K003.jpg'},
+  {id:'hrast',name:'Hrast',path:'assets/textures/A458-3.jpg'},
+];
+
+const WALL_COLORS = ['#f5f5f0','#e2e0dc','#d0d0d0','#c8d8e8','#c8d8c8','#d9c9a8','#e8d0d0','#a0a0a0'];
+
+// ── THREE.JS SCENE ─────────────────────────────────────────────────────
+const canvas = document.getElementById('canvas');
+const container = document.getElementById('main');
+
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.setClearColor(0x141a24);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0x141a24, 8, 20);
+
+const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
+camera.position.set(0, 3.5, 4.5);
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0.8, 0);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.maxPolarAngle = Math.PI / 2.1;
+controls.minDistance = 0.5;
+controls.maxDistance = 12;
+
+// Room state
+let roomW = 4, roomL = 3, roomH = 2.4;
+let wallColorHex = '#f5f5f0';
+
+// Placed items array
+let placedItems = [];
+let selectedItem = null;
+let selectedObj = null;
+
+// Scene objects refs
+let floorMesh, backWall, leftWall, rightWall, ceilingMesh;
+let boxHelper;
+let gridHelper;
+let dimLabels = [];
+let showDims = false;
+
+const loader = new GLTFLoader();
+const texLoader = new THREE.TextureLoader();
+const textureCache = {};
+const modelCache = {};
+
+// ── LIGHTING ───────────────────────────────────────────────────────────
+const ambLight = new THREE.AmbientLight(0xffeedd, 0.6);
+scene.add(ambLight);
+
+const dirLight = new THREE.DirectionalLight(0xfff8f0, 1.2);
+dirLight.position.set(3, 5, 3);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.set(2048, 2048);
+dirLight.shadow.camera.near = 0.1;
+dirLight.shadow.camera.far = 20;
+dirLight.shadow.camera.left = -6;
+dirLight.shadow.camera.right = 6;
+dirLight.shadow.camera.top = 6;
+dirLight.shadow.camera.bottom = -6;
+dirLight.shadow.bias = -0.001;
+scene.add(dirLight);
+
+const fillLight = new THREE.DirectionalLight(0xe8f0ff, 0.4);
+fillLight.position.set(-3, 2, -2);
+scene.add(fillLight);
+
+const pointLight = new THREE.PointLight(0xfff0e0, 0.5, 8);
+pointLight.position.set(0, 2.0, 0);
+scene.add(pointLight);
+
+// ── ROOM GEOMETRY ──────────────────────────────────────────────────────
+function buildRoom() {
+  [floorMesh, backWall, leftWall, rightWall, ceilingMesh].forEach(m => m && scene.remove(m));
+  if(gridHelper) scene.remove(gridHelper);
+
+  // Floor
+  const floorTex = texLoader.load('assets/textures/floor-marble-white.jpg');
+  floorTex.wrapS = floorTex.wrapT = THREE.RepeatWrapping;
+  floorTex.repeat.set(roomW*1.5, roomL*1.5);
+  const floorMat = new THREE.MeshStandardMaterial({map:floorTex, roughness:0.3, metalness:0.05});
+  floorMesh = new THREE.Mesh(new THREE.PlaneGeometry(roomW, roomL), floorMat);
+  floorMesh.rotation.x = -Math.PI/2;
+  floorMesh.receiveShadow = true;
+  floorMesh.name = '__floor';
+  scene.add(floorMesh);
+
+  // Grid
+  gridHelper = new THREE.GridHelper(Math.max(roomW, roomL)*1.5, 20, 0x2a3245, 0x1e2838);
+  gridHelper.position.y = 0.002;
+  scene.add(gridHelper);
+
+  // Walls
+  const wallMat = () => new THREE.MeshStandardMaterial({color:wallColorHex, roughness:0.85, metalness:0});
+
+  backWall = new THREE.Mesh(new THREE.PlaneGeometry(roomW, roomH), wallMat());
+  backWall.position.set(0, roomH/2, -roomL/2);
+  backWall.receiveShadow = true;
+  backWall.name = '__backWall';
+  scene.add(backWall);
+
+  leftWall = new THREE.Mesh(new THREE.PlaneGeometry(roomL, roomH), wallMat());
+  leftWall.rotation.y = Math.PI/2;
+  leftWall.position.set(-roomW/2, roomH/2, 0);
+  leftWall.receiveShadow = true;
+  leftWall.name = '__leftWall';
+  scene.add(leftWall);
+
+  rightWall = new THREE.Mesh(new THREE.PlaneGeometry(roomL, roomH), wallMat());
+  rightWall.rotation.y = -Math.PI/2;
+  rightWall.position.set(roomW/2, roomH/2, 0);
+  rightWall.receiveShadow = true;
+  scene.add(rightWall);
+}
+buildRoom();
+
+// ── RAYCASTING & DRAG ──────────────────────────────────────────────────
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+const floorPlane = new THREE.Plane(new THREE.Vector3(0,1,0), 0);
+const wallPlane = new THREE.Plane(new THREE.Vector3(0,0,1), roomL/2);
+let isDragging = false;
+let dragOffset = new THREE.Vector3();
+let dragObj = null;
+let dragIsWall = false;
+let mouseDownPos = new THREE.Vector2();
+let hasMoved = false;
+
+function getMouseNDC(e) {
+  const rect = canvas.getBoundingClientRect();
+  mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+}
+
+canvas.addEventListener('mousedown', e => {
+  if(e.button !== 0) return;
+  getMouseNDC(e);
+  mouseDownPos.copy(mouse);
+  hasMoved = false;
+  raycaster.setFromCamera(mouse, camera);
+
+  // Check if clicking a placed item
+  const meshes = placedItems.map(i => i.obj).filter(Boolean);
+  const allMeshes = [];
+  meshes.forEach(obj => obj.traverse(c => { if(c.isMesh) allMeshes.push(c); }));
+  const hits = raycaster.intersectObjects(allMeshes);
+
+  if(hits.length > 0) {
+    const hitObj = hits[0].object;
+    const placedItem = placedItems.find(pi => {
+      let found = false;
+      pi.obj.traverse(c => { if(c === hitObj) found = true; });
+      return found;
+    });
+    if(placedItem) {
+      selectItem(placedItem);
+      // Start drag
+      isDragging = true;
+      dragObj = placedItem;
+      dragIsWall = !!placedItem.catalog.wall;
+      controls.enabled = false;
+      canvas.classList.add('dragging');
+
+      const hitPt = hits[0].point;
+      dragOffset.subVectors(placedItem.obj.position, hitPt);
+      dragOffset.y = 0;
+    }
+  }
+});
+
+canvas.addEventListener('mousemove', e => {
+  getMouseNDC(e);
+  if(mouse.distanceTo(mouseDownPos) > 0.01) hasMoved = true;
+
+  if(!isDragging || !dragObj) return;
+  raycaster.setFromCamera(mouse, camera);
+
+  const target = new THREE.Vector3();
+  if(dragIsWall) {
+    const wPlane = new THREE.Plane(new THREE.Vector3(0,0,1), roomL/2-0.17);
+    raycaster.ray.intersectPlane(wPlane, target);
+    if(target) {
+      const halfW = roomW/2 - (dragObj.catalog.w/200);
+      dragObj.obj.position.x = Math.max(-halfW, Math.min(halfW, target.x + dragOffset.x));
+      dragObj.obj.position.y = Math.max(0.1, Math.min(roomH - dragObj.catalog.h/100, target.y));
+    }
+  } else {
+    raycaster.ray.intersectPlane(floorPlane, target);
+    if(target) {
+      const halfRW = roomW/2 - (dragObj.catalog.w/200);
+      const halfRL = roomL/2 - (dragObj.catalog.d/200);
+      dragObj.obj.position.x = Math.max(-halfRW, Math.min(halfRW, target.x + dragOffset.x));
+      dragObj.obj.position.z = Math.max(-halfRL, Math.min(halfRL, target.z));
+    }
+  }
+  updateBoxHelper();
+});
+
+canvas.addEventListener('mouseup', e => {
+  if(isDragging) {
+    isDragging = false;
+    dragObj = null;
+    controls.enabled = true;
+    canvas.classList.remove('dragging');
+  }
+});
+
+canvas.addEventListener('click', e => {
+  if(hasMoved) return;
+  getMouseNDC(e);
+  raycaster.setFromCamera(mouse, camera);
+  const meshes = [];
+  placedItems.forEach(pi => pi.obj && pi.obj.traverse(c => { if(c.isMesh) meshes.push(c); }));
+  const hits = raycaster.intersectObjects(meshes);
+  if(hits.length === 0) {
+    deselectAll();
+  }
+});
+
+// ── SELECTION ──────────────────────────────────────────────────────────
+function selectItem(pi) {
+  selectedItem = pi;
+  selectedObj = pi.obj;
+  if(boxHelper) scene.remove(boxHelper);
+  boxHelper = new THREE.BoxHelper(pi.obj, 0x3b82f6);
+  scene.add(boxHelper);
+  renderSelectionPanel();
+}
+
+function deselectAll() {
+  selectedItem = null;
+  selectedObj = null;
+  if(boxHelper) { scene.remove(boxHelper); boxHelper = null; }
+  document.getElementById('sel-panel').style.display = 'none';
+}
+
+function updateBoxHelper() {
+  if(boxHelper && selectedObj) {
+    boxHelper.setFromObject(selectedObj);
+    boxHelper.update();
+  }
+}
+
+// ── ADD ITEM ───────────────────────────────────────────────────────────
+function addItem(cat) {
+  showLoading(true);
+  const model = cat.wall ? cat.model : cat.model;
+
+  // Cache key
+  if(!modelCache[cat.model]) {
+    loader.load(cat.model, gltf => {
+      modelCache[cat.model] = gltf.scene;
+      placeModel(cat, gltf.scene.clone());
+      showLoading(false);
+    }, undefined, err => { console.error(err); showLoading(false); });
+  } else {
+    placeModel(cat, modelCache[cat.model].clone());
+    showLoading(false);
+  }
+}
+
+function placeModel(cat, obj) {
+  // Apply rotation and scale
+  obj.rotation.set(cat.rot[0], cat.rot[1], cat.rot[2]);
+  obj.scale.setScalar(cat.scale);
+
+  // Normalize materials
+  obj.traverse(c => {
+    if(!c.isMesh) return;
+    c.castShadow = true;
+    c.receiveShadow = true;
+    const mats = Array.isArray(c.material) ? c.material : [c.material];
+    mats.forEach(m => {
+      if(!m) return;
+      const isAppliance = cat.id==='sudopera'||cat.id==='sporet'||cat.id==='masina'||cat.id==='frizider'||cat.id==='aspirator'||cat.id==='indukcija'||cat.id==='rerna';
+      if(!isAppliance) {
+        if(!m.map) { m.color = new THREE.Color(1,1,1); }
+        else { m.color = new THREE.Color(1.3,1.3,1.3); }
+        m.roughness = 0.4; m.metalness = 0.02;
+        m.emissive = new THREE.Color(0.04,0.04,0.04);
+      }
+      m.side = THREE.DoubleSide;
+      m.needsUpdate = true;
+    });
+  });
+
+  // Compute bounding box for centering
+  obj.updateMatrixWorld(true);
+  const bb = new THREE.Box3().setFromObject(obj);
+  const sz = bb.getSize(new THREE.Vector3());
+  const ctr = bb.getCenter(new THREE.Vector3());
+
+  // Determine position
+  let posX = 0, posY, posZ;
+
+  if(cat.fixedY !== undefined) {
+    posY = cat.fixedY;
+  } else if(cat.wall) {
+    posY = roomH - cat.h/100 / 2 - 0.05;
+  } else {
+    posY = cat.h/200;
+  }
+
+  posZ = cat.wall ? -(roomL/2 - 0.175) : -(roomL/2 - cat.d/200 - 0.03);
+
+  // Offset adjacent to last placed item of same type
+  const similar = placedItems.filter(pi => !!pi.catalog.wall === !!cat.wall);
+  if(similar.length > 0) {
+    const last = similar[similar.length-1];
+    const lastBb = new THREE.Box3().setFromObject(last.obj);
+    const lastSz = lastBb.getSize(new THREE.Vector3());
+    const candidate = last.obj.position.x + lastSz.x/2 + sz.x/2;
+    if(candidate < roomW/2 - sz.x/2) posX = candidate;
+  }
+
+  obj.position.set(posX, posY, posZ);
+
+  // Adjust Y so bottom sits on floor (for floor items)
+  if(!cat.wall && cat.fixedY === undefined) {
+    obj.updateMatrixWorld(true);
+    const bb2 = new THREE.Box3().setFromObject(obj);
+    const bottomY = bb2.min.y;
+    obj.position.y -= bottomY;
+  }
+
+  scene.add(obj);
+
+  const pi = { id: Date.now() + Math.random(), catalog: cat, obj, texturePath: null };
+  placedItems.push(pi);
+  selectItem(pi);
+  updatePonuda();
+  setStatus(`${cat.name} dodat — kliknite da izaberete, prevucite da pomerite`);
+}
+
+// ── TEXTURE APPLICATION ────────────────────────────────────────────────
+function applyTexture(pi, texPath) {
+  if(!textureCache[texPath]) {
+    const t = texLoader.load(texPath);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    textureCache[texPath] = t;
+  }
+  const tex = textureCache[texPath];
+  pi.texturePath = texPath;
+
+  pi.obj.traverse(c => {
+    if(!c.isMesh) return;
+    const mats = Array.isArray(c.material) ? c.material : [c.material];
+    mats.forEach(m => {
+      if(!m) return;
+      const name = (m.name || '').toLowerCase();
+      // Apply to front panel materials only
+      if(name.includes('carpaint') || name.includes('a458') || name.includes('frontcolor') || name.includes('color_m01')) {
+        m.map = tex;
+        m.color = new THREE.Color(1.4,1.4,1.4);
+        m.roughness = 0.35;
+        m.needsUpdate = true;
+      }
+    });
+  });
+}
+
+// ── SELECTION PANEL ────────────────────────────────────────────────────
+function renderSelectionPanel() {
+  const panel = document.getElementById('sel-panel');
+  if(!selectedItem) { panel.style.display = 'none'; return; }
+  panel.style.display = 'block';
+  const c = selectedItem.catalog;
+  const isAppliance = ['sudopera','sporet','masina','frizider','aspirator','indukcija','rerna'].includes(c.id);
+  panel.innerHTML = `
+    <div class="sel-name">${c.name}</div>
+    <div class="sel-dims">
+      <div class="sel-dim"><span>Š</span><span>${c.w}cm</span></div>
+      <div class="sel-dim"><span>V</span><span>${c.h}cm</span></div>
+      <div class="sel-dim"><span>D</span><span>${c.d}cm</span></div>
+    </div>
+    ${!isAppliance ? `
+    <div style="font-size:10px;color:var(--fg-m);margin-bottom:6px">Dizajn fronta</div>
+    <div class="texture-grid">
+      ${FRONT_TEXTURES.map(t => `
+        <button class="tex-btn ${selectedItem.texturePath===t.path?'active':''}" 
+          onclick="window.applyTex('${t.path}')" title="${t.name}">
+          <img src="${t.path}" alt="${t.name}" loading="lazy"/>
+        </button>
+      `).join('')}
+    </div>` : ''}
+    <div class="sel-actions">
+      <button class="sel-btn rot" onclick="window.rotateSelected()">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+        Rotiraj 90°
+      </button>
+      <button class="sel-btn del" onclick="window.deleteSelected()">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
+        Obriši
+      </button>
+    </div>
+  `;
+}
+
+window.applyTex = (path) => {
+  if(selectedItem) { applyTexture(selectedItem, path); renderSelectionPanel(); }
+};
+window.rotateSelected = () => {
+  if(selectedItem) {
+    selectedItem.obj.rotation.y += Math.PI/2;
+    updateBoxHelper();
+  }
+};
+window.deleteSelected = () => {
+  if(selectedItem) {
+    scene.remove(selectedItem.obj);
+    if(boxHelper) { scene.remove(boxHelper); boxHelper = null; }
+    placedItems = placedItems.filter(pi => pi !== selectedItem);
+    selectedItem = null; selectedObj = null;
+    document.getElementById('sel-panel').style.display = 'none';
+    updatePonuda();
+  }
+};
+
+// ── PONUDA ─────────────────────────────────────────────────────────────
+function updatePonuda() {
+  const list = document.getElementById('ponuda-list');
+  const totalEl = document.getElementById('ponuda-total');
+  const totalVal = document.getElementById('total-val');
+  if(placedItems.length === 0) {
+    list.innerHTML = '<div class="ponuda-empty">Nema dodanih elemenata</div>';
+    totalEl.style.display = 'none'; return;
+  }
+  let total = 0;
+  list.innerHTML = placedItems.map((pi,i) => {
+    const price = pi.catalog.pricePerCm ? pi.catalog.pricePerCm * pi.catalog.w : (pi.catalog.price||0);
+    total += price;
+    return `<div class="ponuda-item">
+      <div class="ponuda-item-name">${pi.catalog.name}</div>
+      <div class="ponuda-item-price">${price.toLocaleString('sr-RS')} RSD</div>
+      <button class="ponuda-item-del" onclick="window.deletePonudaItem(${i})">×</button>
+    </div>`;
+  }).join('');
+  totalEl.style.display = 'flex';
+  totalVal.textContent = total.toLocaleString('sr-RS') + ' RSD';
+}
+
+window.deletePonudaItem = (i) => {
+  const pi = placedItems[i];
+  if(pi) {
+    scene.remove(pi.obj);
+    if(selectedItem === pi) { if(boxHelper){scene.remove(boxHelper);boxHelper=null;} selectedItem=null;selectedObj=null; document.getElementById('sel-panel').style.display='none'; }
+    placedItems.splice(i,1);
+    updatePonuda();
+  }
+};
+
+// ── ROOM UPDATE ────────────────────────────────────────────────────────
+window.updateRoom = () => {
+  roomW = Math.max(1, parseInt(document.getElementById('in-w').value)||4) / 100;
+  roomL = Math.max(1, parseInt(document.getElementById('in-l').value)||3) / 100;
+  roomH = Math.max(1, parseInt(document.getElementById('in-h').value)||2.4) / 100;
+  buildRoom();
+  dirLight.shadow.camera.left = -roomW*2;
+  dirLight.shadow.camera.right = roomW*2;
+  dirLight.shadow.camera.top = roomH*2;
+  dirLight.shadow.camera.bottom = -roomL;
+};
+
+// ── WALL COLOR ─────────────────────────────────────────────────────────
+function setupWallSwatches() {
+  const cont = document.getElementById('wall-swatches');
+  cont.innerHTML = WALL_COLORS.map(c => `
+    <div class="wall-sw ${c===wallColorHex?'active':''}" style="background:${c}" 
+         onclick="window.setWallColor('${c}',this)" title="${c}"></div>
+  `).join('');
+}
+window.setWallColor = (hex, el) => {
+  wallColorHex = hex;
+  document.querySelectorAll('.wall-sw').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  [backWall,leftWall,rightWall].forEach(w => { if(w) w.material.color.set(hex); });
+};
+setupWallSwatches();
+
+// ── CATALOG UI ─────────────────────────────────────────────────────────
+let catState = { cat: null, sub: null };
+
+function renderCatalog() {
+  const view = document.getElementById('catalog-view');
+  if(!catState.cat) {
+    // Show main categories
+    view.innerHTML = `<div class="cat-grid">
+      ${CATALOG.map(c => `
+        <div class="cat-card" onclick="window.selectCat('${c.id}')">
+          <img class="cat-img" src="${c.img}" alt="${c.label}" loading="lazy"/>
+          <div class="cat-label">${c.label}</div>
+        </div>
+      `).join('')}
+    </div>`;
+  } else {
+    const cat = CATALOG.find(c => c.id === catState.cat);
+    if(!cat) return;
+
+    if(!catState.sub && cat.subs) {
+      // Show subcategories
+      view.innerHTML = `
+        <button class="back-btn" onclick="window.goBack('cat')">← ${cat.label}</button>
+        <div class="item-grid">
+          ${cat.subs.map(s => `
+            <div class="item-card" onclick="window.selectSub('${s.id}')">
+              <img class="item-img" src="${s.img}" alt="${s.label}" loading="lazy"/>
+              <div class="item-name">${s.label}</div>
+              <div class="item-add-badge">+</div>
+            </div>
+          `).join('')}
+        </div>`;
+    } else {
+      // Show items
+      const items = catState.sub
+        ? cat.subs?.find(s => s.id===catState.sub)?.items
+        : cat.items;
+      const backLabel = catState.sub
+        ? cat.subs?.find(s => s.id===catState.sub)?.label
+        : cat.label;
+      if(!items) return;
+      view.innerHTML = `
+        <button class="back-btn" onclick="window.goBack('sub')">← ${backLabel}</button>
+        <div class="item-grid">
+          ${items.map(item => `
+            <div class="item-card" onclick="window.addCatalogItem('${cat.id}','${catState.sub||''}','${item.id}')">
+              <img class="item-img" src="${item.img}" alt="${item.name}" loading="lazy"/>
+              <div class="item-name">${item.name}</div>
+              <div class="item-price">${item.pricePerCm ? item.pricePerCm+'RSD/cm' : item.price.toLocaleString('sr-RS')+' RSD'}</div>
+              <div class="item-add-badge">+</div>
+            </div>
+          `).join('')}
+        </div>`;
+    }
+  }
+}
+
+window.selectCat = (id) => { catState = {cat:id, sub:null}; renderCatalog(); };
+window.selectSub = (id) => { catState.sub = id; renderCatalog(); };
+window.goBack = (level) => {
+  if(level==='sub') catState.sub = null;
+  else { catState = {cat:null,sub:null}; }
+  renderCatalog();
+};
+window.addCatalogItem = (catId, subId, itemId) => {
+  const cat = CATALOG.find(c => c.id===catId);
+  if(!cat) return;
+  let item;
+  if(subId && cat.subs) {
+    const sub = cat.subs.find(s => s.id===subId);
+    item = sub?.items.find(i => i.id===itemId);
+  } else {
+    item = cat.items?.find(i => i.id===itemId);
+  }
+  if(item) addItem(item);
+};
+renderCatalog();
+
+// ── TABS ───────────────────────────────────────────────────────────────
+window.switchTab = (tab, el) => {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-katalog').style.display = tab==='katalog'?'':'none';
+  document.getElementById('tab-ponuda').style.display = tab==='ponuda'?'':'none';
+  if(tab==='ponuda') updatePonuda();
+};
+
+// ── TOOLBAR ACTIONS ────────────────────────────────────────────────────
+window.resetCamera = () => {
+  camera.position.set(0, 3.5, 4.5);
+  controls.target.set(0, 0.8, 0);
+  controls.update();
+};
+window.toggleDims = () => {
+  showDims = !showDims;
+  document.getElementById('btn-dims').classList.toggle('active', showDims);
+};
+window.clearAll = () => {
+  if(!confirm('Obrisati sve objekte?')) return;
+  placedItems.forEach(pi => scene.remove(pi.obj));
+  placedItems = [];
+  if(boxHelper){scene.remove(boxHelper);boxHelper=null;}
+  selectedItem=null;selectedObj=null;
+  document.getElementById('sel-panel').style.display='none';
+  updatePonuda();
+};
+
+window.printPonuda = () => {
+  let html = `<html><head><title>Ponuda — Eldo Design</title>
+  <style>body{font-family:Arial,sans-serif;padding:20px}h1{color:#c87722}table{width:100%;border-collapse:collapse}
+  th,td{padding:8px 12px;border:1px solid #ddd;text-align:left}th{background:#f5f5f0}
+  .total{font-weight:bold;font-size:16px}footer{margin-top:20px;font-size:12px;color:#888}</style>
+  </head><body><h1>Eldo Design — Specifikacija Kuhinje</h1>
+  <p>Datum: ${new Date().toLocaleDateString('sr-RS')}</p>
+  <table><thead><tr><th>#</th><th>Naziv</th><th>Širina</th><th>Cena</th></tr></thead><tbody>`;
+  let total = 0;
+  placedItems.forEach((pi,i) => {
+    const p = pi.catalog.pricePerCm ? pi.catalog.pricePerCm*pi.catalog.w : (pi.catalog.price||0);
+    total += p;
+    html += `<tr><td>${i+1}</td><td>${pi.catalog.name}</td><td>${pi.catalog.w}cm</td><td>${p.toLocaleString('sr-RS')} RSD</td></tr>`;
+  });
+  html += `</tbody><tfoot><tr class="total"><td colspan="3">Ukupno</td><td>${total.toLocaleString('sr-RS')} RSD</td></tr></tfoot>
+  </table><footer>* Cene su okvirne. Ugradnja se obračunava posebno.<br>Eldo Design — Custom Furniture</footer></body></html>`;
+  const w = window.open('','_blank');
+  w.document.write(html);
+  w.document.close();
+  w.print();
+};
+
+// ── HELPERS ────────────────────────────────────────────────────────────
+function showLoading(v) {
+  document.getElementById('loading').classList.toggle('show', v);
+}
+function setStatus(msg) {
+  document.getElementById('status').textContent = msg;
+}
+
+// ── RESIZE ─────────────────────────────────────────────────────────────
+function resize() {
+  const w = container.clientWidth, h = container.clientHeight;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(container);
+resize();
+
+// ── RENDER LOOP ────────────────────────────────────────────────────────
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  if(boxHelper && selectedObj) boxHelper.update();
+  renderer.render(scene, camera);
+}
+animate();
+
+// ── KEYBOARD ──────────────────────────────────────────────────────────
+window.addEventListener('keydown', e => {
+  if(!selectedItem) return;
+  if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)) return;
+  const step = e.shiftKey ? 0.1 : 0.02;
+  const obj = selectedItem.obj;
+  if(e.key==='ArrowLeft') obj.position.x -= step;
+  if(e.key==='ArrowRight') obj.position.x += step;
+  if(e.key==='ArrowUp') obj.position.z -= step;
+  if(e.key==='ArrowDown') obj.position.z += step;
+  if(e.key==='Delete'||e.key==='Backspace') window.deleteSelected();
+  if(e.key==='r'||e.key==='R') window.rotateSelected();
+  if(e.key==='Escape') deselectAll();
+  updateBoxHelper();
+});
+
+setStatus('Izaberite element iz kataloga da biste ga dodali u prostor');
+</script>
+</body>
+</html>
