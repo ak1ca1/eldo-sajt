@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>
+    // Keep user's scroll position on refresh
+    if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
     // FOUC prevention: apply theme before paint
     (function () {
       try {
@@ -12,11 +14,165 @@
         document.documentElement.setAttribute('data-theme', theme);
       } catch (e) {}
     })();
+    // Enable smooth scroll only AFTER page is settled, so it doesn't interfere with refresh restore
+    window.addEventListener('load', function () {
+      requestAnimationFrame(function () {
+        document.documentElement.style.scrollBehavior = 'smooth';
+      });
+    });
   </script>
-  <title>Eldo Design — Custom Furniture</title>
+  <style>
+    /* Loading skeleton — visible immediately before main CSS parses */
+    .skeleton-loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: hsl(225, 25%, 9%); display: flex;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 28px;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    [data-theme="light"] .skeleton-loader { background: hsl(35, 30%, 97%); }
+    .skeleton-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .sk-logo-wrap {
+      position: relative;
+      width: 120px; height: 120px;
+      display: flex; align-items: center; justify-content: center;
+      animation: sk-breathe 2.4s ease-in-out infinite;
+    }
+    .sk-logo-wrap img {
+      width: 78px; height: auto;
+      filter: drop-shadow(0 4px 14px hsla(30, 72%, 50%, 0.35));
+      position: relative; z-index: 2;
+    }
+    /* Spinning copper arc around the logo */
+    .sk-logo-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: hsl(30, 72%, 55%);
+      border-right-color: hsla(30, 72%, 55%, 0.4);
+      animation: sk-spin 1.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+    /* Soft glow behind logo */
+    .sk-logo-wrap::after {
+      content: '';
+      position: absolute; inset: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle, hsla(30, 72%, 55%, 0.18) 0%, transparent 70%);
+      animation: sk-pulse 2.4s ease-in-out infinite;
+      z-index: 1;
+    }
+    @keyframes sk-spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes sk-breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.04); }
+    }
+    @keyframes sk-pulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50%      { opacity: 1;   transform: scale(1.1); }
+    }
+
+    .sk-text {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 0.875rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: hsla(30, 72%, 55%, 0.85);
+      font-weight: 500;
+      animation: sk-fade 1.8s ease-in-out infinite;
+    }
+    @keyframes sk-fade {
+      0%, 100% { opacity: 0.45; }
+      50%      { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sk-logo-wrap, .sk-logo-wrap::after, .sk-logo-wrap::before, .sk-text {
+        animation: none;
+      }
+    }
+  </style>
+  <title>Eldo Design — Kuhinje po meri u Nišu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+  <!-- FAQ Schema.org markup for Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Koliko traje izrada i ugradnja kuhinje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standardna kuhinja se sklapa i isporučuje 1–2 nedelje od potvrde porudžbine. Sama ugradnja traje 1–2 dana, u zavisnosti od složenosti i ugradnih uređaja."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Da li dolazite na merenje i da li je besplatno?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da. Merenje na terenu je besplatno za Niš i okolinu. Dolazimo, izmerimo prostor, savetujemo o rasporedu i šaljemo vam ponudu sa 3D vizualizacijom."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kakvu garanciju dajete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Na korpus i front dajemo 5 godina garancije. Na okove (šarke, kliznice, push-to-open mehanizme) — proizvođačka garancija (Blum / Hettich, do 7 godina). Na ugradne uređaje važi garancija proizvođača."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mogu li da biram materijale i boje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Naravno. U ponudi imamo preko 40 dezena za frontove (medijapan, iverica, akrilik, mat lakirani), kao i različite materijale za radne ploče (laminat, granit, mermer, kompakt). U showroom-u možete videti uzorke uživo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kako se vrši plaćanje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standardno: 50% pri potvrdi porudžbine, 50% pri ugradnji. Moguće je i plaćanje na rate kroz banke. Prihvatamo gotovinu, uplatnice i kartice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Da li radite samo Niš ili i druge gradove?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Primarno radimo u Nišu i okolini, ali sklapamo i isporučujemo kuhinje za celu Srbiju. Za udaljenije lokacije, dostava i ugradnja se dogovaraju posebno."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Šta ako mi se posle ugradnje pokvari nešto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pozovite nas. U garantnom roku rešavamo o našem trošku — od zamene šarke do popravke fronta. Vraćamo se i nakon garancije za servis i sitne popravke."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mogu li sam da koristim 3D planer pre poziva?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Naravno — i preporučujemo. 3D planer vam pomaže da vizualizujete raspored pre nego što nas kontaktirate. Kad nam pošaljete vaš projekat, mi ga finiširamo i šaljemo zvaničnu ponudu."
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -59,6 +215,7 @@
       --shadow-deep:      hsla(225, 40%, 4%, 0.3);
       --shadow-deep-2:    hsla(225, 40%, 4%, 0.55);
       --gallery-grad-end: hsl(225, 28%, 8%);
+      --footer-bg:        hsl(225, 28%, 7%);
       --gal-fade-mid:     hsla(225, 40%, 5%, 0.4);
       --gal-fade-end:     hsla(225, 40%, 5%, 0.92);
       --gal-fade-mid-h:   hsla(225, 40%, 5%, 0.5);
@@ -115,6 +272,7 @@
       --shadow-deep:      hsl(28, 30%, 30%, 0.10);
       --shadow-deep-2:    hsl(28, 30%, 30%, 0.16);
       --gallery-grad-end: hsl(35, 26%, 90%);
+      --footer-bg:        hsl(35, 28%, 94%);
       --gal-fade-mid:     hsla(28, 25%, 12%, 0.18);
       --gal-fade-end:     hsla(28, 25%, 12%, 0.78);
       --gal-fade-mid-h:   hsla(28, 25%, 12%, 0.32);
@@ -133,7 +291,8 @@
       color-scheme: light;
     }
 
-    html { scroll-behavior: smooth; }
+    /* scroll-behavior: smooth applied via JS for in-page anchor clicks only,
+       so it doesn't interfere with browser scroll restoration on refresh */
 
     body {
       background: var(--bg);
@@ -239,37 +398,69 @@
 
     .nav-cta {
       justify-self: end;
+      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      gap: 9px;
+      background: linear-gradient(135deg, hsl(30, 72%, 54%), hsl(30, 72%, 44%));
       color: var(--white);
       text-decoration: none;
       font-size: 0.8125rem;
-      font-weight: 600;
-      padding: 11px 22px 11px 18px;
+      font-weight: 700;
+      padding: 11px 18px 11px 14px;
       border-radius: 999px;
       letter-spacing: 0.02em;
       box-shadow:
         0 4px 14px var(--copper-glow-40),
-        inset 0 1px 0 hsla(0, 0%, 100%, 0.18);
+        inset 0 1px 0 hsla(0, 0%, 100%, 0.22);
       transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      overflow: visible;
+      isolation: isolate;
     }
-    .nav-cta svg {
-      width: 16px;
-      height: 16px;
+    /* Outer pulsating rings (like the floating chat) */
+    .nav-cta::before,
+    .nav-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 999px;
+      box-shadow: 0 0 0 2px var(--copper-glow-40);
+      animation: navPulse 2.6s ease-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .nav-cta::after { animation-delay: 1.3s; }
+    @keyframes navPulse {
+      0%   { transform: scale(0.96); opacity: 0.7; }
+      80%, 100% { transform: scale(1.35); opacity: 0; }
+    }
+    .nav-cta > * { position: relative; z-index: 1; }
+    /* 3D cube icon */
+    .nav-cta-icon {
+      width: 22px; height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     }
+    .nav-cta-icon svg {
+      width: 18px; height: 18px;
+      display: block;
+      color: var(--white);
+    }
+    .nav-cta:hover .nav-cta-icon { transform: rotate(-12deg) scale(1.08); }
     .nav-cta:hover {
       transform: translateY(-1px);
-      filter: brightness(1.05);
+      filter: brightness(1.06);
       box-shadow:
-        0 6px 20px var(--copper-glow-50),
-        inset 0 1px 0 hsla(0, 0%, 100%, 0.22);
+        0 8px 22px var(--copper-glow-50),
+        inset 0 1px 0 hsla(0, 0%, 100%, 0.28);
     }
-    .nav-cta:hover svg { transform: rotate(-15deg) scale(1.1); }
     .nav-cta:active { transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nav-cta::before, .nav-cta::after { animation: none; opacity: 0; }
+    }
 
     /* ── THEME TOGGLE ── */
     .nav-right { justify-self: end; display: flex; align-items: center; gap: 12px; }
@@ -527,10 +718,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid var(--border);
-      color: var(--fg-muted);
+      border: 1.5px solid var(--copper-soft-bd);
+      color: var(--fg);
       font-size: 0.9375rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 14px 28px;
       border-radius: 8px;
       text-decoration: none;
@@ -538,18 +729,42 @@
     }
 
     .btn-outline:hover {
-      border-color: var(--border-strong);
-      color: var(--fg);
-      background: var(--bg3);
+      border-color: var(--copper);
+      color: var(--copper-lt);
+      background: var(--copper-soft-bg);
     }
 
     .hero-stats {
       display: flex;
       gap: 40px;
       margin-top: 56px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
+      padding-top: 36px;
+      position: relative;
     }
+    .hero-stats::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--copper), transparent);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .stat-icon {
+      width: 28px; height: 28px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--copper);
+      margin-bottom: 2px;
+      opacity: 0.85;
+    }
+    .stat-icon svg { width: 22px; height: 22px; }
 
     .stat-val {
       font-size: 1.875rem;
@@ -659,21 +874,46 @@
     .features-header {
       max-width: 560px;
       margin-bottom: 64px;
+      position: relative;
+    }
+    .features-header::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      border-radius: 2px;
+      margin-top: 24px;
+      background: linear-gradient(90deg, var(--copper), transparent);
     }
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 2px;
     }
 
     .feature-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      padding: 40px 36px;
+      padding: 32px 26px 28px;
       position: relative;
       overflow: hidden;
       transition: background 0.3s;
+    }
+
+    .feat-badge {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--copper-lt);
+      background: var(--copper-soft-bg);
+      border: 1px solid var(--copper-soft-bd);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .feature-card:first-child { border-radius: 16px 0 0 16px; }
@@ -789,6 +1029,19 @@
       justify-content: space-between;
       align-items: flex-end;
       margin-bottom: 52px;
+      position: relative;
+    }
+    .products-header::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      border-radius: 2px;
+      margin-top: 24px;
+      background: linear-gradient(90deg, var(--copper), transparent);
+      position: absolute;
+      left: 0;
+      bottom: -16px;
     }
 
     .products-grid {
@@ -800,55 +1053,92 @@
     .product-card {
       background: var(--bg3);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      transition: all 0.3s;
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
       position: relative;
+      isolation: isolate;
     }
-
+    /* Subtle copper accent line at the top — grows on hover */
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      width: 0;
+      height: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, var(--copper), transparent);
+      transition: width 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+      z-index: 3;
+    }
     .product-card:hover {
       border-color: var(--copper-soft-bd);
       transform: translateY(-4px);
       box-shadow: var(--shadow-card);
     }
+    .product-card:hover::before { width: 90%; }
 
     .product-img {
-      height: 220px;
+      height: 240px;
       overflow: hidden;
-      background: var(--pcard-img-bg);
+      background:
+        radial-gradient(ellipse at center bottom, hsl(225, 22%, 18%) 0%, transparent 70%),
+        var(--pcard-img-bg);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
     }
+    [data-theme="light"] .product-img {
+      background:
+        radial-gradient(ellipse at center bottom, hsl(35, 22%, 84%) 0%, transparent 70%),
+        var(--pcard-img-bg);
+    }
 
     .product-img img {
-      max-height: 90%;
-      max-width: 90%;
+      max-height: 86%;
+      max-width: 86%;
       object-fit: contain;
-      transition: transform 0.5s;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      filter: drop-shadow(0 12px 24px hsla(225, 30%, 5%, 0.25));
     }
 
     .product-card:hover .product-img img {
-      transform: scale(1.05);
+      transform: scale(1.06) translateY(-2px);
     }
 
     .product-body {
-      padding: 24px;
+      padding: 24px 24px 26px;
+      position: relative;
     }
 
     .product-name {
-      font-size: 1.125rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.0625rem;
       font-weight: 700;
       color: var(--white);
       margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
+    .product-name .pcat-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: var(--copper-soft-bg);
+      border: 1px solid var(--copper-soft-bd);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--copper);
+      flex-shrink: 0;
+    }
+    .product-name .pcat-icon svg { width: 15px; height: 15px; }
 
     .product-desc {
       font-size: 0.875rem;
       color: var(--fg-muted);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       line-height: 1.6;
     }
 
@@ -861,10 +1151,11 @@
       font-weight: 600;
       text-decoration: none;
       letter-spacing: 0.02em;
-      transition: gap 0.2s;
+      transition: gap 0.25s ease, color 0.25s ease;
     }
-
-    .product-link:hover { gap: 10px; }
+    .product-link svg { transition: transform 0.25s ease; }
+    .product-card:hover .product-link { gap: 10px; color: var(--copper-lt); }
+    .product-card:hover .product-link svg { transform: translateX(3px); }
 
     /* Product card as link */
     a.product-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; }
@@ -872,18 +1163,67 @@
     .product-count {
       position: absolute;
       top: 14px;
-      right: 14px;
-      background: var(--product-count-bg);
+      left: 14px;
+      background: hsla(225, 28%, 7%, 0.85);
       backdrop-filter: blur(8px);
-      border: 1px solid var(--copper-soft-bd);
-      color: var(--copper-lt);
-      padding: 5px 11px;
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid hsla(0, 0%, 100%, 0.08);
+      color: hsla(0, 0%, 100%, 0.92);
+      padding: 4px 10px;
       border-radius: 999px;
-      font-size: 0.6875rem;
+      font-size: 0.625rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
+    [data-theme="light"] .product-count {
+      background: hsla(225, 28%, 14%, 0.85);
+      color: #fff;
+    }
+
+    /* CTA banner below products */
+    .products-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 32px;
+      padding: 22px 32px;
+      background: linear-gradient(135deg, hsla(30, 72%, 50%, 0.10), hsla(30, 72%, 50%, 0.04));
+      border: 1px solid var(--copper-soft-bd);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .products-cta:hover {
+      border-color: var(--copper);
+      background: linear-gradient(135deg, hsla(30, 72%, 50%, 0.16), hsla(30, 72%, 50%, 0.06));
+      transform: translateY(-2px);
+    }
+    .products-cta-text { display: flex; flex-direction: column; gap: 4px; }
+    .products-cta-text strong {
+      font-size: 1.0625rem;
+      color: var(--fg);
+      font-weight: 700;
+      letter-spacing: -0.005em;
+    }
+    .products-cta-meta {
+      font-size: 0.8125rem;
+      color: var(--fg-muted);
+    }
+    .products-cta-arrow {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--copper);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, background 0.25s;
+    }
+    .products-cta:hover .products-cta-arrow { transform: translateX(3px); }
 
     /* ── FEATURED ── */
     .featured-head {
@@ -1023,57 +1363,150 @@
     .process-steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin-top: 60px;
+      gap: 24px;
+      margin-top: 64px;
       position: relative;
+      padding: 0 40px;
     }
 
+    /* Background connector line */
     .process-steps::before {
       content: '';
       position: absolute;
-      top: 28px;
-      left: calc(12.5%);
-      right: calc(12.5%);
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), var(--copper), var(--border), transparent);
+      top: 36px;
+      left: calc(12.5% + 36px);
+      right: calc(12.5% + 36px);
+      height: 2px;
+      border-radius: 2px;
+      background: var(--border);
+      z-index: 0;
     }
+    /* Copper progress overlay — width controlled by data-step attribute */
+    .process-steps::after {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 36px);
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--copper), var(--copper-lt));
+      box-shadow: 0 0 10px var(--copper-glow-50);
+      transition: width 350ms cubic-bezier(0.65, 0, 0.35, 1);
+      z-index: 0;
+    }
+    /* Each step's circle center sits at 12.5%, 37.5%, 62.5%, 87.5% of the row.
+       Line ends at the left edge of the target circle (center - 36px). */
+    .process-steps[data-step="1"]::after { width: calc(25% - 72px); }
+    .process-steps[data-step="2"]::after { width: calc(50% - 72px); }
+    .process-steps[data-step="3"]::after { width: calc(75% - 72px); }
 
     .step {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 8px;
       position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
+    .step.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* legacy compat — kept in case any other rule references .in-view */
+    .step.in-view { opacity: 1; transform: translateY(0); }
+    .step:nth-child(1).visible { transition-delay: 0s; }
+    .step:nth-child(2).visible { transition-delay: 0.12s; }
+    .step:nth-child(3).visible { transition-delay: 0.24s; }
+    .step:nth-child(4).visible { transition-delay: 0.36s; }
 
     .step-num {
-      width: 56px; height: 56px;
+      width: 72px; height: 72px;
       border-radius: 50%;
-      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 65%, 40%));
+      background: var(--bg);
+      border: 2px solid var(--copper-soft-bd);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.125rem;
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: var(--copper-lt);
+      margin-bottom: 22px;
       position: relative;
-      z-index: 1;
-      box-shadow: 0 4px 16px hsl(30, 72%, 50%, 0.3);
+      z-index: 2;
+      overflow: hidden;
+      transition: border-color 0.4s ease, color 0.7s ease 0.3s, box-shadow 0.6s ease;
+    }
+    /* Liquid fill animation — copper sweeps from left to right inside circle */
+    .step-num::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0%;
+      background: linear-gradient(90deg, hsl(30, 72%, 55%) 0%, hsl(30, 65%, 40%) 100%);
+      z-index: 0;
+      transition: width 400ms cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    /* Dashed halo */
+    .step-num::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px dashed var(--copper-soft-bd);
+      opacity: 0;
+      transform: scale(0.94);
+      transition: opacity 0.5s ease 0.8s, transform 0.5s ease 0.8s;
+      pointer-events: none;
+    }
+    .step-num > * { position: relative; z-index: 1; }
+
+    .step.in-view .step-num,
+    .step.filled .step-num {
+      border-color: var(--copper);
+      color: var(--white);
+      box-shadow: 0 8px 24px var(--copper-glow-40);
+    }
+    .step.in-view .step-num::before,
+    .step.filled .step-num::before { width: 100%; }
+    .step.in-view .step-num::after,
+    .step.filled .step-num::after {
+      opacity: 0.45;
+      transform: scale(1);
     }
 
+    /* Wrap the number digit in a span so it can sit above ::before */
+    .step-num span { position: relative; z-index: 1; line-height: 1; }
+
+    .step-icon {
+      width: 28px; height: 28px;
+      color: var(--copper);
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+    }
+    .step.in-view .step-icon { opacity: 1; transform: translateY(0); }
+
     .step-title {
-      font-size: 0.9375rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.375rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
       color: var(--white);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .step-desc {
-      font-size: 0.8125rem;
+      font-size: 0.875rem;
       color: var(--fg-muted);
       line-height: 1.6;
+      max-width: 220px;
     }
 
     /* ── KONTAKT ── */
@@ -1497,11 +1930,12 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
-      transition: border-color 0.2s, background 0.2s;
+      transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.3s ease;
     }
     .faq-item[open] {
       border-color: var(--copper-glow-40);
       background: var(--faq-bg-open);
+      box-shadow: 0 6px 20px hsla(225, 40%, 5%, 0.18);
     }
     .faq-item summary {
       list-style: none;
@@ -1520,6 +1954,32 @@
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary:hover { color: var(--copper-lt); }
+
+    /* Animated expand using a wrapper grid trick */
+    .faq-item .faq-body-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .faq-item[open] .faq-body-wrap { grid-template-rows: 1fr; }
+    .faq-item .faq-body-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+    .faq-body {
+      padding: 0 22px 20px;
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--fg-muted);
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.35s ease 0.1s, transform 0.4s ease 0.1s;
+    }
+    .faq-item[open] .faq-body {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .faq-body a { color: var(--copper-lt); }
     .faq-icon {
       flex-shrink: 0;
       width: 28px;
@@ -1541,6 +2001,13 @@
       font-size: 0.9375rem;
       line-height: 1.65;
       color: var(--fg-muted);
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.35s ease 0.1s, transform 0.4s ease 0.1s;
+    }
+    .faq-item[open] .faq-body {
+      opacity: 1;
+      transform: translateY(0);
     }
     .faq-body a { color: var(--copper-lt); }
 
@@ -1550,7 +2017,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: hsl(225, 28%, 7%);
+      background: var(--footer-bg);
       border-top: 1px solid var(--border);
       padding: 60px 80px 40px;
     }
@@ -1634,7 +2101,7 @@
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; padding: 100px 40px 60px; }
       .hero-3d { height: 380px; }
-      .features-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
       .feature-card:first-child { border-radius: 16px 16px 0 0; }
       .feature-card:last-child { border-radius: 0 0 16px 16px; }
       .products-grid { grid-template-columns: 1fr 1fr; }
@@ -1658,13 +2125,16 @@
       .hero-actions .btn-primary, .hero-actions .btn-outline {
         justify-content: center; padding: 14px 22px; font-size: 0.95rem;
       }
-      .hero-stats { gap: 18px; flex-wrap: wrap; }
-      .hero-stats > div { flex: 1 1 30%; min-width: 0; }
+      .hero-stats { gap: 18px; flex-wrap: wrap; padding-top: 28px; margin-top: 44px; }
+      .hero-stats > .stat-item { flex: 1 1 30%; min-width: 0; }
+      .stat-icon svg { width: 18px; height: 18px; }
       .stat-val { font-size: 1.625rem; }
       .stat-label { font-size: 0.7rem; }
       section { padding: 64px 22px; }
       .section-title { font-size: clamp(1.7rem, 6vw, 2.2rem); }
       .products-grid { grid-template-columns: 1fr; gap: 16px; }
+      .products-cta { flex-direction: column; gap: 14px; align-items: stretch; padding: 18px 20px; text-align: center; }
+      .products-cta-arrow { align-self: center; }
       .materials-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .process-steps { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
@@ -1684,6 +2154,14 @@
 </head>
 <body>
 
+  <!-- Skeleton loader (hidden once page is interactive) -->
+  <div class="skeleton-loader" id="skeletonLoader" aria-hidden="true">
+    <div class="sk-logo-wrap">
+      <img src="assets/logo.png" alt="Eldo Design" />
+    </div>
+    <div class="sk-text">ELDO DESIGN</div>
+  </div>
+
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
@@ -1701,7 +2179,12 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
-      <a href="planer.html" class="nav-cta">3D Planer</a>
+      <a href="planer.html" class="nav-cta">
+        <span class="nav-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </span>
+        <span>3D Planer</span>
+      </a>
       <button type="button" class="nav-burger" id="navBurger" aria-label="Meni" aria-controls="mobileDrawer" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -1733,9 +2216,9 @@
 
   <section class="hero" id="home">
     <div class="hero-text">
-      <div class="hero-tag">Kuhinje po meri</div>
+      <div class="hero-tag">Kuhinje od proverenih elemenata</div>
       <h1>Kuhinja koja<br/><span>priča vašu priču</span></h1>
-      <p class="hero-desc">Pravimo kuhinje koje traju. Svaki element je projektovan i izrađen prema vašim merama, stilu i životnom prostoru — sa preciznošću koja se vidi i oseća.</p>
+      <p class="hero-desc">Spajamo proverene gotove elemente u kuhinje koje stvarno funkcionišu. Birate iz našeg asortimana, mi sastavljamo i montiramo — brzo, pouzdano, bez čekanja na izradu po meri.</p>
       <div class="hero-actions">
         <a href="planer.html" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -1744,15 +2227,24 @@
         <a href="#products" class="btn-outline">Pogledajte kolekciju</a>
       </div>
       <div class="hero-stats">
-        <div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+          </div>
           <div class="stat-val">500<span>+</span></div>
           <div class="stat-label">Realizovanih kuhinja</div>
         </div>
-        <div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
           <div class="stat-val">15<span>+</span></div>
           <div class="stat-label">Godina iskustva</div>
         </div>
-        <div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
           <div class="stat-val">98<span>%</span></div>
           <div class="stat-label">Zadovoljnih klijenata</div>
         </div>
@@ -1778,25 +2270,36 @@
     </div>
     <div class="features-grid">
       <div class="feature-card">
+        <span class="feat-badge">3D</span>
         <div class="feature-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
-        <div class="feature-title">3D Projektovanje</div>
-        <p class="feature-desc">Pre nego što se izradi ijedan element, vidite svoju kuhinju u realnom 3D prikazu. Menjajte boje, materijale i raspored u realnom vremenu.</p>
+        <div class="feature-title">3D Planiranje rasporeda</div>
+        <p class="feature-desc">Pre nego što naručite, vidite kako će vaši izabrani elementi izgledati zajedno u realnom 3D prikazu.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <div class="feature-title">Precizna izrada</div>
-        <p class="feature-desc">Koristimo CNC tehnologiju sa tolerancijom od 0.1mm. Svaki element se izrađuje tačno prema vašim merama, bez kompromisa.</p>
-      </div>
-      <div class="feature-card">
+        <span class="feat-badge">Garancija</span>
         <div class="feature-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <div class="feature-title">Garancija 5 godina</div>
-        <p class="feature-desc">Stojimo iza svakog našeg proizvoda. Petogodišnja garancija na sve elemente — to je naše obećanje kvaliteta i pouzdanosti.</p>
+        <p class="feature-desc">Stojimo iza svakog našeg proizvoda. Petogodišnja garancija na sve elemente — to je naše obećanje kvaliteta.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feat-badge">Montaža</span>
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="feature-title">Profesionalna montaža</div>
+        <p class="feature-desc">Naš tim spaja gotove elemente, podešava ih precizno i montira u vašoj kuhinji — sa kontrolom kvaliteta.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feat-badge">Lokalno</span>
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="feature-title">Niš i okolina</div>
+        <p class="feature-desc">Lokalna podrška, brza isporuka 1–2 nedelje i besplatno merenje prostora za Niš i bližu okolinu.</p>
       </div>
     </div>
   </section>
@@ -1819,9 +2322,9 @@
           <span class="product-count">32 proizvoda</span>
         </div>
         <div class="product-body">
-          <div class="product-name">Donji elementi</div>
+          <div class="product-name"><span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 12h18"/><path d="M8 8v.01M16 16v.01"/></svg></span>Donji elementi</div>
           <p class="product-desc">Baza svake kuhinje. Čvrsta konstrukcija, tiho zatvaranje, više varijanti širina od 30 do 100cm.</p>
-          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
       <a href="proizvodi.html?cat=viseci" class="product-card">
@@ -1830,25 +2333,56 @@
           <span class="product-count">35 proizvoda</span>
         </div>
         <div class="product-body">
-          <div class="product-name">Gornji elementi</div>
+          <div class="product-name"><span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="12" rx="2"/><path d="M3 9h18"/><path d="M7 19h10"/></svg></span>Gornji elementi</div>
           <p class="product-desc">Viseći elementi sa LED osvetljenjem, staklenim i punim frontovima u svim dimenzijama.</p>
-          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
       <a href="proizvodi.html?cat=ploce-i-obloge" class="product-card">
         <div class="product-img">
-          <img src="assets/radne-ploce.png" alt="Radne ploče i sudopere" />
-          <span class="product-count">11 proizvoda</span>
+          <img src="assets/radne-ploce.png" alt="Ploče i obloge" />
+          <span class="product-count">2 proizvoda</span>
         </div>
         <div class="product-body">
-          <div class="product-name">Ploče i ugradni uređaji</div>
-          <p class="product-desc">Radne ploče, sudopere, ugradne mašine, indukcije i aspiratori — sve sa garancijom.</p>
-          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <div class="product-name"><span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="3" rx="1"/><path d="M5 10v9"/><path d="M19 10v9"/><path d="M5 19h14"/></svg></span>Ploče i obloge</div>
+          <p class="product-desc">Radne ploče i zidne obloge u različitim dezenima — drvo, mermer, kamen, beton.</p>
+          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="proizvodi.html?cat=sudopere" class="product-card">
+        <div class="product-img">
+          <img src="assets/sudopere-category.png" alt="Sudopere" />
+          <span class="product-count">U ponudi</span>
+        </div>
+        <div class="product-body">
+          <div class="product-name"><span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3"/><path d="M12 3v3"/></svg></span>Sudopere</div>
+          <p class="product-desc">Inox i granitne sudopere u raznim dimenzijama — sa baterijama i kompletnim setom za ugradnju.</p>
+          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="proizvodi.html?cat=rucice" class="product-card">
+        <div class="product-img">
+          <img src="assets/rucice-category.png" alt="Ručice" />
+          <span class="product-count">U ponudi</span>
+        </div>
+        <div class="product-body">
+          <div class="product-name"><span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><circle cx="6" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/></svg></span>Ručice</div>
+          <p class="product-desc">Različiti modeli ručica — od minimalističkih u inoxu do crnih mat i klasičnih u boji mesinga.</p>
+          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="proizvodi.html?cat=oprema" class="product-card">
+        <div class="product-img">
+          <img src="assets/orman-item-saxdcR3Z.png" alt="Oprema i dodaci" />
+          <span class="product-count">U ponudi</span>
+        </div>
+        <div class="product-body">
+          <div class="product-name"><span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Oprema i dodaci</div>
+          <p class="product-desc">Šarke, kliznice, korpe, koševi za otpatke, LED osvetljenje i ostali sitni elementi za vašu kuhinju.</p>
+          <span class="product-link">Pogledaj kategoriju <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
     </div>
-
-    <!-- IZDVOJENO REMOVED -->
   </section>
 
   <!-- MATERIALS REMOVED -->
@@ -1938,22 +2472,26 @@
     </div>
     <div class="process-steps">
       <div class="step">
-        <div class="step-num">1</div>
+        <div class="step-num"><span>1</span></div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         <div class="step-title">Konsultacija</div>
         <p class="step-desc">Razgovaramo o vašim željama, prostoru i budžetu. Besplatno i bez obaveza.</p>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-num"><span>2</span></div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         <div class="step-title">3D Dizajn</div>
         <p class="step-desc">Naš tim kreira 3D model vaše kuhinje sa svim detaljima — vidite rezultat pre izrade.</p>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-title">Precizna izrada</div>
-        <p class="step-desc">Svaki element se izrađuje u našoj radionici sa CNC preciznošću i kontrolom kvaliteta.</p>
+        <div class="step-num"><span>3</span></div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <div class="step-title">Sklapanje i pripremanje</div>
+        <p class="step-desc">Vaše izabrane elemente sklapamo, proveravamo i pripremamo za ugradnju u našoj radionici.</p>
       </div>
       <div class="step">
-        <div class="step-num">4</div>
+        <div class="step-num"><span>4</span></div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
         <div class="step-title">Ugradnja</div>
         <p class="step-desc">Naš tim dolazi i montira kuhinju. Čistimo za sobom i predajemo vam ključ gotove kuhinje.</p>
       </div>
@@ -1998,56 +2536,56 @@
           <span>Koliko traje izrada i ugradnja kuhinje?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Standardna kuhinja se izrađuje 3–4 nedelje od potvrđenog 3D dizajna. Sama ugradnja traje 1–2 dana, u zavisnosti od složenosti i ugradnih uređaja.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Standardna kuhinja se sklapa i isporučuje 1–2 nedelje od potvrde porudžbine. Sama ugradnja traje 1–2 dana, u zavisnosti od složenosti i ugradnih uređaja.</div></div></div>
       </details>
       <details class="faq-item">
         <summary>
           <span>Da li dolazite na merenje i da li je besplatno?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Da. Merenje na terenu je besplatno za Niš i okolinu. Dolazimo, izmerimo prostor, savetujemo o rasporedu i šaljemo vam ponudu sa 3D vizualizacijom.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Da. Merenje na terenu je besplatno za Niš i okolinu. Dolazimo, izmerimo prostor, savetujemo o rasporedu i šaljemo vam ponudu sa 3D vizualizacijom.</div></div></div>
       </details>
       <details class="faq-item">
         <summary>
           <span>Kakvu garanciju dajete?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Na korpus i front dajemo 5 godina garancije. Na okove (šarke, kliznice, push-to-open mehanizme) — proizvođačka garancija (Blum / Hettich, do 7 godina). Na ugradne uređaje važi garancija proizvođača.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Na korpus i front dajemo 5 godina garancije. Na okove (šarke, kliznice, push-to-open mehanizme) — proizvođačka garancija (Blum / Hettich, do 7 godina). Na ugradne uređaje važi garancija proizvođača.</div></div></div>
       </details>
       <details class="faq-item">
         <summary>
           <span>Mogu li da biram materijale i boje?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Naravno. U ponudi imamo preko 40 dezena za frontove (medijapan, iverica, akrilik, mat lakirani), kao i različite materijale za radne ploče (laminat, granit, mermer, kompakt). U showroom-u možete videti uzorke uživo.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Naravno. U ponudi imamo preko 40 dezena za frontove (medijapan, iverica, akrilik, mat lakirani), kao i različite materijale za radne ploče (laminat, granit, mermer, kompakt). U showroom-u možete videti uzorke uživo.</div></div></div>
       </details>
       <details class="faq-item">
         <summary>
           <span>Kako se vrši plaćanje?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Standardno: 50% pri potvrdi porudžbine, 50% pri ugradnji. Moguće je i plaćanje na rate kroz banke. Prihvatamo gotovinu, uplatnice i kartice.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Standardno: 50% pri potvrdi porudžbine, 50% pri ugradnji. Moguće je i plaćanje na rate kroz banke. Prihvatamo gotovinu, uplatnice i kartice.</div></div></div>
       </details>
       <details class="faq-item">
         <summary>
           <span>Da li radite samo Niš ili i druge gradove?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Primarno radimo u Nišu i okolini, ali pravimo i isporučujemo kuhinje za celu Srbiju. Za udaljenije lokacije, dostava i ugradnja se dogovaraju posebno.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Primarno radimo u Nišu i okolini, ali sklapamo i isporučujemo kuhinje za celu Srbiju. Za udaljenije lokacije, dostava i ugradnja se dogovaraju posebno.</div></div></div>
       </details>
       <details class="faq-item">
         <summary>
           <span>Šta ako mi se posle ugradnje pokvari nešto?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Pozovite nas. U garantnom roku rešavamo o našem trošku — od zamene šarke do popravke fronta. Vraćamo se i nakon garancije za servis i sitne popravke.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Pozovite nas. U garantnom roku rešavamo o našem trošku — od zamene šarke do popravke fronta. Vraćamo se i nakon garancije za servis i sitne popravke.</div></div></div>
       </details>
       <details class="faq-item">
         <summary>
           <span>Mogu li sam da koristim 3D planer pre poziva?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body">Naravno — i preporučujemo. <a href="planer.html" style="color: var(--copper-lt);">3D planer</a> vam pomaže da vizualizujete raspored pre nego što nas kontaktirate. Kad nam pošaljete vaš projekat, mi ga finiširamo i šaljemo zvaničnu ponudu.</div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Naravno — i preporučujemo. <a href="planer.html" style="color: var(--copper-lt);">3D planer</a> vam pomaže da vizualizujete raspored pre nego što nas kontaktirate. Kad nam pošaljete vaš projekat, mi ga finiširamo i šaljemo zvaničnu ponudu.</div></div></div>
       </details>
     </div>
   </section>
@@ -2057,7 +2595,7 @@
     <div class="contact-head">
       <div class="section-eyebrow">Kontakt</div>
       <h2>Posetite nas ili pošaljite poruku</h2>
-      <p class="contact-sub">Dođite u našu radionicu u Nišu — savetujemo vas, izmerimo prostor i napravimo kuhinju po vašoj meri.</p>
+      <p class="contact-sub">Dođite u našu radionicu u Nišu — savetujemo vas, pomognemo da izaberete elemente i sklopimo vašu kuhinju.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info">
@@ -2081,7 +2619,7 @@
               <span><strong>PIB</strong><span class="ci-val">111047322</span></span>
             </li>
             <li>
-              <span class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+              <span class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
               <span>
                 <strong>Pratite nas</strong>
                 <span class="ci-social">
@@ -2136,7 +2674,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="assets/logo.png" alt="Eldo Design" />
-        <p>Pravimo kuhinje koje traju. Preciznost, kvalitet i dizajn koji odražava vaš stil života.</p>
+        <p>Spajamo proverene elemente u kuhinje koje traju. Pouzdana montaža, kvalitetni materijali i dizajn koji odražava vaš stil života.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/eldo_design_namestaj_" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -2176,7 +2714,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2025 Eldo Design. Sva prava zadržana.</span>
-      <span>Custom Furniture — Made in Serbia</span>
+      <span>Made in Serbia — Niš</span>
     </div>
   </footer>
 
@@ -2205,7 +2743,7 @@
     sections.forEach(s => observer.observe(s));
 
     // Fade-in animation on scroll
-    const fadeEls = document.querySelectorAll('.feature-card, .product-card, .material-card, .step');
+    const fadeEls = document.querySelectorAll('.feature-card, .product-card, .material-card');
     const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -2223,6 +2761,43 @@
       el.style.transition = `opacity 0.5s ease ${i * 60}ms, transform 0.5s ease ${i * 60}ms, background 0.3s, border-color 0.3s`;
       fadeObserver.observe(el);
     });
+
+    // Process steps — strict sequential: circle fills → line draws → next circle fills
+    (function () {
+      var processSteps = document.querySelector('.process-steps');
+      if (!processSteps) return;
+      var steps = Array.prototype.slice.call(processSteps.querySelectorAll('.step'));
+      var triggered = false;
+      var CIRCLE_MS = 400;   // matches .step-num::before width transition
+      var LINE_MS = 350;     // matches .process-steps::after width transition
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !triggered) {
+            triggered = true;
+            io.disconnect();
+
+            // fade in all steps with quick stagger
+            steps.forEach(function (s) { s.classList.add('visible'); });
+
+            // build strict sequence
+            var t = 400; // wait for fade-in stagger to complete
+            steps.forEach(function (s, i) {
+              if (i > 0) {
+                // draw line to this circle
+                setTimeout(function () {
+                  processSteps.setAttribute('data-step', i);
+                }, t);
+                t += LINE_MS;
+              }
+              // fill this circle
+              setTimeout(function () { s.classList.add('filled'); }, t);
+              t += CIRCLE_MS;
+            });
+          }
+        });
+      }, { threshold: 0.25 });
+      io.observe(processSteps);
+    })();
     // Lightbox za galeriju
     const lb = document.getElementById('lightbox');
     document.querySelectorAll('.gal-card').forEach(card => {
@@ -2311,6 +2886,261 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && drawer.classList.contains('open')) close();
       });
+    })();
+  </script>
+
+  <!-- Floating contact (WhatsApp / Phone) -->
+  <div class="floating-contact" id="floatingContact">
+    <div class="fc-menu" id="fcMenu">
+      <a href="https://wa.me/381611444021?text=Zdravo,%20zanima%20me%20kuhinja..." target="_blank" rel="noopener" class="fc-item fc-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <a href="viber://chat?number=%2B381611444021" class="fc-item fc-vb">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 0C9.473.028 5.333.344 3.02 2.467 1.302 4.187.7 6.7.633 9.817c-.063 3.115-.139 8.951 5.487 10.535v2.418s-.038.978.606 1.177c.778.243 1.235-.5 1.978-1.3.408-.44.97-1.086 1.395-1.58 3.849.323 6.807-.418 7.143-.527.776-.252 5.171-.816 5.886-6.652.738-6.017-.36-9.823-2.34-11.543l-.012-.005c-.6-.55-3.005-2.302-8.375-2.321 0 0-.395-.025-1.001-.018zm.062 1.717c.515-.005.855.018.855.018 4.541.014 6.71 1.382 7.22 1.842 1.674 1.434 2.53 4.864 1.905 9.897-.599 4.876-4.16 5.184-4.817 5.394-.28.09-2.926.747-6.246.531 0 0-2.473 2.985-3.247 3.762-.12.122-.262.17-.358.144-.135-.034-.172-.193-.17-.428l.02-4.011c-4.756-1.32-4.478-6.289-4.425-8.892.054-2.6.546-4.73 1.996-6.16 1.961-1.769 5.474-2.036 7.114-2.082-.16-.005-.014-.015.013-.015zm.116 2.61c-.169-.001-.34.004-.516.018-.214.018-.394.07-.564.158-.224.116-.41.314-.484.557-.165.546.234.987.625 1.213 1.077.62 2.245 1.043 3.422 1.412.93.292 1.876.531 2.842.658 1.094.144 2.198.224 3.296.342.366.04.704-.025.93-.293a.886.886 0 0 0 .136-.85c-.156-.51-.677-.787-1.156-.92-1.61-.45-3.225-.832-4.78-1.402a13.6 13.6 0 0 1-2.18-1.07c-.495-.292-1.073-.475-1.572-.554a4.183 4.183 0 0 0-.4-.04zm.41 1.962c-.21-.005-.422.012-.625.077-.397.127-.694.482-.69.926.005.514.426.93.86 1.166.823.448 1.71.787 2.598 1.094 1.038.358 2.107.635 3.185.835.518.097 1.063.205 1.572.067a.96.96 0 0 0 .68-.836c.05-.467-.265-.886-.694-1.066-.494-.21-1.039-.273-1.555-.41-.836-.225-1.674-.45-2.501-.715-.65-.21-1.295-.444-1.962-.622a4.6 4.6 0 0 0-.868-.116zm.418 2.116c-.214.001-.426.05-.61.158-.336.197-.526.602-.46.997.073.43.444.738.83.886 1.05.402 2.158.626 3.255.825.616.111 1.253.218 1.882.116.418-.067.793-.351.881-.793.099-.493-.225-.962-.671-1.13-.626-.236-1.296-.299-1.946-.43-.756-.151-1.526-.276-2.255-.534a2.61 2.61 0 0 0-.906-.095z"/></svg>
+        <span>Viber</span>
+      </a>
+      <a href="tel:+381611444021" class="fc-item fc-ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Pozovi</span>
+      </a>
+    </div>
+    <button type="button" class="fc-btn" id="fcBtn" aria-label="Kontakt opcije" aria-expanded="false">
+      <svg class="fc-icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <svg class="fc-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Saglasnost za kolačiće" aria-hidden="true">
+    <div class="cookie-text">
+      Koristimo kolačiće da bismo poboljšali iskustvo na sajtu i analizirali posete. Klikom na "Prihvatam" pristajete na sve, ili "Samo neophodni" za minimum potreban za funkcionisanje sajta.
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn cookie-btn-secondary" id="cookieReject">Samo neophodni</button>
+      <button type="button" class="cookie-btn cookie-btn-primary" id="cookieAccept">Prihvatam</button>
+    </div>
+  </div>
+
+  <style>
+    /* ── FLOATING CONTACT ── */
+    .floating-contact {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .fc-btn {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      border: 0;
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      color: var(--white);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px var(--copper-glow-50);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+    .fc-btn::before {
+      content: '';
+      position: absolute; inset: -4px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--copper-glow-40);
+      animation: fc-pulse 2.4s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes fc-pulse {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      80%, 100% { transform: scale(1.4); opacity: 0; }
+    }
+    .fc-btn:hover { transform: translateY(-2px); }
+    .fc-btn svg { width: 24px; height: 24px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .fc-btn .fc-icon-close { position: absolute; opacity: 0; transform: rotate(-90deg) scale(0.6); }
+    .fc-btn.open .fc-icon-chat { opacity: 0; transform: rotate(90deg) scale(0.6); }
+    .fc-btn.open .fc-icon-close { opacity: 1; transform: rotate(0deg) scale(1); }
+    .fc-btn.open::before { animation: none; opacity: 0; }
+    .fc-menu {
+      display: flex; flex-direction: column; gap: 10px;
+      opacity: 0; visibility: hidden;
+      transform: translateY(8px) scale(0.95);
+      transform-origin: bottom right;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    }
+    .fc-menu.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .fc-item {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 18px 10px 14px;
+      background: var(--bg2);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: 0 6px 16px hsla(225, 30%, 5%, 0.18);
+      transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+    .fc-item:hover {
+      transform: translateY(-1px);
+      border-color: var(--copper-glow-40);
+      color: var(--copper-lt);
+    }
+    .fc-item svg { width: 18px; height: 18px; }
+    .fc-wa svg { color: #25D366; }
+    .fc-vb svg { color: #7360F2; }
+    .fc-ph svg { color: var(--copper); }
+
+    @media (max-width: 640px) {
+      .floating-contact { bottom: 18px; right: 18px; }
+      .fc-btn { width: 52px; height: 52px; }
+      .fc-item { padding: 9px 16px 9px 12px; font-size: 0.8125rem; }
+    }
+
+    /* ── COOKIE BANNER ── */
+    .cookie-banner {
+      position: fixed;
+      left: 20px; right: 20px; bottom: 20px;
+      max-width: 560px;
+      margin: 0 auto;
+      z-index: 160;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: none;
+      gap: 16px;
+      align-items: center;
+      box-shadow: 0 16px 40px hsla(225, 40%, 5%, 0.35);
+      flex-wrap: wrap;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .cookie-banner.show { display: flex; transform: translateY(0); opacity: 1; }
+    .cookie-text {
+      flex: 1 1 280px;
+      font-size: 0.8125rem;
+      color: var(--fg-muted);
+      line-height: 1.55;
+    }
+    .cookie-actions {
+      display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap;
+    }
+    .cookie-btn {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+      color: var(--fg);
+    }
+    .cookie-btn:hover { border-color: var(--border-strong); }
+    .cookie-btn-primary {
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      color: var(--white);
+      border-color: transparent;
+      box-shadow: 0 4px 12px var(--copper-glow-30);
+    }
+    .cookie-btn-primary:hover { transform: translateY(-1px); }
+
+    @media (max-width: 560px) {
+      .cookie-banner { left: 14px; right: 14px; bottom: 14px; padding: 14px 16px; }
+      .cookie-text { font-size: 0.75rem; }
+      .cookie-actions { width: 100%; }
+      .cookie-btn { flex: 1; }
+    }
+  </style>
+
+  <script>
+    // Hide skeleton when DOM ready
+    (function () {
+      function hide() {
+        var s = document.getElementById('skeletonLoader');
+        if (s) setTimeout(function () { s.classList.add('hidden'); }, 200);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', hide);
+      } else hide();
+    })();
+
+    // Floating contact toggle
+    (function () {
+      var btn = document.getElementById('fcBtn');
+      var menu = document.getElementById('fcMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var isOpen = btn.classList.toggle('open');
+        menu.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+      document.addEventListener('click', function (e) {
+        if (!document.getElementById('floatingContact').contains(e.target) && btn.classList.contains('open')) {
+          btn.classList.remove('open');
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', false);
+        }
+      });
+    })();
+
+    // Cookie banner
+    (function () {
+      var banner = document.getElementById('cookieBanner');
+      if (!banner) return;
+      try {
+        if (!localStorage.getItem('eldo-cookies')) {
+          setTimeout(function () { banner.classList.add('show'); banner.setAttribute('aria-hidden', 'false'); }, 1200);
+        }
+      } catch (e) {}
+      function dismiss(level) {
+        try { localStorage.setItem('eldo-cookies', level); } catch (e) {}
+        banner.classList.remove('show');
+        banner.setAttribute('aria-hidden', 'true');
+      }
+      document.getElementById('cookieAccept').addEventListener('click', function () { dismiss('all'); });
+      document.getElementById('cookieReject').addEventListener('click', function () { dismiss('essential'); });
+    })();
+
+    // Animated number counters in .stat-val
+    (function () {
+      var stats = document.querySelectorAll('.stat-val');
+      if (!stats.length || !('IntersectionObserver' in window)) return;
+      function animate(el) {
+        // value is text node of node, possibly followed by <span>+</span>
+        var textNode = el.firstChild;
+        if (!textNode || textNode.nodeType !== 3) return;
+        var target = parseInt(textNode.nodeValue.replace(/\D/g, ''), 10);
+        if (isNaN(target) || target <= 0) return;
+        var duration = 1400;
+        var start = performance.now();
+        function step(now) {
+          var t = Math.min(1, (now - start) / duration);
+          // easeOutQuart
+          var eased = 1 - Math.pow(1 - t, 4);
+          textNode.nodeValue = Math.round(target * eased).toString();
+          if (t < 1) requestAnimationFrame(step);
+          else textNode.nodeValue = target.toString();
+        }
+        requestAnimationFrame(step);
+      }
+      var seen = new WeakSet();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && !seen.has(en.target)) {
+            seen.add(en.target);
+            animate(en.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      stats.forEach(function (s) { io.observe(s); });
     })();
   </script>
 </body>

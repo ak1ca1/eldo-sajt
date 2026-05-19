@@ -407,7 +407,7 @@
   {
     "id": "sudopera-80",
     "name": "Sudopera 80cm",
-    "category": "aparati-i-sudopere",
+    "category": "sudopere",
     "subcategory": null,
     "width": 80,
     "height": 85,
@@ -420,7 +420,7 @@
   {
     "id": "sudopera-mala",
     "name": "Sudopera mala",
-    "category": "aparati-i-sudopere",
+    "category": "sudopere",
     "subcategory": null,
     "width": 60,
     "height": 85,
@@ -441,7 +441,8 @@
     "imagePath": "dishwasher-preview",
     "price": 28000,
     "wallMounted": false,
-    "image": "assets/dishwasher-preview-8Eox--ed.png"
+    "image": "assets/dishwasher-preview-8Eox--ed.png",
+    "hidden": true
   },
   {
     "id": "masina-za-sudove-45",
@@ -454,7 +455,8 @@
     "imagePath": "dishwasher-preview",
     "price": 25000,
     "wallMounted": false,
-    "image": "assets/dishwasher-preview-8Eox--ed.png"
+    "image": "assets/dishwasher-preview-8Eox--ed.png",
+    "hidden": true
   },
   {
     "id": "sporet-60",
@@ -467,7 +469,8 @@
     "imagePath": "stove-preview",
     "price": 30000,
     "wallMounted": false,
-    "image": "assets/stove-preview-BBzDB8vk.png"
+    "image": "assets/stove-preview-BBzDB8vk.png",
+    "hidden": true
   },
   {
     "id": "aspirator-60",
@@ -480,7 +483,8 @@
     "imagePath": "viseci-aspirator",
     "price": 18000,
     "wallMounted": true,
-    "image": "assets/viseci-aspirator-D-vo3qU5.png"
+    "image": "assets/viseci-aspirator-D-vo3qU5.png",
+    "hidden": true
   },
   {
     "id": "indukciona-ploca-60",
@@ -493,7 +497,8 @@
     "imagePath": "induction-cooktop-preview",
     "price": 24000,
     "wallMounted": false,
-    "image": "assets/induction-cooktop-preview-CxM8T1rs.png"
+    "image": "assets/induction-cooktop-preview-CxM8T1rs.png",
+    "hidden": true
   },
   {
     "id": "ugradna-rerna-electrolux-60",
@@ -506,7 +511,8 @@
     "imagePath": "built-in-oven-preview",
     "price": 22000,
     "wallMounted": false,
-    "image": "assets/built-in-oven-preview-DfIpUNc1.png"
+    "image": "assets/built-in-oven-preview-DfIpUNc1.png",
+    "hidden": true
   },
   {
     "id": "radna-ploca-200",
@@ -571,7 +577,8 @@
     "imagePath": null,
     "price": 45000,
     "wallMounted": false,
-    "image": "assets/built-in-oven-preview-DfIpUNc1.png"
+    "image": "assets/built-in-oven-preview-DfIpUNc1.png",
+    "hidden": true
   },
   {
     "id": "gornji-30",
