@@ -450,40 +450,73 @@
     .mobile-drawer-close svg { width: 18px; height: 18px; }
     .mobile-drawer-links {
       list-style: none;
-      padding: 32px 0 0;
+      padding: 24px 0 0;
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      flex: 1;
     }
+    .mobile-drawer-links li { border-bottom: 1px solid var(--border); }
+    .mobile-drawer-links li:first-child { border-top: 1px solid var(--border); }
     .mobile-drawer-links a {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
+      gap: 18px;
       padding: 18px 4px;
       color: var(--white);
       text-decoration: none;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      border-bottom: 1px solid var(--border);
-      transition: color 0.2s, padding-left 0.2s;
+      transition: color 0.2s ease, padding-left 0.25s ease;
+      border-bottom: 0;
     }
     .mobile-drawer-links a:hover, .mobile-drawer-links a:focus-visible {
       color: var(--copper-lt);
       padding-left: 12px;
       outline: none;
     }
-    .mobile-drawer-links a::after {
-      content: '→';
-      font-family: system-ui, sans-serif;
-      font-size: 1.125rem;
+    .mdl-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--copper-lt);
+      font-variant-numeric: tabular-nums;
+      padding-top: 6px;
+      align-self: start;
+    }
+    .mdl-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+    }
+    .mdl-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       color: var(--copper);
-      opacity: 0.7;
+      flex-shrink: 0;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .mdl-arrow svg { width: 14px; height: 14px; }
+    .mobile-drawer-links a:hover .mdl-arrow {
+      background: var(--copper-glow-30);
+      border-color: var(--copper-glow-50);
+      transform: translateX(2px);
+    }
+    .mobile-drawer-footer {
+      padding-top: 28px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
     .mobile-drawer-cta {
-      margin-top: 32px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -497,6 +530,71 @@
       border-radius: 999px;
       box-shadow: 0 4px 14px var(--copper-glow-40);
     }
+    .mobile-drawer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .mdc-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 4px;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .mdc-line:hover { color: var(--copper-lt); }
+    .mdc-line svg {
+      width: 18px;
+      height: 18px;
+      color: var(--copper);
+      flex-shrink: 0;
+    }
+    .mdc-line > span:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.25;
+    }
+    .mdc-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+    }
+    .mdc-val {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: inherit;
+    }
+    .mobile-drawer-social {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .mobile-drawer-social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--nav-pill-bg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .mobile-drawer-social a:hover {
+      background: var(--copper-glow-30);
+      color: var(--copper-lt);
+      border-color: var(--copper-glow-50);
+    }
+    .mobile-drawer-social svg { width: 18px; height: 18px; }
 
     /* ── PAGE HEAD ── */
     .page-head {
@@ -689,33 +787,157 @@
     .sort-wrap {
       position: relative;
     }
-    .sort-select {
+    .sort-select-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .sort-trigger {
       appearance: none;
-      -webkit-appearance: none;
       background: var(--bg2);
       border: 1px solid var(--border);
       color: var(--fg);
-      padding: 9px 36px 9px 14px;
+      padding: 9px 14px 9px 14px;
       border-radius: 999px;
       font-family: inherit;
       font-size: 0.8125rem;
       font-weight: 500;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s ease, background 0.2s ease;
     }
-    .sort-select:focus,
-    .sort-select:hover { border-color: var(--copper-glow-50); }
-    .sort-wrap::after {
-      content: '';
+    .sort-trigger:hover { border-color: var(--border-strong); }
+    .sort-trigger[aria-expanded="true"] {
+      border-color: var(--copper-glow-50);
+      background: var(--bg3);
+    }
+    .sort-trigger-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+    .sort-trigger-icon {
+      width: 15px;
+      height: 15px;
+      color: var(--copper-lt);
+      flex-shrink: 0;
+    }
+    .sort-trigger-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sort-chev {
+      width: 14px;
+      height: 14px;
+      color: var(--fg-muted);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .sort-trigger[aria-expanded="true"] .sort-chev { transform: rotate(180deg); }
+
+    .sort-menu {
       position: absolute;
-      right: 14px; top: 50%;
-      transform: translateY(-50%) rotate(45deg);
-      width: 7px; height: 7px;
-      border-right: 1.5px solid var(--fg-muted);
-      border-bottom: 1.5px solid var(--fg-muted);
-      pointer-events: none;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 280px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 16px 48px var(--shadow-deep-2), 0 4px 12px var(--shadow-card);
+      padding: 6px;
+      z-index: 50;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      transform-origin: top right;
+      animation: sortMenuIn 0.22s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .sort-menu.open { display: flex; }
+    @keyframes sortMenuIn {
+      from { opacity: 0; transform: translateY(-6px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .sort-option {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      color: var(--fg);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 32px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .sort-option:hover { background: var(--bg3); }
+    .sort-option:focus-visible {
+      outline: none;
+      background: var(--bg3);
+      box-shadow: inset 0 0 0 1px var(--copper-glow-50);
+    }
+    .sort-opt-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--bg3);
+      color: var(--copper-lt);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sort-opt-icon svg { width: 16px; height: 16px; display: block; }
+    .sort-opt-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+    }
+    .sort-opt-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--fg);
+      line-height: 1.2;
+    }
+    .sort-opt-sub {
+      font-size: 0.72rem;
+      color: var(--fg-muted);
+      line-height: 1.3;
+    }
+    .sort-opt-check {
+      width: 16px;
+      height: 16px;
+      color: var(--copper);
+      opacity: 0;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+    .sort-option.active {
+      background: var(--copper-soft-bg);
+    }
+    .sort-option.active .sort-opt-icon {
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      color: var(--white);
+    }
+    .sort-option.active .sort-opt-title { color: var(--copper-lt); }
+    .sort-option.active .sort-opt-check { opacity: 1; }
+    .sort-wrap::after { display: none; }
 
     /* Secondary chips bar: price + dimension */
     .chip-bar {
@@ -757,6 +979,9 @@
       border-color: var(--copper-glow-50);
       color: var(--copper-lt);
     }
+
+    /* Filter section labels — hidden on desktop, shown on mobile */
+    .filter-section-label { display: none; }
 
     /* Quick add button on cards */
     .prod-card { position: relative; }
@@ -1060,10 +1285,90 @@
       line-height: 1.1;
       color: var(--white);
     }
+    /* Related products carousel — horizontal scroll with side arrows */
+    .ov-related-carousel {
+      position: relative;
+    }
     .ov-related-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      display: flex;
       gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 4px 12px;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+    }
+    .ov-related-grid::-webkit-scrollbar { display: none; }
+    .ov-related-card {
+      flex: 0 0 calc((100% - 80px) / 6);
+      min-width: 180px;
+      max-width: 220px;
+      scroll-snap-align: start;
+      /* Subtle scroll-driven scale + opacity on incoming cards */
+      animation: relCardIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes relCardIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .ov-related-card:nth-child(1) { animation-delay: 0s;    }
+    .ov-related-card:nth-child(2) { animation-delay: 0.05s; }
+    .ov-related-card:nth-child(3) { animation-delay: 0.10s; }
+    .ov-related-card:nth-child(4) { animation-delay: 0.15s; }
+    .ov-related-card:nth-child(5) { animation-delay: 0.20s; }
+    .ov-related-card:nth-child(6) { animation-delay: 0.25s; }
+    .ov-related-card:nth-child(7) { animation-delay: 0.30s; }
+    .ov-related-card:nth-child(n+8) { animation-delay: 0.35s; }
+
+    .ov-rel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      box-shadow: 0 4px 14px hsla(225, 40%, 5%, 0.25);
+      transition: opacity 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .ov-rel-arrow:hover:not(:disabled) {
+      border-color: var(--copper);
+      color: var(--copper-lt);
+      background: var(--copper-soft-bg);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .ov-rel-arrow:active:not(:disabled) {
+      transform: translateY(-50%) scale(0.9);
+    }
+    .ov-rel-arrow.pulse-fire { animation: arrowFire 0.4s ease-out; }
+    @keyframes arrowFire {
+      0%   { box-shadow: 0 0 0 0 var(--copper-glow-50), 0 4px 14px hsla(225, 40%, 5%, 0.25); }
+      100% { box-shadow: 0 0 0 14px hsla(30, 72%, 50%, 0), 0 4px 14px hsla(225, 40%, 5%, 0.25); }
+    }
+    .ov-rel-arrow:disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+    .ov-rel-arrow svg { width: 18px; height: 18px; transition: transform 0.25s ease; }
+    .ov-rel-arrow:hover:not(:disabled).ov-rel-arrow-left svg { transform: translateX(-2px); }
+    .ov-rel-arrow:hover:not(:disabled).ov-rel-arrow-right svg { transform: translateX(2px); }
+    .ov-rel-arrow-left  { left: -56px; }
+    .ov-rel-arrow-right { right: -56px; }
+
+    @media (max-width: 1100px) {
+      .ov-related-card { flex: 0 0 calc((100% - 48px) / 4); min-width: 160px; }
+      .ov-rel-arrow-left  { left: -8px; }
+      .ov-rel-arrow-right { right: -8px; }
     }
     .ov-related-card {
       background: var(--bg2);
@@ -1165,12 +1470,10 @@
     .ov-rel-add.added svg { transform: rotate(45deg); }
     .ov-rel-add svg { width: 14px; height: 14px; transition: transform 0.25s; }
 
-    @media (max-width: 1100px) { .ov-related-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 1100px) { }
     @media (max-width: 720px)  {
-      .ov-related-section { padding: 56px 22px 72px; }
-      .ov-related-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
-    @media (max-width: 380px)  { .ov-related-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 380px)  { }
 
     .prod-grid {
       max-width: 1320px;
@@ -1214,7 +1517,7 @@
     .prod-img-wrap {
       aspect-ratio: 1/1;
       background: var(--bg3);
-      padding: 12px;
+      padding: 36px 12px 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1234,6 +1537,9 @@
       filter: drop-shadow(0 8px 18px hsla(225, 40%, 4%, 0.4));
       transition: transform 0.4s ease;
     }
+    /* Some shared PNGs render the product smaller than others — visually equalize */
+    .prod-img[src*="viseci-sa-rucicama-CFlke63i"] { transform: scale(1); }
+    .prod-card:hover .prod-img[src*="viseci-sa-rucicama-CFlke63i"] { transform: scale(1.05); }
     .prod-card:hover .prod-img { transform: scale(1.05); }
     .prod-body {
       padding: 16px 18px 18px;
@@ -1696,8 +2002,329 @@
       .overlay-img-side img { max-height: 240px; }
     }
 
-    @media (max-width: 420px) {
-      .prod-grid { grid-template-columns: 1fr; }
+    /* ─── PROIZVODI MOBILE FINE-TUNING ─── */
+    @media (max-width: 720px) {
+      /* PAGE HEAD — much tighter, hide marketing paragraph */
+      .page-head {
+        padding: 92px 20px 16px;
+        gap: 8px;
+        margin-bottom: 0;
+      }
+      .page-head .section-tag { font-size: 0.68rem; letter-spacing: 0.16em; }
+      .page-head .section-title {
+        font-size: clamp(1.55rem, 7.5vw, 1.95rem);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 4px 0 0;
+      }
+      .page-head .section-sub { display: none; }
+
+      /* TOOLBAR — compact, search + sort stacked tight */
+      .toolbar {
+        padding: 12px 20px 0;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 0;
+      }
+      .toolbar-spacer { display: none; }
+      .search-wrap {
+        order: 1;
+        position: relative;
+        width: 100%;
+      }
+      .search-wrap input {
+        font-size: 16px;
+        padding: 11px 16px 11px 40px;
+        width: 100%;
+      }
+      .search-wrap svg { left: 16px; width: 16px; height: 16px; }
+      .sort-wrap {
+        order: 2;
+        width: 100%;
+      }
+      .sort-trigger {
+        width: 100%;
+        min-width: 0;
+        font-size: 0.875rem;
+        padding: 11px 14px;
+      }
+      .sort-menu {
+        right: 0;
+        left: 0;
+        min-width: 0;
+      }
+      .sort-opt-sub { display: none; }
+
+      /* SECTION LABELS — clear visual hierarchy for filters/chips */
+      .filter-section-label {
+        display: block;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--fg-muted);
+        padding: 0 20px;
+        margin: 18px 0 8px;
+      }
+      .chip-group-label {
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--fg-muted);
+        margin-right: 0;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      /* FILTERS — 2-column grid so categories are clearly organized */
+      .filters {
+        padding: 0 20px;
+        margin: 0 0 4px;
+        gap: 8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow-x: visible;
+        flex-wrap: nowrap;
+      }
+      .filter-btn {
+        padding: 9px 12px;
+        font-size: 0.78rem;
+        gap: 7px;
+        justify-content: flex-start;
+      }
+      .filter-btn .filter-icon { width: 22px; height: 22px; flex-shrink: 0; }
+      .filter-btn .filter-icon svg { width: 11px; height: 11px; }
+      .filter-btn .filter-label {
+        flex: 1;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .filter-btn .pill {
+        font-size: 0.62rem;
+        padding: 1px 6px;
+        min-width: 18px;
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+      /* If we end up with odd number of filter buttons, last one spans 2 cols */
+      .filters > :last-child:nth-child(odd) {
+        grid-column: span 2;
+      }
+
+      /* CHIP-BAR — clear sections with labels above chips */
+      .chip-bar {
+        padding: 0 20px;
+        margin: 0 auto 14px;
+        gap: 16px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .chip-group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+      }
+      .chip-group-label {
+        flex: 0 0 100%;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--fg-muted);
+        margin: 0 0 4px;
+      }
+      .chip {
+        flex-shrink: 0;
+        font-size: 0.74rem;
+        padding: 6px 11px;
+      }
+
+      /* RESULTS META */
+      .results-meta {
+        padding: 0 20px;
+        margin: 4px auto 10px;
+        font-size: 0.74rem;
+      }
+
+      /* PROD GRID & CARD — keep 2 cols, tighten, padding for sticky quote bar */
+      .prod-grid {
+        padding: 0 20px 110px;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+      }
+      .prod-card { border-radius: 14px; }
+      .prod-img-wrap { aspect-ratio: 1 / 1; }
+      .prod-body {
+        padding: 12px 12px 14px;
+        gap: 6px;
+      }
+      .prod-name {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        min-height: 2.6em;
+      }
+      .prod-meta { font-size: 0.68rem; gap: 6px; }
+      .prod-meta .dim { padding: 2px 6px; font-size: 0.66rem; }
+      .prod-price { font-size: 0.95rem; }
+      .prod-price-currency { font-size: 0.68rem; }
+      .prod-add {
+        width: 28px;
+        height: 28px;
+        top: 10px;
+        right: 10px;
+      }
+      .prod-add svg { width: 13px; height: 13px; }
+
+      /* QUOTE BAR — cleaner inline layout */
+      .quote-bar {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 14px;
+        gap: 12px;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+      .quote-bar-info {
+        width: auto;
+        flex: 1;
+        min-width: 0;
+        gap: 2px;
+      }
+      .quote-bar-count {
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .quote-bar-count strong {
+        font-size: inherit;
+        font-weight: 700;
+      }
+      .quote-bar-meta {
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .quote-bar-actions {
+        width: auto;
+        justify-content: flex-end;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .qb-btn {
+        padding: 9px 12px;
+        font-size: 0.8rem;
+      }
+      .qb-btn svg { width: 13px; height: 13px; }
+
+      /* OVERLAY — product detail. Bigger image area, smaller view-toggle */
+      .overlay-content {
+        padding: 16px 20px 56px;
+        gap: 22px;
+        grid-template-columns: 1fr;
+      }
+      .overlay-img-side {
+        padding: 20px;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+        border-radius: 16px;
+        position: relative;
+        top: auto;
+      }
+      .overlay-img-side img {
+        max-height: 100%;
+        max-width: 100%;
+      }
+      .view-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 2px;
+      }
+      .view-toggle button {
+        font-size: 0.6rem;
+        padding: 5px 8px;
+      }
+      .view-toggle button svg { width: 10px; height: 10px; }
+      .view-3d-hint { font-size: 0.62rem; bottom: 8px; }
+      .ov-title { font-size: clamp(1.5rem, 6.5vw, 1.85rem); line-height: 1.1; }
+      .ov-desc { font-size: 0.9rem; line-height: 1.65; }
+      .ov-price { font-size: 1.4rem; }
+      .ov-3d { height: 100%; max-height: 100%; }
+      .tex-swatches { bottom: 10px; padding: 4px 6px; gap: 4px; }
+      .tex-swatches button { width: 22px; height: 22px; }
+
+      /* OVERLAY RELATED — arrows visible on mobile (top-right of section) */
+      .ov-related-section {
+        padding: 40px 20px;
+        position: relative;
+      }
+      .ov-related-head {
+        margin-bottom: 24px;
+        padding-right: 100px;
+      }
+      .ov-related-title { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+      .ov-related-carousel { position: relative; }
+      .ov-related-grid {
+        gap: 12px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .ov-related-card {
+        flex: 0 0 calc((100% - 24px) / 2.2);
+        min-width: 140px;
+      }
+      .ov-rel-arrow {
+        display: flex !important;
+        position: absolute;
+        top: 36px;
+        bottom: auto;
+        transform: none;
+        width: 38px;
+        height: 38px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        z-index: 5;
+      }
+      .ov-rel-arrow svg { width: 16px; height: 16px; }
+      .ov-rel-arrow-left { left: auto; right: 70px; }
+      .ov-rel-arrow-right { right: 20px; }
+
+      /* CONFIRM + QUOTE MODAL */
+      .confirm-card,
+      .quote-modal-card { padding: 24px 20px; border-radius: 16px; }
+      .confirm-title { font-size: 1.15rem; }
+      .confirm-text { font-size: 0.88rem; }
+
+      /* FLOATING CONTACT */
+      .floating-contact { bottom: 18px; right: 16px; }
+      body.quote-visible .floating-contact { bottom: 88px; }
+    }
+
+    @media (max-width: 400px) {
+      .page-head { padding: 88px 16px 14px; }
+      .toolbar, .filters, .chip-bar, .results-meta, .prod-grid { padding-left: 16px; padding-right: 16px; }
+      .prod-grid { gap: 8px; padding-bottom: 100px; }
+      .prod-body { padding: 10px 10px 12px; }
+      .prod-name { font-size: 0.8rem; min-height: 2.4em; }
+      .prod-meta { font-size: 0.65rem; }
+      .prod-price { font-size: 0.9rem; }
+      .filter-btn { padding: 6px 10px; font-size: 0.72rem; }
+      .chip { padding: 5px 9px; font-size: 0.7rem; }
+      .quote-bar { left: 8px; right: 8px; bottom: 8px; padding: 10px 12px; }
+      .quote-bar-info { gap: 0; }
+      .qb-btn { padding: 8px 12px; font-size: 0.78rem; }
+      .overlay-content { padding: 14px 16px 48px; }
+      .overlay-img-side { padding: 16px; }
     }
   </style>
 </head>
@@ -1750,17 +2377,37 @@
       </button>
     </div>
     <ul class="mobile-drawer-links">
-      <li><a href="index.html">Početna</a></li>
-      <li><a href="proizvodi.html">Proizvodi</a></li>
-      <li><a href="index.html#galerija">Galerija</a></li>
-      <li><a href="index.html#process">Proces</a></li>
-      <li><a href="index.html#faq">Pitanja</a></li>
-      <li><a href="index.html#contact">Kontakt</a></li>
+      <li><a href="index.html"><span class="mdl-num">01</span><span class="mdl-text">Početna</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="proizvodi.html"><span class="mdl-num">02</span><span class="mdl-text">Proizvodi</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#galerija"><span class="mdl-num">03</span><span class="mdl-text">Galerija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#process"><span class="mdl-num">04</span><span class="mdl-text">Proces</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#faq"><span class="mdl-num">05</span><span class="mdl-text">Pitanja</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#contact"><span class="mdl-num">06</span><span class="mdl-text">Kontakt</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
     </ul>
-    <a href="planer.html" class="mobile-drawer-cta">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      Otvori 3D Planer
-    </a>
+    <div class="mobile-drawer-footer">
+      <a href="planer.html" class="mobile-drawer-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Otvori 3D Planer
+      </a>
+      <div class="mobile-drawer-contact">
+        <a href="tel:+381611444021" class="mdc-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><span class="mdc-label">Pozovite nas</span><span class="mdc-val">061 144 4021</span></span>
+        </a>
+        <a href="https://maps.google.com/?q=Matejeva%C4%8Dki+put+94+Ni%C5%A1" target="_blank" rel="noopener" class="mdc-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><span class="mdc-label">Posetite radionicu</span><span class="mdc-val">Matejevački put 94, Niš</span></span>
+        </a>
+      </div>
+      <div class="mobile-drawer-social">
+        <a href="https://www.instagram.com/eldo_design_namestaj_" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/EldoDesignNis1" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+      </div>
+    </div>
   </aside>
 
   <header class="page-head">
@@ -1777,8 +2424,67 @@
       <input id="searchInput" type="search" placeholder="Pretraga proizvoda…" />
     </div>
     <div class="toolbar-spacer"></div>
-    <div class="sort-wrap">
-      <select class="sort-select" id="sortSelect" aria-label="Sortiraj">
+    <div class="sort-wrap" id="sortWrap">
+      <button type="button" class="sort-trigger" id="sortTrigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Sortiraj">
+        <span class="sort-trigger-label">
+          <svg class="sort-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13"/><path d="M3 12h9"/><path d="M3 18h5"/><path d="M17 9v9"/><path d="M14 15l3 3 3-3"/></svg>
+          <span class="sort-trigger-text" id="sortValue">Po popularnosti</span>
+        </span>
+        <svg class="sort-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="sort-menu" id="sortMenu" role="listbox" aria-labelledby="sortTrigger">
+        <button type="button" class="sort-option active" data-value="popular" role="option" aria-selected="true">
+          <span class="sort-opt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <span class="sort-opt-body">
+            <span class="sort-opt-title">Po popularnosti</span>
+            <span class="sort-opt-sub">Najprodavaniji prvi</span>
+          </span>
+          <svg class="sort-opt-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+        <button type="button" class="sort-option" data-value="price-asc" role="option" aria-selected="false">
+          <span class="sort-opt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><polyline points="6 11 12 5 18 11"/></svg>
+          </span>
+          <span class="sort-opt-body">
+            <span class="sort-opt-title">Cena: rastuća</span>
+            <span class="sort-opt-sub">Od najjeftinijeg</span>
+          </span>
+          <svg class="sort-opt-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+        <button type="button" class="sort-option" data-value="price-desc" role="option" aria-selected="false">
+          <span class="sort-opt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><polyline points="6 13 12 19 18 13"/></svg>
+          </span>
+          <span class="sort-opt-body">
+            <span class="sort-opt-title">Cena: opadajuća</span>
+            <span class="sort-opt-sub">Od najskupljeg</span>
+          </span>
+          <svg class="sort-opt-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+        <button type="button" class="sort-option" data-value="name" role="option" aria-selected="false">
+          <span class="sort-opt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16h6"/><path d="M7 4v12"/><path d="M5 8l2-4 2 4"/><path d="M14 20h6"/><path d="M14 14h6l-6 6"/></svg>
+          </span>
+          <span class="sort-opt-body">
+            <span class="sort-opt-title">Naziv A–Ž</span>
+            <span class="sort-opt-sub">Abecedni redosled</span>
+          </span>
+          <svg class="sort-opt-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+        <button type="button" class="sort-option" data-value="width" role="option" aria-selected="false">
+          <span class="sort-opt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6v12"/><path d="M21 6v12"/><path d="M3 12h18"/><path d="M6 9l-3 3 3 3"/><path d="M18 9l3 3-3 3"/></svg>
+          </span>
+          <span class="sort-opt-body">
+            <span class="sort-opt-title">Po širini</span>
+            <span class="sort-opt-sub">Manje širine prve</span>
+          </span>
+          <svg class="sort-opt-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+      <select class="sort-select-hidden" id="sortSelect" aria-hidden="true" tabindex="-1">
         <option value="popular">Po popularnosti</option>
         <option value="price-asc">Cena: rastuća</option>
         <option value="price-desc">Cena: opadajuća</option>
@@ -1788,7 +2494,9 @@
     </div>
   </div>
 
-  <div class="filters" id="filters">
+  <div class="filter-section">
+    <div class="filter-section-label">Kategorije</div>
+    <div class="filters" id="filters">
     <button class="filter-btn active" data-cat="all">
       <span class="filter-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
@@ -1796,6 +2504,7 @@
       <span class="filter-label">Sve kategorije</span>
       <span class="pill" id="pillAll">0</span>
     </button>
+  </div>
   </div>
 
   <div class="chip-bar" id="chipBar">
@@ -1979,7 +2688,15 @@
         <div class="ov-related-eyebrow">Iz iste kategorije</div>
         <h3 class="ov-related-title">Slično / Možda vam treba</h3>
       </div>
-      <div class="ov-related-grid" id="ovRelated"></div>
+      <div class="ov-related-carousel">
+        <button type="button" class="ov-rel-arrow ov-rel-arrow-left" id="ovRelPrev" aria-label="Prethodno">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="ov-related-grid" id="ovRelated"></div>
+        <button type="button" class="ov-rel-arrow ov-rel-arrow-right" id="ovRelNext" aria-label="Sledeće">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
     </section>
   </div>
 
@@ -2215,11 +2932,61 @@
       render();
     });
 
-    // Sort dropdown
-    document.getElementById('sortSelect').addEventListener('change', (e) => {
-      activeSort = e.target.value;
-      render();
-    });
+    // Sort dropdown (custom)
+    (function () {
+      const wrap = document.getElementById('sortWrap');
+      const trigger = document.getElementById('sortTrigger');
+      const menu = document.getElementById('sortMenu');
+      const valueEl = document.getElementById('sortValue');
+      const hidden = document.getElementById('sortSelect');
+      const labels = {
+        'popular': 'Po popularnosti',
+        'price-asc': 'Cena: rastuća',
+        'price-desc': 'Cena: opadajuća',
+        'name': 'Naziv A–Ž',
+        'width': 'Po širini',
+      };
+
+      function open() {
+        menu.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+      function close() {
+        menu.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+      function setValue(val) {
+        activeSort = val;
+        hidden.value = val;
+        valueEl.textContent = labels[val] || val;
+        menu.querySelectorAll('.sort-option').forEach(opt => {
+          const isActive = opt.dataset.value === val;
+          opt.classList.toggle('active', isActive);
+          opt.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        render();
+      }
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (menu.classList.contains('open')) close(); else open();
+      });
+      menu.addEventListener('click', (e) => {
+        const opt = e.target.closest('.sort-option');
+        if (!opt) return;
+        setValue(opt.dataset.value);
+        close();
+      });
+      document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          close();
+          trigger.focus();
+        }
+      });
+    })();
 
     // Quote bar — update visibility, count, total
     function updateQuoteUI() {
@@ -2520,7 +3287,7 @@
       if (p.width) {
         pool.sort((a, b) => Math.abs((a.width || 0) - p.width) - Math.abs((b.width || 0) - p.width));
       }
-      const items = pool.slice(0, 6);
+      const items = pool.slice(0, 20);
 
       if (items.length === 0) {
         section.style.display = 'none';
@@ -2544,7 +3311,44 @@
           </button>
         `;
       }).join('');
+
+      // Reset scroll + update arrow states
+      container.scrollLeft = 0;
+      requestAnimationFrame(updateRelArrows);
     }
+
+    // Carousel navigation
+    function updateRelArrows() {
+      const c = document.getElementById('ovRelated');
+      const prev = document.getElementById('ovRelPrev');
+      const next = document.getElementById('ovRelNext');
+      if (!c || !prev || !next) return;
+      const max = c.scrollWidth - c.clientWidth;
+      prev.disabled = c.scrollLeft <= 2;
+      next.disabled = c.scrollLeft >= max - 2;
+    }
+    document.getElementById('ovRelPrev').addEventListener('click', (e) => {
+      const c = document.getElementById('ovRelated');
+      const card = c.querySelector('.ov-related-card');
+      const step = card ? card.getBoundingClientRect().width + 16 : c.clientWidth * 0.8;
+      c.scrollBy({ left: -step, behavior: 'smooth' });
+      const btn = e.currentTarget;
+      btn.classList.remove('pulse-fire');
+      void btn.offsetWidth;
+      btn.classList.add('pulse-fire');
+    });
+    document.getElementById('ovRelNext').addEventListener('click', (e) => {
+      const c = document.getElementById('ovRelated');
+      const card = c.querySelector('.ov-related-card');
+      const step = card ? card.getBoundingClientRect().width + 16 : c.clientWidth * 0.8;
+      c.scrollBy({ left: step, behavior: 'smooth' });
+      const btn = e.currentTarget;
+      btn.classList.remove('pulse-fire');
+      void btn.offsetWidth;
+      btn.classList.add('pulse-fire');
+    });
+    document.getElementById('ovRelated').addEventListener('scroll', updateRelArrows);
+    window.addEventListener('resize', updateRelArrows);
 
     document.getElementById('ovRelated').addEventListener('click', (e) => {
       // Quick-add button has higher priority than card click

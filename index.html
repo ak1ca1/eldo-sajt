@@ -559,40 +559,74 @@
     .mobile-drawer-close svg { width: 18px; height: 18px; }
     .mobile-drawer-links {
       list-style: none;
-      padding: 32px 0 0;
+      padding: 24px 0 0;
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      flex: 1;
     }
+    .mobile-drawer-links li { border-bottom: 1px solid var(--border); }
+    .mobile-drawer-links li:first-child { border-top: 1px solid var(--border); }
     .mobile-drawer-links a {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
+      gap: 18px;
       padding: 18px 4px;
       color: var(--white);
       text-decoration: none;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      border-bottom: 1px solid var(--border);
-      transition: color 0.2s, padding-left 0.2s;
+      transition: color 0.2s ease, padding-left 0.25s ease;
+      border-bottom: 0;
     }
     .mobile-drawer-links a:hover, .mobile-drawer-links a:focus-visible {
       color: var(--copper-lt);
       padding-left: 12px;
       outline: none;
     }
-    .mobile-drawer-links a::after {
-      content: '→';
-      font-family: system-ui, sans-serif;
-      font-size: 1.125rem;
+    .mdl-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--copper-lt);
+      font-variant-numeric: tabular-nums;
+      padding-top: 6px;
+      align-self: start;
+    }
+    .mdl-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+    }
+    .mdl-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       color: var(--copper);
-      opacity: 0.7;
+      flex-shrink: 0;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .mdl-arrow svg { width: 14px; height: 14px; }
+    .mobile-drawer-links a:hover .mdl-arrow {
+      background: var(--copper-glow-30);
+      border-color: var(--copper-glow-50);
+      transform: translateX(2px);
+    }
+
+    .mobile-drawer-footer {
+      padding-top: 28px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
     .mobile-drawer-cta {
-      margin-top: 32px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -606,6 +640,71 @@
       border-radius: 999px;
       box-shadow: 0 4px 14px var(--copper-glow-40);
     }
+    .mobile-drawer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .mdc-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 4px;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .mdc-line:hover { color: var(--copper-lt); }
+    .mdc-line svg {
+      width: 18px;
+      height: 18px;
+      color: var(--copper);
+      flex-shrink: 0;
+    }
+    .mdc-line > span:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.25;
+    }
+    .mdc-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+    }
+    .mdc-val {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: inherit;
+    }
+    .mobile-drawer-social {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .mobile-drawer-social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--nav-pill-bg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .mobile-drawer-social a:hover {
+      background: var(--copper-glow-30);
+      color: var(--copper-lt);
+      border-color: var(--copper-glow-50);
+    }
+    .mobile-drawer-social svg { width: 18px; height: 18px; }
 
     @media (max-width: 860px) {
       nav { padding: 0 20px; height: 68px; grid-template-columns: auto 1fr auto; }
@@ -1180,6 +1279,8 @@
       background: hsla(225, 28%, 14%, 0.85);
       color: #fff;
     }
+    /* Inline count (mobile-only — shown via @media) */
+    .product-count-inline { display: none; }
 
     /* CTA banner below products */
     .products-cta {
@@ -1731,21 +1832,23 @@
     .gallery-grid {
       max-width: 1320px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      columns: 3;
+      column-gap: 18px;
     }
     .gal-card {
       position: relative;
-      aspect-ratio: 4 / 3;
+      display: block;
+      width: 100%;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border);
       background: var(--bg3);
       cursor: pointer;
       padding: 0;
+      margin: 0 0 18px;
       font-family: inherit;
       color: inherit;
+      break-inside: avoid;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gal-card:hover {
@@ -1753,14 +1856,20 @@
       box-shadow: 0 16px 40px var(--shadow-deep-2);
     }
     .gal-img {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
       transition: transform 0.6s ease;
     }
-    .gal-card:hover .gal-img { transform: scale(1.06); }
+    .gal-img img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+    .gal-card:hover .gal-img { transform: scale(1.04); }
     .gal-placeholder {
       color: hsla(0, 0%, 100%, 0.4);
       font-size: 0.875rem;
@@ -1851,18 +1960,28 @@
     }
     .lb-close:hover { background: var(--copper-glow-30); border-color: var(--copper-glow-50); }
     .lb-content {
-      max-width: 1100px;
+      max-width: 1180px;
       width: 100%;
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
+      grid-template-columns: 1.5fr 1fr;
       gap: 24px;
       align-items: stretch;
     }
     .lb-img {
-      aspect-ratio: 4 / 3;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      max-height: 82vh;
+    }
+    .lb-img img {
+      display: block;
+      max-width: 100%;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
       border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
     }
     .lb-info {
       background: var(--contact-card-bg);
@@ -1872,7 +1991,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 10px;
+      gap: 14px;
+    }
+    .lb-loc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
     .lb-loc {
       font-size: 0.6875rem;
@@ -1881,6 +2006,13 @@
       text-transform: uppercase;
       color: var(--copper-lt);
     }
+    .lb-count {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--fg-muted);
+      font-variant-numeric: tabular-nums;
+    }
     .lb-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.875rem;
@@ -1888,23 +2020,60 @@
       color: var(--white);
       letter-spacing: -0.01em;
       line-height: 1.15;
+      margin: 0;
+    }
+    .lb-desc {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--fg);
+      margin: 6px 0 0;
     }
     .lb-tags {
-      font-size: 0.9375rem;
+      font-size: 0.8125rem;
+      letter-spacing: 0.04em;
       color: var(--fg-muted);
       line-height: 1.55;
-      padding-top: 12px;
+      padding-top: 14px;
       border-top: 1px solid var(--border);
-      margin-top: 8px;
+      margin-top: 6px;
     }
+    .lb-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1002;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .lb-nav:hover {
+      background: var(--copper-glow-30);
+      border-color: var(--copper-glow-50);
+    }
+    .lb-prev { left: 24px; }
+    .lb-next { right: 24px; }
 
     @media (max-width: 900px) {
       .gallery-sec { padding: 72px 32px; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .lb-content { grid-template-columns: 1fr; max-width: 600px; }
+      .gallery-grid { columns: 2; }
+      .lb-content { grid-template-columns: 1fr; max-width: 640px; }
+      .lb-img, .lb-img img { max-height: 52vh; }
+      .lb-info { padding: 24px; gap: 10px; }
+      .lb-title { font-size: 1.5rem; }
+      .lb-nav { width: 40px; height: 40px; }
+      .lb-prev { left: 12px; }
+      .lb-next { right: 12px; }
     }
     @media (max-width: 560px) {
-      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid { columns: 1; }
     }
 
     /* ── FAQ ── */
@@ -2150,6 +2319,243 @@
       section { padding: 56px 18px; }
       .footer-top { padding: 0; }
     }
+
+    /* ─── MOBILE FINE-TUNING (phones) ─── */
+    @media (max-width: 640px) {
+      /* HERO — tighter, more breathing room */
+      .hero {
+        min-height: auto;
+        padding: 92px 20px 52px;
+        gap: 32px;
+      }
+      .hero-tag { margin-bottom: 18px; }
+      .hero h1 {
+        font-size: clamp(2rem, 8.4vw, 2.5rem);
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin-bottom: 18px;
+      }
+      .hero h1 br { display: none; }
+      .hero h1 span { display: inline; }
+      .hero-desc {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        margin-bottom: 26px;
+      }
+      .hero-actions { margin-bottom: 32px; }
+      .hero-3d {
+        aspect-ratio: 4 / 3;
+        height: auto;
+        max-height: 340px;
+        border-radius: 18px;
+      }
+      .hero-3d img.hero-img { border-radius: 18px; }
+
+      /* HERO STATS — tighter row, smaller text but legible */
+      .hero-stats {
+        gap: 14px;
+        padding-top: 26px;
+        margin-top: 0;
+        flex-wrap: nowrap;
+      }
+      .hero-stats > .stat-item {
+        flex: 1 1 0;
+        min-width: 0;
+        text-align: center;
+      }
+      .stat-icon { margin-bottom: 6px; }
+      .stat-icon svg { width: 16px; height: 16px; }
+      .stat-val { font-size: 1.5rem; line-height: 1.1; }
+      .stat-val span { font-size: 0.8rem; }
+      .stat-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.06em;
+        line-height: 1.3;
+      }
+
+      /* SECTION HEADERS */
+      .section-title {
+        font-size: clamp(1.65rem, 7vw, 2rem);
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+      .section-tag { font-size: 0.7rem; letter-spacing: 0.16em; }
+      .section-sub { font-size: 0.9375rem; line-height: 1.6; }
+
+      /* FEATURES — keep 2x2 but tighter, badge on its own row to avoid overlap */
+      .features-header { margin-bottom: 40px; }
+      .feature-card { padding: 22px 18px; display: flex; flex-direction: column; }
+      .feat-badge {
+        position: static;
+        align-self: flex-start;
+        font-size: 0.58rem;
+        padding: 3px 9px;
+        margin-bottom: 14px;
+      }
+      .feature-icon { width: 40px; height: 40px; margin-bottom: 14px; }
+      .feature-title { font-size: 1rem; margin-bottom: 8px; }
+      .feature-desc { font-size: 0.85rem; line-height: 1.55; }
+
+      /* PRODUCTS — switch to 2 cols compact on phones (more browsable) */
+      .products-header { margin-bottom: 32px; }
+      .products-header .section-sub { font-size: 0.9rem; }
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .product-img { height: 132px; }
+      .product-body { padding: 14px 12px 14px; position: relative; }
+      .product-name {
+        font-size: 0.86rem;
+        gap: 6px;
+        letter-spacing: -0.015em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .pcat-icon { width: 22px; height: 22px; flex-shrink: 0; }
+      .pcat-icon svg { width: 12px; height: 12px; }
+      .product-name-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+      /* Show product count as subtle text inline on mobile */
+      .product-count-inline {
+        display: block;
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--copper-lt);
+        font-weight: 700;
+        margin-bottom: 4px;
+        opacity: 0.85;
+      }
+      .product-desc {
+        font-size: 0.76rem;
+        line-height: 1.45;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .product-count {
+        display: none;
+      }
+      .product-link { font-size: 0.78rem; gap: 4px; }
+      .product-link svg { width: 12px; height: 12px; }
+
+      /* GALLERY */
+      .gallery-sec { padding: 64px 20px; }
+      .gallery-head { margin-bottom: 32px; max-width: 100%; }
+      .gallery-head .section-title br { display: none; }
+      .gal-overlay { padding: 16px; }
+      .gal-loc { font-size: 0.6rem; letter-spacing: 0.12em; }
+      .gal-name { font-size: 1rem; line-height: 1.2; }
+      .gal-tags { font-size: 0.72rem; letter-spacing: 0.02em; }
+      .gallery-foot { margin-top: 24px; }
+      .gal-note { font-size: 0.82rem; }
+
+      /* PROCESS */
+      #process { padding: 64px 20px !important; }
+      .process-steps { gap: 24px; max-width: 100%; }
+      .step { padding: 24px 20px; }
+      .step-num { width: 56px; height: 56px; }
+      .step-num span { font-size: 1.4rem; }
+      .step-icon { width: 26px; height: 26px; }
+      .step-title { font-size: 1.05rem; margin-top: 12px; }
+      .step-desc { font-size: 0.88rem; line-height: 1.55; }
+
+      /* PLANNER CTA */
+      .planner-cta { padding: 56px 20px !important; }
+      .planner-cta model-viewer.planner-viewer {
+        height: 260px;
+        margin-bottom: 24px;
+      }
+      .planner-cta .section-sub {
+        font-size: 0.95rem;
+        margin-bottom: 28px;
+      }
+
+      /* FAQ */
+      .faq-sec { padding: 56px 20px; }
+      .faq-head { margin-bottom: 32px; }
+      .faq-item summary {
+        padding: 18px 18px;
+        font-size: 0.92rem;
+        gap: 12px;
+        line-height: 1.4;
+      }
+      .faq-body { padding: 0 18px 18px; font-size: 0.88rem; line-height: 1.6; }
+      .faq-icon svg { width: 16px; height: 16px; }
+
+      /* CONTACT */
+      .contact-sec { padding: 56px 18px; }
+      .contact-head { margin-bottom: 32px; }
+      .contact-head h2 { font-size: clamp(1.6rem, 7vw, 1.95rem); }
+      .contact-sub { font-size: 0.95rem; }
+      .contact-card, .contact-form { padding: 22px 18px; }
+      .contact-card-title { font-size: 0.92rem; letter-spacing: 0.14em; }
+      .ci-icon { width: 32px; height: 32px; flex-shrink: 0; }
+      .ci-icon svg { width: 14px; height: 14px; }
+      .ci-val { font-size: 0.9rem; }
+      .ci-val a { font-size: 0.9rem; }
+      .contact-list li { gap: 12px; padding: 12px 0; }
+      .contact-list li strong { font-size: 0.72rem; }
+      .ci-social { gap: 10px; flex-wrap: wrap; }
+      .ci-social a { font-size: 0.82rem; padding: 6px 10px; }
+      .map-wrap { aspect-ratio: 4 / 3; height: auto; min-height: 200px; }
+      .cf-row { gap: 6px; }
+      .cf-row label { font-size: 0.82rem; }
+      .cf-row input, .cf-row textarea {
+        font-size: 16px;
+        padding: 12px 14px;
+      }
+      .cf-submit { padding: 14px 22px; font-size: 0.95rem; }
+
+      /* FOOTER */
+      footer { padding: 48px 22px 24px; }
+      .footer-top { gap: 28px; }
+      .footer-brand img { height: 36px; margin-bottom: 14px; }
+      .footer-brand p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 18px; }
+      .footer-social { gap: 10px; }
+      .footer-col h4 { font-size: 0.78rem; margin-bottom: 14px; letter-spacing: 0.14em; }
+      .footer-col a, .footer-col li { font-size: 0.9rem; line-height: 1.9; }
+      .footer-bottom { font-size: 0.78rem; padding-top: 22px; margin-top: 28px; }
+
+      /* NAV */
+      nav { height: 64px; }
+      .nav-logo img { height: 36px; }
+
+      /* FLOATING CONTACT — sit above cookie banner */
+      .floating-contact { bottom: 18px; right: 16px; }
+      body.cookie-visible .floating-contact { bottom: 100px; }
+    }
+
+    @media (max-width: 400px) {
+      .hero { padding: 88px 16px 40px; gap: 26px; }
+      .hero-tag { font-size: 0.68rem; padding: 5px 10px; }
+      .hero h1 { font-size: 1.95rem; letter-spacing: -0.03em; }
+      .hero-desc { font-size: 0.9rem; margin-bottom: 22px; }
+      .hero-actions .btn-primary, .hero-actions .btn-outline {
+        padding: 13px 18px; font-size: 0.92rem;
+      }
+      .hero-stats { gap: 8px; padding-top: 22px; }
+      .stat-val { font-size: 1.3rem; }
+      .stat-val span { font-size: 0.7rem; }
+      .stat-label { font-size: 0.58rem; }
+      section { padding: 56px 16px; }
+      .gallery-sec { padding: 56px 16px; }
+      .contact-sec { padding: 48px 14px; }
+      #process { padding: 56px 16px !important; }
+      .planner-cta { padding: 48px 16px !important; }
+      .faq-sec { padding: 48px 16px; }
+      .products-grid { gap: 8px; }
+      .product-img { height: 116px; }
+      .product-body { padding: 12px 10px; }
+      .product-name { font-size: 0.86rem; }
+      .pcat-icon { width: 22px; height: 22px; }
+      .product-desc { font-size: 0.72rem; -webkit-line-clamp: 2; }
+      .product-link { font-size: 0.72rem; }
+      .footer-top { padding: 0; }
+      .section-title { font-size: clamp(1.55rem, 7.5vw, 1.85rem); }
+    }
   </style>
 </head>
 <body>
@@ -2202,16 +2608,36 @@
       </button>
     </div>
     <ul class="mobile-drawer-links">
-      <li><a href="proizvodi.html">Proizvodi</a></li>
-      <li><a href="#galerija">Galerija</a></li>
-      <li><a href="#process">Proces</a></li>
-      <li><a href="#faq">Pitanja</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="proizvodi.html"><span class="mdl-num">01</span><span class="mdl-text">Proizvodi</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#galerija"><span class="mdl-num">02</span><span class="mdl-text">Galerija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#process"><span class="mdl-num">03</span><span class="mdl-text">Proces</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#faq"><span class="mdl-num">04</span><span class="mdl-text">Pitanja</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#contact"><span class="mdl-num">05</span><span class="mdl-text">Kontakt</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
     </ul>
-    <a href="planer.html" class="mobile-drawer-cta">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      Otvori 3D Planer
-    </a>
+    <div class="mobile-drawer-footer">
+      <a href="planer.html" class="mobile-drawer-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Otvori 3D Planer
+      </a>
+      <div class="mobile-drawer-contact">
+        <a href="tel:+381611444021" class="mdc-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><span class="mdc-label">Pozovite nas</span><span class="mdc-val">061 144 4021</span></span>
+        </a>
+        <a href="https://maps.google.com/?q=Matejeva%C4%8Dki+put+94+Ni%C5%A1" target="_blank" rel="noopener" class="mdc-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><span class="mdc-label">Posetite radionicu</span><span class="mdc-val">Matejevački put 94, Niš</span></span>
+        </a>
+      </div>
+      <div class="mobile-drawer-social">
+        <a href="https://www.instagram.com/eldo_design_namestaj_" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/EldoDesignNis1" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+      </div>
+    </div>
   </aside>
 
   <section class="hero" id="home">
@@ -2392,60 +2818,60 @@
     <div class="gallery-head">
       <div class="section-tag">Realizacije</div>
       <h2 class="section-title">Naše kuhinje<br/>u domovima klijenata</h2>
-      <p class="section-sub" style="max-width:540px;">Svaka kuhinja je unikat. Pogledajte primere realizacija — od minimalističkih bez ručica do toplih klasičnih kombinacija drveta i mermera.</p>
+      <p class="section-sub" style="max-width:560px;">Svaka kuhinja je unikat, prilagođena prostoru i navikama klijenta. Pogledajte naše realizacije — kombinacije hrasta, belog mat lakiranja, mermernih ploča i pažljivo biranih detalja.</p>
     </div>
     <div class="gallery-grid">
-      <button class="gal-card" data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80" data-title="Bela minimalistička kuhinja" data-loc="Niš · 2024" data-tags="Bez ručica · Mermer · Ostrvo">
-        <div class="gal-img" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80'); background-size: cover; background-position: center;"></div>
+      <button class="gal-card" data-img="assets/gallery/realizacija-3.png" data-title="Hrast & beli mat — linijska" data-loc="Niš · 2024" data-tags="Hrast · Beli mat · Otvoreni rafovi" data-desc="Linijska kuhinja koja spaja toplinu prirodnog hrasta na gornjim elementima i čistoću belog mat lakiranja dole. Otvoreni rafovi sa ručno rađenom keramikom daju prostoru karakter i ličnu notu.">
+        <div class="gal-img"><img src="assets/gallery/realizacija-3.png" alt="Linijska kuhinja u hrastu i belom mat lakiranju" loading="lazy"/></div>
         <div class="gal-overlay">
           <div class="gal-loc">Niš · 2024</div>
-          <div class="gal-name">Bela minimalistička</div>
-          <div class="gal-tags">Bez ručica · Mermer · Ostrvo</div>
+          <div class="gal-name">Hrast & beli mat</div>
+          <div class="gal-tags">Hrast · Beli mat · Otvoreni rafovi</div>
         </div>
       </button>
-      <button class="gal-card" data-img="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1200&q=80" data-title="Kuhinja u hrastu" data-loc="Niš · 2024" data-tags="Hrast · Crni granit · L raspored">
-        <div class="gal-img" style="background-image: url('https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1200&q=80'); background-size: cover; background-position: center;"></div>
+      <button class="gal-card" data-img="assets/gallery/realizacija-5.png" data-title="Sivi L-raspored sa mermerom" data-loc="Niš · 2024" data-tags="Mat siva · Mermerna ploča · Visoki ormar" data-desc="L-raspored u toplim sivim mat tonovima sa svetlom mermernom radnom pločom. Visoki ormar sa ugradnom rernom i mikrotalasnom maksimalno koristi vertikalu, a LED traka ispod gornjih elemenata pruža toplo radno osvetljenje.">
+        <div class="gal-img"><img src="assets/gallery/realizacija-5.png" alt="L kuhinja u sivim mat tonovima sa mermernom radnom pločom" loading="lazy"/></div>
         <div class="gal-overlay">
           <div class="gal-loc">Niš · 2024</div>
-          <div class="gal-name">Topli hrast</div>
-          <div class="gal-tags">Hrast · Crni granit · L raspored</div>
+          <div class="gal-name">Sivi L-raspored</div>
+          <div class="gal-tags">Mat siva · Mermer · LED</div>
         </div>
       </button>
-      <button class="gal-card" data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" data-title="Tamna mat kuhinja" data-loc="Beograd · 2024" data-tags="Antracit mat · LED · Aspirator otoka">
-        <div class="gal-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80'); background-size: cover; background-position: center;"></div>
-        <div class="gal-overlay">
-          <div class="gal-loc">Beograd · 2024</div>
-          <div class="gal-name">Antracit mat</div>
-          <div class="gal-tags">Antracit mat · LED · Aspirator otoka</div>
-        </div>
-      </button>
-      <button class="gal-card" data-img="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80" data-title="Kombinacija bele i drveta" data-loc="Niš · 2023" data-tags="Bela mat · Hrast · Klasičan raspored">
-        <div class="gal-img" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80'); background-size: cover; background-position: center;"></div>
-        <div class="gal-overlay">
-          <div class="gal-loc">Niš · 2023</div>
-          <div class="gal-name">Bela i hrast</div>
-          <div class="gal-tags">Bela mat · Hrast · Klasičan raspored</div>
-        </div>
-      </button>
-      <button class="gal-card" data-img="https://images.unsplash.com/photo-1565183997392-2f6f122e5912?w=1200&q=80" data-title="Maslinasto zelena" data-loc="Niška Banja · 2023" data-tags="Mat zelena · Mesing · Stakleni gornji">
-        <div class="gal-img" style="background-image: url('https://images.unsplash.com/photo-1565183997392-2f6f122e5912?w=1200&q=80'); background-size: cover; background-position: center;"></div>
-        <div class="gal-overlay">
-          <div class="gal-loc">Niška Banja · 2023</div>
-          <div class="gal-name">Maslinasta klasika</div>
-          <div class="gal-tags">Mat zelena · Mesing · Stakleni gornji</div>
-        </div>
-      </button>
-      <button class="gal-card" data-img="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200&q=80" data-title="Mala stan kuhinja" data-loc="Niš · 2024" data-tags="Bela sjaj · Kompakt · 2.4m">
-        <div class="gal-img" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200&q=80'); background-size: cover; background-position: center;"></div>
+      <button class="gal-card" data-img="assets/gallery/realizacija-1.png" data-title="Topli hrast — kompakt 2.4m" data-loc="Niš · 2024" data-tags="Hrast · Beli mat · Kompakt 2.4m" data-desc="Kompaktna linijska kuhinja dužine 2.4m — savršeno rešenje za stanove i manje prostore. Hrast gornji elementi i sjajni beli donji deluju prozračno i toplo istovremeno, a integrisani frižider i rerna ostavljaju maksimum radne površine.">
+        <div class="gal-img"><img src="assets/gallery/realizacija-1.png" alt="Kompaktna kuhinja sa hrast gornjim i belim donjim elementima" loading="lazy"/></div>
         <div class="gal-overlay">
           <div class="gal-loc">Niš · 2024</div>
-          <div class="gal-name">Kompakt linijska</div>
-          <div class="gal-tags">Bela sjaj · Kompakt · 2.4m</div>
+          <div class="gal-name">Topli hrast kompakt</div>
+          <div class="gal-tags">Hrast · Beli mat · 2.4m</div>
+        </div>
+      </button>
+      <button class="gal-card" data-img="assets/gallery/realizacija-6.png" data-title="Kuhinja-trpezarija sa hrastom" data-loc="Niš · 2024" data-tags="Hrast · Beli mat · Trpezarijski set" data-desc="Otvorena kuhinja sa povezanim trpezarijskim setom u rustikalno-modernom stilu. Hrast plafonske grede, beli mat donji elementi i masivna hrast radna ploča stvaraju topao porodični prostor — uz hrast trpezarijski sto i stolice u kompletu.">
+        <div class="gal-img"><img src="assets/gallery/realizacija-6.png" alt="Kuhinja sa trpezarijom u hrastu i belom" loading="lazy"/></div>
+        <div class="gal-overlay">
+          <div class="gal-loc">Niš · 2024</div>
+          <div class="gal-name">Kuhinja & trpezarija</div>
+          <div class="gal-tags">Hrast · Beli mat · Sto u kompletu</div>
+        </div>
+      </button>
+      <button class="gal-card" data-img="assets/gallery/realizacija-4.png" data-title="Bela mat linija sa hrast pločom" data-loc="Niš · 2024" data-tags="Beli mat · Hrast radna ploča · Linijska" data-desc="Čista linijska kompozicija u belom mat lakiranju sa hrast radnom pločom i betonskom backsplash tablom. Crne mat ručice i ugradni aparati zaokružuju moderan, bezvremen izgled koji se uklapa u svaki prostor.">
+        <div class="gal-img"><img src="assets/gallery/realizacija-4.png" alt="Bela mat linijska kuhinja sa hrast radnom pločom" loading="lazy"/></div>
+        <div class="gal-overlay">
+          <div class="gal-loc">Niš · 2024</div>
+          <div class="gal-name">Bela mat linija</div>
+          <div class="gal-tags">Beli mat · Hrast · Linijska</div>
+        </div>
+      </button>
+      <button class="gal-card" data-img="assets/gallery/realizacija-2.png" data-title="Kupatilski element — beli sjaj" data-loc="Niš · 2024" data-tags="Beli sjaj · Hrast · Kupatilo" data-desc="Sanitarni element izveden u istom dizajnerskom jeziku kao kuhinja — sjajno beli lakirani fronti, hrast radna ploča sa integrisanim lavaboom i crne mat ručice. Dokaz da Eldo radi mnogo više od kuhinja.">
+        <div class="gal-img"><img src="assets/gallery/realizacija-2.png" alt="Element za kupatilo u belom sjaju sa hrast radnom pločom" loading="lazy"/></div>
+        <div class="gal-overlay">
+          <div class="gal-loc">Niš · 2024</div>
+          <div class="gal-name">Kupatilo — beli sjaj</div>
+          <div class="gal-tags">Beli sjaj · Hrast · Kupatilo</div>
         </div>
       </button>
     </div>
     <div class="gallery-foot">
-      <p class="gal-note">Slike su demonstracioni primeri — zamenićemo ih fotografijama vaših realizacija.</p>
+      <p class="gal-note">Galerija se kontinuirano dopunjava novim realizacijama.</p>
     </div>
   </section>
 
@@ -2454,11 +2880,21 @@
     <button class="lb-close" id="lbClose" aria-label="Zatvori">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Prethodna">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Sledeća">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
     <div class="lb-content">
-      <div class="lb-img" id="lbImg"></div>
+      <div class="lb-img" id="lbImg"><img id="lbImgEl" alt=""/></div>
       <div class="lb-info">
-        <div class="lb-loc" id="lbLoc"></div>
+        <div class="lb-loc-row">
+          <span class="lb-loc" id="lbLoc"></span>
+          <span class="lb-count" id="lbCount"></span>
+        </div>
         <div class="lb-title" id="lbTitle"></div>
+        <p class="lb-desc" id="lbDesc"></p>
         <div class="lb-tags" id="lbTags"></div>
       </div>
     </div>
@@ -2798,38 +3234,69 @@
       }, { threshold: 0.25 });
       io.observe(processSteps);
     })();
+    // Mirror product count as inline subtitle (visible on mobile)
+    document.querySelectorAll('.product-card').forEach(card => {
+      const count = card.querySelector('.product-count')?.textContent;
+      const body = card.querySelector('.product-body');
+      if (count && body && !body.querySelector('.product-count-inline')) {
+        const inline = document.createElement('span');
+        inline.className = 'product-count-inline';
+        inline.textContent = count;
+        body.insertBefore(inline, body.firstChild);
+      }
+    });
+
     // Lightbox za galeriju
-    const lb = document.getElementById('lightbox');
-    document.querySelectorAll('.gal-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const imgUrl = card.dataset.img;
-        document.getElementById('lbImg').style.backgroundImage = `url('${imgUrl}')`;
-        document.getElementById('lbImg').style.backgroundSize = 'cover';
-        document.getElementById('lbImg').style.backgroundPosition = 'center';
-        document.getElementById('lbImg').innerHTML = '';
-        document.getElementById('lbLoc').textContent = card.dataset.loc;
-        document.getElementById('lbTitle').textContent = card.dataset.title;
-        document.getElementById('lbTags').textContent = card.dataset.tags;
+    (function () {
+      const lb = document.getElementById('lightbox');
+      const lbImgEl = document.getElementById('lbImgEl');
+      const lbLoc = document.getElementById('lbLoc');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbTags = document.getElementById('lbTags');
+      const lbDesc = document.getElementById('lbDesc');
+      const lbCount = document.getElementById('lbCount');
+      const lbPrev = document.getElementById('lbPrev');
+      const lbNext = document.getElementById('lbNext');
+      const lbClose = document.getElementById('lbClose');
+      const cards = Array.from(document.querySelectorAll('.gal-card'));
+      let idx = 0;
+
+      function render(i) {
+        const card = cards[i];
+        if (!card) return;
+        idx = i;
+        lbImgEl.src = card.dataset.img;
+        lbImgEl.alt = card.dataset.title || '';
+        lbLoc.textContent = card.dataset.loc || '';
+        lbTitle.textContent = card.dataset.title || '';
+        lbDesc.textContent = card.dataset.desc || '';
+        lbTags.textContent = card.dataset.tags || '';
+        lbCount.textContent = (i + 1) + ' / ' + cards.length;
+      }
+      function open(i) {
+        render(i);
         lb.classList.add('open');
         document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      function next() { render((idx + 1) % cards.length); }
+      function prev() { render((idx - 1 + cards.length) % cards.length); }
+
+      cards.forEach((card, i) => card.addEventListener('click', () => open(i)));
+      lbClose.addEventListener('click', close);
+      lbPrev.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+      lbNext.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+      lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowRight') next();
+        else if (e.key === 'ArrowLeft') prev();
       });
-    });
-    document.getElementById('lbClose').addEventListener('click', () => {
-      lb.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-    lb.addEventListener('click', (e) => {
-      if (e.target === lb) {
-        lb.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lb.classList.contains('open')) {
-        lb.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
+    })();
 
     // Theme toggle (works on all .theme-toggle buttons — main nav + drawer)
     (function () {
