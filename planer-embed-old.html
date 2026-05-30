@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ELDO DESIGN — Planer Kuhinje</title>
+    <link rel="icon" type="image/png" href="assets/eldo-logo.png" />
+    <!-- Module scripts resolved against current URL at parse time -->
+    <script type="module" crossorigin src="assets/index-v4.js"></script>
+    <link rel="modulepreload" crossorigin href="assets/three-B7l1MQV4.js">
+    <link rel="modulepreload" crossorigin href="assets/react-three-iwEP098R.js">
+    <link rel="stylesheet" crossorigin href="assets/index-D-pWloVi.css">
+    <!-- Classic script runs before modules execute — sets up patches -->
+    <script>
+    (function() {
+      var base = window.location.href.replace(/\/[^\/]*(\?.*)?$/, '/');
+      var pathname = new URL(base).pathname; // e.g. "/v1/design/projects/.../serve/"
+
+      // Tell the patched BrowserRouter (in the bundle) to treat this path as
+      // the app root. The bundle reads window.__planerBasename to set its
+      // <BrowserRouter basename={...}> prop.
+      window.__planerBasename = pathname.replace(/\/$/, '');
+      window.__planerBase = base;
+
+      // Back-button href.
+      var backHref = base + 'index.html';
+      function patchBack() {
+        var btn = document.querySelector('.eldo-back-btn');
+        if (btn) btn.setAttribute('href', backHref);
+      }
+      if (document.readyState !== 'loading') patchBack();
+      else document.addEventListener('DOMContentLoaded', patchBack);
+
+      // 1d. Move the back button into the sidebar header once it appears.
+      var moveBtnObserver = new MutationObserver(function() {
+        var btn = document.querySelector('.eldo-back-btn');
+        var logo = document.querySelector('img[alt="Eldo Design"]');
+        var header = logo && logo.closest('.px-5.py-5');
+        if (btn && header && btn.parentElement !== header) {
+          header.appendChild(btn);
+        }
+      });
+      moveBtnObserver.observe(document.documentElement, {childList:true, subtree:true});
+
+      // 2. Intercept fetch — rewrite /models/ and /textures/ to full paths
+      var origFetch = window.fetch.bind(window);
+      window.fetch = function(url, opts) {
+        if (typeof url === 'string') {
+          if (url.startsWith('/models/') || url.startsWith('/textures/')) {
+            url = base + url.slice(1);
+          }
+        }
+        return origFetch(url, opts);
+      };
+
+      // 3. Intercept XMLHttpRequest for Three.js loaders
+      var origOpen = XMLHttpRequest.prototype.open;
+      XMLHttpRequest.prototype.open = function(method, url) {
+        if (typeof url === 'string') {
+          if (url.startsWith('/models/') || url.startsWith('/textures/')) {
+            url = base + url.slice(1);
+          }
+        }
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = url;
+        return origOpen.apply(this, args);
+      };
+
+      // 4. Fix image src paths via MutationObserver
+      var fixImgSrc = function(el) {
+        if(el.tagName === 'IMG' && el.src) {
+          var src = el.getAttribute('src') || '';
+          if(src.startsWith('/assets/') || src.startsWith('/models/') || src.startsWith('/textures/')) {
+            el.src = base + src.slice(1);
+          }
+        }
+      };
+      // 4b. Fix inline `style="background: url(/textures/...)"` URLs.
+      var fixBgUrl = function(el) {
+        if (el.nodeType !== 1) return;
+        var s = el.getAttribute && el.getAttribute('style');
+        if (!s) return;
+        if (s.indexOf('url("/textures/') === -1 && s.indexOf("url('/textures/") === -1 &&
+            s.indexOf('url(/textures/') === -1 && s.indexOf('url("/assets/') === -1 &&
+            s.indexOf('url(/assets/') === -1 && s.indexOf('url("/models/') === -1) return;
+        var fixed = s.replace(/url\((['"]?)\/(textures|assets|models)\//g,
+                              'url($1' + base + '$2/');
+        if (fixed !== s) el.setAttribute('style', fixed);
+      };
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          m.addedNodes.forEach(function(node) {
+            if(node.nodeType === 1) {
+              fixImgSrc(node);
+              fixBgUrl(node);
+              node.querySelectorAll && node.querySelectorAll('img').forEach(fixImgSrc);
+              node.querySelectorAll && node.querySelectorAll('[style]').forEach(fixBgUrl);
+            }
+          });
+          if(m.type === 'attributes') {
+            if (m.target.tagName === 'IMG') fixImgSrc(m.target);
+            if (m.attributeName === 'style') fixBgUrl(m.target);
+          }
+        });
+      });
+      observer.observe(document.documentElement, {childList:true, subtree:true, attributes:true, attributeFilter:['src','style']});
+
+    })();
+    </script>
+    <style>
+      /* Inline back button — injected into the sidebar header next to "Planer Kuhinje" */
+      .eldo-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+        padding: 6px 11px 6px 9px;
+        margin-left: auto;
+        background: hsla(225, 25%, 12%, 0.6);
+        border: 1px solid hsla(30, 72%, 50%, 0.22);
+        border-radius: 999px;
+        color: hsl(30, 60%, 78%);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        font-size: 11.5px;
+        font-weight: 500;
+        letter-spacing: -0.005em;
+        text-decoration: none;
+        transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+      }
+      .eldo-back-btn:hover {
+        color: hsl(30, 80%, 88%);
+        border-color: hsla(30, 72%, 55%, 0.5);
+        background: hsla(225, 25%, 14%, 0.85);
+      }
+      .eldo-back-btn:hover svg { transform: translateX(-2px); }
+      .eldo-back-btn svg {
+        flex-shrink: 0;
+        transition: transform 0.18s ease;
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="eldo-back-btn" aria-label="Nazad">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Nazad
+    </a>
+    <div id="root"></div>
+  </body>
+</html>

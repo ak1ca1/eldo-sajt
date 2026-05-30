@@ -85,8 +85,10 @@
 <body>
   <div class="label">390 × 780 — mobile preview</div>
   <div class="toolbar" id="pageBar" style="background:#3a3a3a;">
-    <button data-page="index.html" class="active">Početna stranica</button>
-    <button data-page="proizvodi.html">Proizvodi katalog</button>
+    <button data-page="index.html" class="active">Početna</button>
+    <button data-page="proizvodi.html">Proizvodi</button>
+    <button data-page="o-nama.html">O nama</button>
+    <button data-page="garancija.html">Garancija</button>
   </div>
   <div class="toolbar" id="toolbar">
     <button data-target="home" class="active">Vrh</button>
@@ -116,6 +118,7 @@
       [...pb.querySelectorAll('button')].forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       f.src = btn.dataset.page;
+      // Section jump toolbar only relevant on the homepage
       tb.style.display = btn.dataset.page === 'index.html' ? '' : 'none';
     });
 

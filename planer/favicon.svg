@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  
+  <rect width="64" height="64" rx="8" fill="#1a1a2e"></rect>
+  
+  
+  <polyline points="14,14 14,10 28,10" fill="none" stroke="#c0884a" stroke-width="2.5" stroke-linecap="square"></polyline>
+  
+  <polyline points="50,14 50,10 36,10" fill="none" stroke="#c0884a" stroke-width="2.5" stroke-linecap="square"></polyline>
+  
+  <polyline points="14,40 14,44 28,44" fill="none" stroke="#c0884a" stroke-width="2.5" stroke-linecap="square"></polyline>
+  
+  <polyline points="50,40 50,44 36,44" fill="none" stroke="#c0884a" stroke-width="2.5" stroke-linecap="square"></polyline>
+  
+  <text x="32" y="32" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="13" fill="#c0884a" text-anchor="middle" letter-spacing="1">ELDO</text>
+  
+  <text x="32" y="54" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="7" fill="#c0884a" text-anchor="middle" letter-spacing="0.5">DESIGN</text>
+</svg>

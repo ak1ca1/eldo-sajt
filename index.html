@@ -2,6 +2,7 @@
 <html lang="sr">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>
     // Keep user's scroll position on refresh
@@ -25,77 +26,181 @@
     /* Loading skeleton — visible immediately before main CSS parses */
     .skeleton-loader {
       position: fixed; inset: 0; z-index: 9999;
-      background: hsl(225, 25%, 9%); display: flex;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 42%, hsla(30, 72%, 50%, 0.06), transparent 70%),
+        hsl(225, 25%, 9%);
+      display: flex;
       align-items: center; justify-content: center;
-      flex-direction: column; gap: 28px;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      flex-direction: column; gap: 26px;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
-    [data-theme="light"] .skeleton-loader { background: hsl(35, 30%, 97%); }
+    [data-theme="light"] .skeleton-loader {
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 42%, hsla(30, 72%, 50%, 0.08), transparent 70%),
+        hsl(35, 30%, 97%);
+    }
     .skeleton-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
     .sk-logo-wrap {
       position: relative;
-      width: 120px; height: 120px;
+      width: 116px; height: 116px;
       display: flex; align-items: center; justify-content: center;
-      animation: sk-breathe 2.4s ease-in-out infinite;
+      animation: sk-breathe 3s ease-in-out infinite;
     }
     .sk-logo-wrap img {
-      width: 78px; height: auto;
-      filter: drop-shadow(0 4px 14px hsla(30, 72%, 50%, 0.35));
+      width: 74px; height: auto;
+      filter: drop-shadow(0 6px 18px hsla(30, 72%, 50%, 0.4));
       position: relative; z-index: 2;
+      animation: sk-logo-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
-    /* Spinning copper arc around the logo */
+    /* Dual rotating copper arcs */
     .sk-logo-wrap::before {
       content: '';
       position: absolute; inset: 0;
       border-radius: 50%;
       border: 2px solid transparent;
-      border-top-color: hsl(30, 72%, 55%);
-      border-right-color: hsla(30, 72%, 55%, 0.4);
-      animation: sk-spin 1.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      border-top-color: hsl(30, 72%, 56%);
+      border-right-color: hsla(30, 72%, 56%, 0.35);
+      animation: sk-spin 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
-    /* Soft glow behind logo */
     .sk-logo-wrap::after {
       content: '';
-      position: absolute; inset: 14px;
+      position: absolute; inset: 12px;
       border-radius: 50%;
-      background: radial-gradient(circle, hsla(30, 72%, 55%, 0.18) 0%, transparent 70%);
-      animation: sk-pulse 2.4s ease-in-out infinite;
-      z-index: 1;
+      border: 1.5px solid transparent;
+      border-bottom-color: hsla(30, 72%, 60%, 0.5);
+      border-left-color: hsla(30, 72%, 60%, 0.2);
+      animation: sk-spin-rev 2.2s linear infinite;
     }
-    @keyframes sk-spin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes sk-spin { to { transform: rotate(360deg); } }
+    @keyframes sk-spin-rev { to { transform: rotate(-360deg); } }
     @keyframes sk-breathe {
       0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.04); }
+      50%      { transform: scale(1.05); }
     }
-    @keyframes sk-pulse {
-      0%, 100% { opacity: 0.4; transform: scale(0.9); }
-      50%      { opacity: 1;   transform: scale(1.1); }
+    @keyframes sk-logo-in {
+      from { opacity: 0; transform: scale(0.7); }
+      to   { opacity: 1; transform: scale(1); }
     }
 
+    .sk-textwrap {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      animation: sk-text-in 0.7s ease 0.15s both;
+    }
+    @keyframes sk-text-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
     .sk-text {
       font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-      font-size: 0.875rem;
-      letter-spacing: 0.32em;
+      font-size: 1.5rem;
+      letter-spacing: 0.34em;
       text-transform: uppercase;
-      color: hsla(30, 72%, 55%, 0.85);
+      color: hsl(30, 72%, 60%);
       font-weight: 500;
-      animation: sk-fade 1.8s ease-in-out infinite;
+      padding-left: 0.34em;
     }
-    @keyframes sk-fade {
-      0%, 100% { opacity: 0.45; }
-      50%      { opacity: 1; }
+    .sk-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: hsla(220, 12%, 70%, 0.7);
+      padding-left: 0.42em;
+    }
+    [data-theme="light"] .sk-sub { color: hsla(220, 14%, 35%, 0.7); }
+
+    /* Progress bar */
+    .sk-bar {
+      width: 160px; height: 2px;
+      border-radius: 2px;
+      background: hsla(30, 72%, 55%, 0.15);
+      overflow: hidden;
+      position: relative;
+      animation: sk-text-in 0.7s ease 0.3s both;
+    }
+    .sk-bar::after {
+      content: '';
+      position: absolute; inset: 0;
+      width: 40%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, transparent, hsl(30, 72%, 56%), transparent);
+      animation: sk-load 1.3s ease-in-out infinite;
+    }
+    @keyframes sk-load {
+      0%   { left: -40%; }
+      100% { left: 100%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .sk-logo-wrap, .sk-logo-wrap::after, .sk-logo-wrap::before, .sk-text {
+      .sk-logo-wrap, .sk-logo-wrap::after, .sk-logo-wrap::before,
+      .sk-logo-wrap img, .sk-textwrap, .sk-bar, .sk-bar::after {
         animation: none;
       }
     }
   </style>
-  <title>Eldo Design — Kuhinje po meri u Nišu</title>
+  <title>Montažne kuhinje i kuhinjski elementi — Eldo Design Niš</title>
+
+  <!-- SEO meta -->
+  <meta name="description" content="Eldo Design — montažne kuhinje u Nišu od proverenih elemenata. Birate iz asortimana, mi sklapamo i montiramo. Besplatno merenje, 3D planer, isporuka i montaža. Pozovite 061/144-4021." />
+  <meta name="keywords" content="kuhinje Niš, montažne kuhinje, kuhinjski elementi, montažne kuhinje Niš, kuhinjski elementi Niš, 3D planer kuhinje, nameštaj Niš, Eldo Design, donji elementi, gornji elementi, radne ploče" />
+  <meta name="author" content="Eldo Design" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#16181f" />
+  <meta name="geo.region" content="RS" />
+  <meta name="geo.placename" content="Niš" />
+  <meta name="geo.position" content="43.334058;21.93771" />
+  <meta name="ICBM" content="43.334058, 21.93771" />
+  <link rel="canonical" href="https://eldodesign.rs/" />
+
+  <!-- Open Graph (Viber / Facebook / Instagram link preview) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Eldo Design" />
+  <meta property="og:title" content="Eldo Design — Montažne kuhinje u Nišu" />
+  <meta property="og:description" content="Spajamo proverene gotove elemente u kuhinje koje funkcionišu. Besplatno merenje, 3D planer, isporuka i montaža. Niš i okolina." />
+  <meta property="og:url" content="https://eldodesign.rs/" />
+  <meta property="og:image" content="https://eldodesign.rs/assets/hero-kitchen.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="sr_RS" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Eldo Design — Montažne kuhinje u Nišu" />
+  <meta name="twitter:description" content="Spajamo proverene gotove elemente u kuhinje koje funkcionišu. Besplatno merenje i 3D planer." />
+  <meta name="twitter:image" content="https://eldodesign.rs/assets/hero-kitchen.jpg" />
+
+  <!-- LocalBusiness Schema.org (Google Maps / lokalna pretraga) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FurnitureStore",
+    "name": "Eldo Design",
+    "image": "https://eldodesign.rs/assets/hero-kitchen.jpg",
+    "@id": "https://eldodesign.rs/",
+    "url": "https://eldodesign.rs/",
+    "telephone": "+381611444021",
+    "priceRange": "$$",
+    "description": "Montažne kuhinje u Nišu — spajamo proverene elemente u kuhinje koje funkcionišu. Besplatno merenje, 3D planer, isporuka i montaža.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Matejevački put 94",
+      "addressLocality": "Niš",
+      "postalCode": "18000",
+      "addressCountry": "RS"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.334058,
+      "longitude": 21.93771
+    },
+    "areaServed": "Niš i okolina",
+    "sameAs": [
+      "https://www.instagram.com/eldo_design_namestaj_/",
+      "https://www.facebook.com/EldoDesignNis1"
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
@@ -458,6 +563,31 @@
     }
     .nav-cta:active { transform: translateY(0); }
 
+    /* ── BUTTON MICRO-INTERACTIONS (ripple + press) ── */
+    .btn-primary, .btn-outline, .nav-cta, .cf-submit,
+    .products-cta, .faq-cta-btn, .g-claim-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .eldo-ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      background: rgba(255, 255, 255, 0.4);
+      pointer-events: none;
+      animation: eldoRipple 0.6s ease-out;
+      z-index: 0;
+    }
+    @keyframes eldoRipple {
+      to { transform: scale(2.6); opacity: 0; }
+    }
+    .btn-primary:active, .cf-submit:active, .nav-cta:active,
+    .g-claim-btn:active { transform: scale(0.96) translateY(0); }
+    .btn-outline:active { transform: scale(0.97); }
+    @media (prefers-reduced-motion: reduce) {
+      .eldo-ripple { display: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .nav-cta::before, .nav-cta::after { animation: none; opacity: 0; }
     }
@@ -771,6 +901,7 @@
     }
 
     .hero h1 span {
+      display: block;
       background: linear-gradient(135deg, var(--copper) 0%, var(--copper-lt) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -2074,6 +2205,162 @@
     }
     @media (max-width: 560px) {
       .gallery-grid { columns: 1; }
+
+      /* Touch: overlay text always fully visible (no hover) */
+      .gal-overlay {
+        background: linear-gradient(180deg,
+          transparent 30%,
+          var(--gal-fade-mid) 60%,
+          var(--gal-fade-end) 100%) !important;
+        padding: 18px;
+      }
+      .gal-name { font-size: 1.05rem; }
+      .gal-loc { font-size: 0.62rem; }
+      .gal-tags { font-size: 0.72rem; }
+
+      /* Lightbox — full-app feel on phones */
+      .lightbox {
+        padding: 0;
+        align-items: stretch;
+      }
+      .lb-content {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 56px 16px 100px;
+        overflow-y: auto;
+      }
+      .lb-img {
+        background: transparent;
+        border: 0;
+        flex: 0 0 auto;
+        max-height: 46vh;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .lb-img img {
+        max-height: 46vh;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+      .lb-info {
+        background: transparent;
+        border: 0;
+        padding: 20px 4px 0;
+        flex: 1;
+        gap: 10px;
+      }
+      .lb-loc-row {
+        gap: 8px;
+      }
+      .lb-loc { font-size: 0.62rem; letter-spacing: 0.18em; }
+      .lb-count {
+        font-size: 0.62rem;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        padding: 3px 9px;
+        border-radius: 999px;
+      }
+      .lb-title {
+        font-size: 1.5rem;
+        line-height: 1.15;
+        margin-top: 2px;
+      }
+      .lb-desc {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin: 4px 0;
+      }
+      .lb-tags {
+        font-size: 0.78rem;
+        padding-top: 12px;
+      }
+      .lb-close {
+        top: 14px;
+        right: 14px;
+        width: 38px;
+        height: 38px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        z-index: 1003;
+      }
+      .lb-close svg { width: 18px; height: 18px; }
+      /* Prev/next as bottom-side floating buttons (thumb-reach) */
+      .lb-nav {
+        position: fixed;
+        top: auto;
+        bottom: 22px;
+        width: 48px;
+        height: 48px;
+        background: var(--bg2);
+        border: 1px solid var(--copper-glow-30);
+        box-shadow: 0 6px 18px hsla(225, 40%, 5%, 0.3);
+        transform: none;
+      }
+      .lb-nav svg { width: 18px; height: 18px; }
+      .lb-prev { left: 16px; }
+      .lb-next { right: 16px; }
+    }
+
+    /* ── O NAMA ── */
+    .about-sec {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 96px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-img {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 4 / 3;
+      position: relative;
+    }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-text .section-tag { margin-bottom: 14px; }
+    .about-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+    .about-text p.muted { color: var(--fg-muted); font-size: 0.95rem; }
+    .about-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 24px;
+      margin-top: 28px;
+    }
+    .about-point { display: flex; gap: 12px; align-items: flex-start; }
+    .about-point svg { width: 22px; height: 22px; color: var(--copper-lt); flex-shrink: 0; margin-top: 2px; }
+    .about-point-t { font-size: 0.92rem; font-weight: 700; color: var(--fg); letter-spacing: -0.005em; }
+    .about-point-d { font-size: 0.82rem; color: var(--fg-muted); line-height: 1.5; margin-top: 2px; }
+    @media (max-width: 900px) {
+      .about-sec { grid-template-columns: 1fr; gap: 32px; padding: 72px 32px; }
+      .about-img { order: -1; }
+    }
+    @media (max-width: 640px) {
+      .about-sec { padding: 56px 20px; gap: 26px; }
+      .about-text h2 { font-size: clamp(1.7rem, 7vw, 2.1rem); }
+      .about-text p { font-size: 0.95rem; }
+      .about-points { grid-template-columns: 1fr; gap: 14px; margin-top: 22px; }
     }
 
     /* ── FAQ ── */
@@ -2261,6 +2548,7 @@
       justify-content: space-between;
       align-items: center;
       padding-top: 28px;
+      padding-right: 72px;
       border-top: 1px solid var(--border);
       font-size: 0.8125rem;
       color: var(--fg-muted);
@@ -2441,14 +2729,37 @@
       .product-link { font-size: 0.78rem; gap: 4px; }
       .product-link svg { width: 12px; height: 12px; }
 
-      /* GALLERY */
+      /* GALLERY — stronger overlay + text-shadow for readability */
       .gallery-sec { padding: 64px 20px; }
       .gallery-head { margin-bottom: 32px; max-width: 100%; }
       .gallery-head .section-title br { display: none; }
-      .gal-overlay { padding: 16px; }
-      .gal-loc { font-size: 0.6rem; letter-spacing: 0.12em; }
-      .gal-name { font-size: 1rem; line-height: 1.2; }
-      .gal-tags { font-size: 0.72rem; letter-spacing: 0.02em; }
+      .gal-overlay {
+        padding: 16px;
+        background: linear-gradient(180deg,
+          transparent 0%,
+          hsla(225, 40%, 5%, 0.35) 35%,
+          hsla(225, 40%, 5%, 0.85) 75%,
+          hsla(225, 40%, 5%, 0.95) 100%);
+      }
+      .gal-loc {
+        font-size: 0.6rem;
+        letter-spacing: 0.16em;
+        color: #f5c992;
+        text-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.6);
+      }
+      .gal-name {
+        font-size: 1.05rem;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 1px 6px hsla(0, 0%, 0%, 0.7);
+      }
+      .gal-tags {
+        font-size: 0.74rem;
+        color: hsla(0, 0%, 100%, 0.85);
+        letter-spacing: 0.02em;
+        text-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.6);
+      }
       .gallery-foot { margin-top: 24px; }
       .gal-note { font-size: 0.82rem; }
 
@@ -2536,7 +2847,21 @@
       .contact-list li strong { font-size: 0.72rem; }
       .ci-social { gap: 10px; flex-wrap: wrap; }
       .ci-social a { font-size: 0.82rem; padding: 6px 10px; }
-      .map-wrap { aspect-ratio: 4 / 3; height: auto; min-height: 200px; }
+      .map-wrap {
+        aspect-ratio: 1 / 1;
+        height: auto;
+        min-height: 240px;
+        max-height: 340px;
+        width: 100%;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .map-wrap iframe {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border: 0;
+      }
       .cf-row { gap: 6px; }
       .cf-row label { font-size: 0.82rem; }
       .cf-row input, .cf-row textarea {
@@ -2560,7 +2885,10 @@
       .nav-logo img { height: 36px; }
 
       /* FLOATING CONTACT — sit above cookie banner */
-      .floating-contact { bottom: 18px; right: 16px; }
+      /* fc-clickfix */
+    .floating-contact { pointer-events: none; }
+    .floating-contact .fc-btn, .floating-contact .fc-menu { pointer-events: auto; }
+    .floating-contact { bottom: 18px; right: 16px; }
       body.cookie-visible .floating-contact { bottom: 100px; }
     }
 
@@ -2601,7 +2929,11 @@
     <div class="sk-logo-wrap">
       <img src="assets/logo.png" alt="Eldo Design" />
     </div>
-    <div class="sk-text">ELDO DESIGN</div>
+    <div class="sk-textwrap">
+      <div class="sk-text">Eldo Design</div>
+      <div class="sk-sub">Montažne kuhinje · Niš</div>
+    </div>
+    <div class="sk-bar"></div>
   </div>
 
   <!-- NAV -->
@@ -2610,7 +2942,10 @@
       <img src="assets/logo.png" alt="Eldo Design" />
     </a>
     <ul class="nav-links">
+      <li><a href="#home" class="active">Početna</a></li>
       <li><a href="proizvodi.html">Proizvodi</a></li>
+      <li><a href="garancija.html">Garancija</a></li>
+      <li><a href="o-nama.html">O nama</a></li>
       <li><a href="#galerija">Galerija</a></li>
       <li><a href="#process">Proces</a></li>
       <li><a href="#faq">Pitanja</a></li>
@@ -2621,7 +2956,7 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
-      <a href="planer.html" class="nav-cta">
+      <a href="planer/index.html" class="nav-cta">
         <span class="nav-cta-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </span>
@@ -2644,14 +2979,17 @@
       </button>
     </div>
     <ul class="mobile-drawer-links">
-      <li><a href="proizvodi.html"><span class="mdl-num">01</span><span class="mdl-text">Proizvodi</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="#galerija"><span class="mdl-num">02</span><span class="mdl-text">Galerija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="#process"><span class="mdl-num">03</span><span class="mdl-text">Proces</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="#faq"><span class="mdl-num">04</span><span class="mdl-text">Pitanja</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="#contact"><span class="mdl-num">05</span><span class="mdl-text">Kontakt</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#home"><span class="mdl-num">01</span><span class="mdl-text">Početna</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="proizvodi.html"><span class="mdl-num">02</span><span class="mdl-text">Proizvodi</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="garancija.html"><span class="mdl-num">03</span><span class="mdl-text">Garancija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="o-nama.html"><span class="mdl-num">04</span><span class="mdl-text">O nama</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#galerija"><span class="mdl-num">05</span><span class="mdl-text">Galerija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#process"><span class="mdl-num">06</span><span class="mdl-text">Proces</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#faq"><span class="mdl-num">07</span><span class="mdl-text">Pitanja</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="#contact"><span class="mdl-num">08</span><span class="mdl-text">Kontakt</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
     </ul>
     <div class="mobile-drawer-footer">
-      <a href="planer.html" class="mobile-drawer-cta">
+      <a href="planer/index.html" class="mobile-drawer-cta">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Otvori 3D Planer
       </a>
@@ -2678,11 +3016,11 @@
 
   <section class="hero" id="home">
     <div class="hero-text">
-      <div class="hero-tag">Kuhinje od proverenih elemenata</div>
-      <h1>Kuhinja koja<br/><span>priča vašu priču</span></h1>
-      <p class="hero-desc">Spajamo proverene gotove elemente u kuhinje koje stvarno funkcionišu. Birate iz našeg asortimana, mi sastavljamo i montiramo — brzo, pouzdano, bez čekanja na izradu po meri.</p>
+      <div class="hero-tag">Montažne kuhinje · Niš</div>
+      <h1>Kuhinja koja <span>priča vašu priču</span></h1>
+      <p class="hero-desc">Eldo Design sklapa <strong>montažne kuhinje u Nišu</strong> — spajamo proverene gotove elemente u kuhinje koje stvarno funkcionišu. Birate iz našeg asortimana, mi sastavljamo i montiramo — brzo, pouzdano, bez čekanja na izradu po meri.</p>
       <div class="hero-actions">
-        <a href="planer.html" class="btn-primary">
+        <a href="planer/index.html" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           Dizajnirajte kuhinju
         </a>
@@ -2728,7 +3066,7 @@
     <div class="features-header">
       <div class="section-tag">Zašto Eldo Design</div>
       <h2 class="section-title">Kvalitet koji se<br/>ne kompromituje</h2>
-      <p class="section-sub">Svaka kuhinja je jedinstvena. Pristupamo svakom projektu sa istom pažnjom — od prvog skice do ugradnje poslednje police.</p>
+      <p class="section-sub">Svaka kuhinja je jedinstvena. Pristupamo svakom projektu u Nišu sa istom pažnjom — od prve skice do ugradnje poslednje police.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card">
@@ -2773,7 +3111,7 @@
         <div class="section-tag">Kolekcija</div>
         <h2 class="section-title">Naši proizvodi</h2>
       </div>
-      <p class="section-sub" style="max-width:340px;">Od donjih do gornjih elemenata, radnih ploča i ugradbenih uređaja — sve na jednom mestu.</p>
+      <p class="section-sub" style="max-width:340px;">Kuhinjski elementi — od donjih do gornjih, radne ploče i ugradbeni uređaji — sve na jednom mestu.</p>
     </div>
 
     <!-- 3 KATEGORIJE -->
@@ -2936,6 +3274,8 @@
     </div>
   </div>
 
+  
+
   <!-- PROCESS -->
   <section style="background: var(--bg2); border-top: 1px solid var(--border);" id="process">
     <div style="text-align:center; margin-bottom: 0;">
@@ -2965,7 +3305,7 @@
         <div class="step-num"><span>4</span></div>
         <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
         <div class="step-title">Ugradnja</div>
-        <p class="step-desc">Naš tim dolazi i montira kuhinju. Čistimo za sobom i predajemo vam ključ gotove kuhinje.</p>
+        <p class="step-desc">Naš tim dolazi i montira kuhinju. Čistimo za sobom i predajemo vam ključ vaše nove kuhinje.</p>
       </div>
     </div>
   </section>
@@ -2989,7 +3329,7 @@
       <div class="section-tag">3D Planer</div>
       <h2 class="section-title">Dizajnirajte<br/>svoju kuhinju sami</h2>
       <p class="section-sub">Koristite naš interaktivni 3D planer — dodajte elemente, birajte boje i vidite rezultat u realnom vremenu. Brzo, intuitivno, besplatno.</p>
-      <a href="planer.html" class="btn-primary">
+      <a href="planer/index.html" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Pokrenite 3D planer
       </a>
@@ -3057,7 +3397,7 @@
           <span>Mogu li sam da koristim 3D planer pre poziva?</span>
           <span class="faq-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
-        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Naravno — i preporučujemo. <a href="planer.html" style="color: var(--copper-lt);">3D planer</a> vam pomaže da vizualizujete raspored pre nego što nas kontaktirate. Kad nam pošaljete vaš projekat, mi ga finiširamo i šaljemo zvaničnu ponudu.</div></div></div>
+        <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Naravno — i preporučujemo. <a href="planer/index.html" style="color: var(--copper-lt);">3D planer</a> vam pomaže da vizualizujete raspored pre nego što nas kontaktirate. Kad nam pošaljete vaš projekat, mi ga finiširamo i šaljemo zvaničnu ponudu.</div></div></div>
       </details>
     </div>
   </section>
@@ -3110,28 +3450,35 @@
         </div>
         <div class="map-wrap">
           <iframe
-            src="https://www.google.com/maps?q=Matejeva%C4%8Dki+put+94,+Ni%C5%A1&ll=43.334058,21.93771&z=17&output=embed&hl=sr"
+            src="https://www.google.com/maps?q=Matejeva%C4%8Dki+put+94,+Ni%C5%A1&ll=43.334058,21.93771&z=16&output=embed&hl=sr"
             width="100%" height="100%" style="border:0;" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Eldo Design — Matejevački put 94, Niš"></iframe>
         </div>
       </div>
-      <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.cf-thanks').classList.add('show'); this.reset();">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST"
+        onsubmit="var f=this;event.preventDefault();var b=f.querySelector('.cf-submit');b.disabled=true;var orig=b.innerHTML;b.innerHTML='Šalje se…';fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(d){if(d.success){f.querySelector('.cf-thanks').classList.add('show');f.reset();}else{alert('Greška pri slanju. Pokušajte ponovo ili nas pozovite.');}}).catch(function(){alert('Greška pri slanju. Pokušajte ponovo ili nas pozovite.');}).finally(function(){b.disabled=false;b.innerHTML=orig;});">
+        <input type="hidden" name="access_key" value="c71b40ea-2d5b-413a-ae62-e089224b07e8" />
+        <input type="hidden" name="subject" value="Novi upit sa sajta — Eldo Design" />
+        <input type="hidden" name="from_name" value="Eldo Design sajt" />
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="cf-row">
           <label for="cf-name">Vaše ime</label>
-          <input type="text" id="cf-name" name="name" required autocomplete="name" />
+          <input type="text" id="cf-name" name="Ime" required autocomplete="name"
+            oninvalid="this.setCustomValidity('Molimo unesite vaše ime.')" oninput="this.setCustomValidity('')" />
         </div>
         <div class="cf-row">
-          <label for="cf-email">Vaša e-pošta</label>
-          <input type="email" id="cf-email" name="email" required autocomplete="email" />
+          <label for="cf-email">Vaša e-pošta <span class="cf-opt">(email)</span></label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email"
+            oninvalid="this.setCustomValidity(this.value ? 'Unesite ispravnu e-poštu (npr. ime@primer.com).' : 'Molimo unesite vašu e-poštu.')" oninput="this.setCustomValidity('')" />
         </div>
         <div class="cf-row">
           <label for="cf-phone">Telefon <span class="cf-opt">(opciono)</span></label>
-          <input type="tel" id="cf-phone" name="phone" autocomplete="tel" />
+          <input type="tel" id="cf-phone" name="Telefon" autocomplete="tel" />
         </div>
         <div class="cf-row">
           <label for="cf-msg">Vaša poruka</label>
-          <textarea id="cf-msg" name="message" rows="5" placeholder="Opišite ukratko vaš prostor, ideje, ili šta vas zanima…"></textarea>
+          <textarea id="cf-msg" name="Poruka" rows="5" placeholder="Opišite ukratko vaš prostor, ideje, ili šta vas zanima…"></textarea>
         </div>
         <button type="submit" class="cf-submit">Pošalji poruku
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -3162,15 +3509,15 @@
           <li><a href="proizvodi.html">Donji elementi</a></li>
           <li><a href="proizvodi.html">Gornji elementi</a></li>
           <li><a href="proizvodi.html">Radne ploče</a></li>
-          <li><a href="planer.html">3D Planer</a></li>
+          <li><a href="planer/index.html">3D Planer</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Kompanija</h4>
         <ul>
-          <li><a href="#features">O nama</a></li>
+          <li><a href="o-nama.html">O nama</a></li>
           <li><a href="#process">Proces rada</a></li>
-          <li><a href="planer.html">3D Planer</a></li>
+          <li><a href="planer/index.html">3D Planer</a></li>
           <li><a href="#contact">Kontakt</a></li>
         </ul>
       </div>
@@ -3393,12 +3740,12 @@
   </script>
 
   <!-- Floating contact (WhatsApp / Phone) -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Vrati se na vrh">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <div class="floating-contact" id="floatingContact">
     <div class="fc-menu" id="fcMenu">
-      <a href="https://wa.me/381611444021?text=Zdravo,%20zanima%20me%20kuhinja..." target="_blank" rel="noopener" class="fc-item fc-wa">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
-        <span>WhatsApp</span>
-      </a>
       <a href="viber://chat?number=%2B381611444021" class="fc-item fc-vb">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 0C9.473.028 5.333.344 3.02 2.467 1.302 4.187.7 6.7.633 9.817c-.063 3.115-.139 8.951 5.487 10.535v2.418s-.038.978.606 1.177c.778.243 1.235-.5 1.978-1.3.408-.44.97-1.086 1.395-1.58 3.849.323 6.807-.418 7.143-.527.776-.252 5.171-.816 5.886-6.652.738-6.017-.36-9.823-2.34-11.543l-.012-.005c-.6-.55-3.005-2.302-8.375-2.321 0 0-.395-.025-1.001-.018zm.062 1.717c.515-.005.855.018.855.018 4.541.014 6.71 1.382 7.22 1.842 1.674 1.434 2.53 4.864 1.905 9.897-.599 4.876-4.16 5.184-4.817 5.394-.28.09-2.926.747-6.246.531 0 0-2.473 2.985-3.247 3.762-.12.122-.262.17-.358.144-.135-.034-.172-.193-.17-.428l.02-4.011c-4.756-1.32-4.478-6.289-4.425-8.892.054-2.6.546-4.73 1.996-6.16 1.961-1.769 5.474-2.036 7.114-2.082-.16-.005-.014-.015.013-.015zm.116 2.61c-.169-.001-.34.004-.516.018-.214.018-.394.07-.564.158-.224.116-.41.314-.484.557-.165.546.234.987.625 1.213 1.077.62 2.245 1.043 3.422 1.412.93.292 1.876.531 2.842.658 1.094.144 2.198.224 3.296.342.366.04.704-.025.93-.293a.886.886 0 0 0 .136-.85c-.156-.51-.677-.787-1.156-.92-1.61-.45-3.225-.832-4.78-1.402a13.6 13.6 0 0 1-2.18-1.07c-.495-.292-1.073-.475-1.572-.554a4.183 4.183 0 0 0-.4-.04zm.41 1.962c-.21-.005-.422.012-.625.077-.397.127-.694.482-.69.926.005.514.426.93.86 1.166.823.448 1.71.787 2.598 1.094 1.038.358 2.107.635 3.185.835.518.097 1.063.205 1.572.067a.96.96 0 0 0 .68-.836c.05-.467-.265-.886-.694-1.066-.494-.21-1.039-.273-1.555-.41-.836-.225-1.674-.45-2.501-.715-.65-.21-1.295-.444-1.962-.622a4.6 4.6 0 0 0-.868-.116zm.418 2.116c-.214.001-.426.05-.61.158-.336.197-.526.602-.46.997.073.43.444.738.83.886 1.05.402 2.158.626 3.255.825.616.111 1.253.218 1.882.116.418-.067.793-.351.881-.793.099-.493-.225-.962-.671-1.13-.626-.236-1.296-.299-1.946-.43-.756-.151-1.526-.276-2.255-.534a2.61 2.61 0 0 0-.906-.095z"/></svg>
         <span>Viber</span>
@@ -3426,6 +3773,49 @@
   </div>
 
   <style>
+    /* ── BACK TO TOP ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 96px;
+      right: 31px;
+      z-index: 250;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--copper-glow-30);
+      background: var(--bg2);
+      color: var(--copper-lt);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px hsla(225, 40%, 5%, 0.32);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.9);
+      transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.3s, background 0.2s, border-color 0.2s, color 0.2s;
+      padding: 0;
+    }
+    .back-to-top svg { width: 18px; height: 18px; transition: transform 0.3s ease; }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .back-to-top:hover {
+      background: var(--copper);
+      border-color: var(--copper);
+      color: var(--white);
+    }
+    .back-to-top:hover svg { transform: translateY(-2px); }
+    .back-to-top:active { transform: scale(0.92); }
+    /* Hide back-to-top while floating contact menu is open (prevents overlap) */
+    body:has(.fc-menu.open) .back-to-top { opacity: 0; visibility: hidden; pointer-events: none; }
+    @media (max-width: 640px) {
+      .back-to-top { bottom: 84px; right: 23px;
+        width: 40px; height: 40px;
+      }
+    }
+
     /* ── FLOATING CONTACT ── */
     .floating-contact {
       position: fixed;
@@ -3564,6 +3954,46 @@
   </style>
 
   <script>
+    // Button ripple micro-interaction
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var sel = '.btn-primary, .btn-outline, .nav-cta, .cf-submit, .products-cta, .faq-cta-btn, .g-claim-btn';
+      document.addEventListener('click', function (e) {
+        var t = e.target.closest(sel);
+        if (!t) return;
+        var r = t.getBoundingClientRect();
+        var size = Math.max(r.width, r.height);
+        var s = document.createElement('span');
+        s.className = 'eldo-ripple';
+        s.style.width = s.style.height = size + 'px';
+        s.style.left = (e.clientX - r.left - size / 2) + 'px';
+        s.style.top = (e.clientY - r.top - size / 2) + 'px';
+        t.appendChild(s);
+        setTimeout(function () { s.remove(); }, 600);
+      });
+    })();
+
+    // Back to top button
+    (function () {
+      var btn = document.getElementById('backToTop');
+      if (!btn) return;
+      function toggle() {
+        if (window.scrollY > 400) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+      }
+      window.addEventListener('scroll', toggle, { passive: true });
+      toggle();
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        try {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, 0);
+        }
+      });
+    })();
+
     // Hide skeleton when DOM ready
     (function () {
       function hide() {
@@ -3646,5 +4076,6 @@
       stats.forEach(function (s) { io.observe(s); });
     })();
   </script>
+  <script src="quote-bar.js"></script>
 </body>
 </html>

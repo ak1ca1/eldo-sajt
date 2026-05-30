@@ -2,6 +2,7 @@
 <html lang="sr">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>
     (function () {
@@ -67,9 +68,92 @@
     @media (prefers-reduced-motion: reduce) {
       .sk-logo-wrap, .sk-logo-wrap::after, .sk-logo-wrap::before, .sk-text { animation: none; }
     }
+  
+    /* ── FLOATING CONTACT ── */
+    /* fc-clickfix */
+    .floating-contact { pointer-events: none; }
+    .floating-contact .fc-btn, .floating-contact .fc-menu { pointer-events: auto; }
+    .floating-contact {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .fc-btn {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      border: 0;
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      color: var(--white);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px var(--copper-glow-50);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+    .fc-btn::before {
+      content: '';
+      position: absolute; inset: -4px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--copper-glow-40);
+      animation: fc-pulse 2.4s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes fc-pulse {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      80%, 100% { transform: scale(1.4); opacity: 0; }
+    }
+    .fc-btn:hover { transform: translateY(-2px); }
+    .fc-btn svg { width: 24px; height: 24px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .fc-btn .fc-icon-close { position: absolute; opacity: 0; transform: rotate(-90deg) scale(0.6); }
+    .fc-btn.open .fc-icon-chat { opacity: 0; transform: rotate(90deg) scale(0.6); }
+    .fc-btn.open .fc-icon-close { opacity: 1; transform: rotate(0deg) scale(1); }
+    .fc-btn.open::before { animation: none; opacity: 0; }
+    .fc-menu {
+      display: flex; flex-direction: column; gap: 10px;
+      opacity: 0; visibility: hidden;
+      transform: translateY(8px) scale(0.95);
+      transform-origin: bottom right;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    }
+    .fc-menu.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .fc-item {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 18px 10px 14px;
+      background: var(--bg2);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: 0 6px 16px hsla(225, 30%, 5%, 0.18);
+      transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+    .fc-item:hover {
+      transform: translateY(-1px);
+      border-color: var(--copper-glow-40);
+      color: var(--copper-lt);
+    }
+    .fc-item svg { width: 18px; height: 18px; }
+    .fc-wa svg { color: #25D366; }
+    .fc-vb svg { color: #7360F2; }
+    .fc-ph svg { color: var(--copper); }
+
+    @media (max-width: 640px) {
+      .floating-contact { bottom: 18px; right: 18px; }
+      .fc-btn { width: 52px; height: 52px; }
+      .fc-item { padding: 9px 16px 9px 12px; font-size: 0.8125rem; }
+    }
   </style>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-  <title>Proizvodi — Eldo Design</title>
+  <title>Kuhinjski elementi i proizvodi — Eldo Design Niš</title>
+  <meta name="description" content="Kuhinjski elementi u Nišu — donji i gornji elementi, radne ploče, ručice i oprema. Pregledajte katalog Eldo Design i sklopite svoju montažnu kuhinju." />
+  <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -393,7 +477,7 @@
       .nav-logo img { height: 40px; }
       .nav-links { display: none; }
       .nav-cta { display: none; }
-      .nav-burger { display: inline-flex; }
+      nav .nav-burger { display: inline-flex; }
     }
 
     /* ── MOBILE NAV (hamburger + drawer) ── */
@@ -595,6 +679,49 @@
       border-color: var(--copper-glow-50);
     }
     .mobile-drawer-social svg { width: 18px; height: 18px; }
+
+    /* ── BACK TO TOP ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 96px;
+      right: 31px;
+      z-index: 250;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--copper-glow-30);
+      background: var(--bg2);
+      color: var(--copper-lt);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px hsla(225, 40%, 5%, 0.32);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.9);
+      transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.3s, background 0.2s, border-color 0.2s, color 0.2s;
+      padding: 0;
+    }
+    .back-to-top svg { width: 18px; height: 18px; transition: transform 0.3s ease; }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .back-to-top:hover {
+      background: var(--copper);
+      border-color: var(--copper);
+      color: var(--white);
+    }
+    .back-to-top:hover svg { transform: translateY(-2px); }
+    .back-to-top:active { transform: scale(0.92); }
+    /* Hide back-to-top while floating contact menu is open (prevents overlap) */
+    body:has(.fc-menu.open) .back-to-top { opacity: 0; visibility: hidden; pointer-events: none; }
+    @media (max-width: 720px) {
+      .back-to-top { bottom: 84px; right: 23px;
+        width: 40px; height: 40px;
+      }
+    }
 
     /* ── PAGE HEAD ── */
     .page-head {
@@ -940,6 +1067,58 @@
     .sort-wrap::after { display: none; }
 
     /* Secondary chips bar: price + dimension */
+    .ponuda-hint {
+      max-width: 1320px;
+      margin: 0 auto 18px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--copper-soft-bg), transparent);
+      border: 1px solid var(--copper-glow-30);
+      border-radius: 14px;
+    }
+    .ponuda-hint.hidden { display: none; }
+    .ponuda-hint-icon {
+      flex-shrink: 0;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--copper);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ponuda-hint-icon svg { width: 18px; height: 18px; }
+    .ponuda-hint-text {
+      flex: 1;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--fg);
+    }
+    .ponuda-hint-text strong { color: var(--copper-lt); }
+    .ponuda-hint-close {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--fg-muted);
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+    .ponuda-hint-close:hover { border-color: var(--copper); color: var(--copper-lt); }
+    .ponuda-hint-close svg { width: 15px; height: 15px; }
+    @media (max-width: 720px) {
+      .ponuda-hint { margin: 0 20px 14px; padding: 12px 14px; gap: 10px; }
+      .ponuda-hint-text { font-size: 0.82rem; }
+      .ponuda-hint-icon { width: 30px; height: 30px; }
+    }
+
+    /* Secondary chips bar: price + dimension */
     .chip-bar {
       max-width: 1320px;
       margin: 0 auto 18px;
@@ -1091,6 +1270,7 @@
       box-shadow: 0 4px 14px var(--copper-glow-40);
     }
     .qb-btn-primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    [data-theme="light"] .qb-btn-primary { color: #1c2030; }
     .qb-btn-danger {
       background: linear-gradient(135deg, hsl(0, 70%, 56%), hsl(0, 65%, 48%));
       color: #fff;
@@ -1195,6 +1375,18 @@
       font-weight: 500;
       color: var(--white);
       margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .quote-modal h3::before {
+      content: '';
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, hsl(30, 72%, 52%), hsl(30, 72%, 46%));
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-.6 3h13M9 21a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>') center / 18px no-repeat;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-.6 3h13M9 21a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>') center / 18px no-repeat;
     }
     .quote-modal p.sub {
       font-size: 0.875rem;
@@ -1213,18 +1405,23 @@
     .quote-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 10px;
+      gap: 12px;
+      padding: 10px 12px;
       background: var(--bg3);
-      border-radius: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
       font-size: 0.875rem;
+      transition: border-color 0.18s ease, transform 0.18s ease;
     }
+    .quote-item:hover { border-color: var(--copper-soft-bd); transform: translateX(2px); }
     .quote-item img {
-      width: 36px; height: 36px;
+      width: 42px; height: 42px;
       object-fit: contain;
       background: var(--bg2);
-      border-radius: 6px;
-      padding: 2px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+      flex-shrink: 0;
     }
     .quote-item .name {
       flex: 1;
@@ -1861,6 +2058,33 @@
     .spec-row:last-child { border-bottom: none; }
     .spec-row .key { color: var(--fg-muted); }
     .spec-row .val { color: var(--white); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .dim-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .dim-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+      transition: border-color 0.18s ease, transform 0.18s ease;
+    }
+    .dim-card:hover { border-color: var(--copper-soft-bd); transform: translateY(-2px); }
+    .dim-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .dim-val span { font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--fg-muted); margin-left: 3px; font-weight: 500; }
+    .dim-key {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
     .materials-list {
       list-style: none;
       display: flex;
@@ -2343,7 +2567,10 @@
       <img src="assets/logo.png" alt="Eldo Design" />
     </a>
     <ul class="nav-links">
+      <li><a href="index.html">Početna</a></li>
       <li><a href="proizvodi.html" class="active">Proizvodi</a></li>
+      <li><a href="garancija.html">Garancija</a></li>
+      <li><a href="o-nama.html">O nama</a></li>
       <li><a href="index.html#galerija">Galerija</a></li>
       <li><a href="index.html#process">Proces</a></li>
       <li><a href="index.html#faq">Pitanja</a></li>
@@ -2354,7 +2581,7 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
-      <a href="planer.html" class="nav-cta">
+      <a href="planer/index.html" class="nav-cta">
         <span class="nav-cta-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </span>
@@ -2379,13 +2606,15 @@
     <ul class="mobile-drawer-links">
       <li><a href="index.html"><span class="mdl-num">01</span><span class="mdl-text">Početna</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
       <li><a href="proizvodi.html"><span class="mdl-num">02</span><span class="mdl-text">Proizvodi</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="index.html#galerija"><span class="mdl-num">03</span><span class="mdl-text">Galerija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="index.html#process"><span class="mdl-num">04</span><span class="mdl-text">Proces</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="index.html#faq"><span class="mdl-num">05</span><span class="mdl-text">Pitanja</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
-      <li><a href="index.html#contact"><span class="mdl-num">06</span><span class="mdl-text">Kontakt</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="garancija.html"><span class="mdl-num">03</span><span class="mdl-text">Garancija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="o-nama.html"><span class="mdl-num">04</span><span class="mdl-text">O nama</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#galerija"><span class="mdl-num">05</span><span class="mdl-text">Galerija</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#process"><span class="mdl-num">06</span><span class="mdl-text">Proces</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#faq"><span class="mdl-num">07</span><span class="mdl-text">Pitanja</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
+      <li><a href="index.html#contact"><span class="mdl-num">08</span><span class="mdl-text">Kontakt</span><span class="mdl-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a></li>
     </ul>
     <div class="mobile-drawer-footer">
-      <a href="planer.html" class="mobile-drawer-cta">
+      <a href="planer/index.html" class="mobile-drawer-cta">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Otvori 3D Planer
       </a>
@@ -2415,7 +2644,7 @@
       <div class="section-tag">Katalog</div>
       <h1 class="section-title">Svi naši proizvodi</h1>
     </div>
-    <p class="section-sub">Pregledajte kompletan asortiman — kuhinjski elementi, ugradni aparati i radne ploče. Spajamo gotove proverene elemente u kuhinje po vašoj meri prostora.</p>
+    <p class="section-sub">Pregledajte kompletan asortiman — kuhinjski elementi, ugradni aparati i radne ploče. Spajamo proverene gotove elemente u kuhinju koja staje u vaš prostor.</p>
   </header>
 
   <div class="toolbar" id="toolbar">
@@ -2509,6 +2738,12 @@
 
   <div class="chip-bar" id="chipBar">
     <div class="chip-group">
+      <span class="chip-group-label">Ručice</span>
+      <button class="chip active" data-handle="all">Sve</button>
+      <button class="chip" data-handle="bez">Bez ručica</button>
+      <button class="chip" data-handle="sa">Sa ručicama</button>
+    </div>
+    <div class="chip-group">
       <span class="chip-group-label">Cena</span>
       <button class="chip active" data-price="all">Sve</button>
       <button class="chip" data-price="0-5000">do 5.000</button>
@@ -2527,6 +2762,13 @@
   </div>
 
   <div class="results-meta" id="resultsMeta">Učitavanje…</div>
+
+  <div class="ponuda-hint" id="ponudaHint">
+    <span class="ponuda-hint-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+    </span>
+    <span class="ponuda-hint-text">Pravite svoju listu — kliknite <strong>+</strong> na svakom proizvodu koji vam se dopada. Zatim pošaljite ponudu jednim klikom i mi vam se javljamo.</span>
+  </div>
 
   <main class="prod-grid" id="prodGrid"></main>
 
@@ -2564,7 +2806,7 @@
   <div class="quote-modal" id="quoteModal">
     <div class="quote-modal-card">
       <h3>Vaša ponuda</h3>
-      <p class="sub">Lista proizvoda koje želite u svojoj kuhinji. Pošaljite nam upit pa vam vraćamo tačnu cenu i merenje.</p>
+      <p class="sub">Vaša izabrana lista elemenata. Pošaljite je nama i dogovaramo termin besplatnog merenja i izrade konačne ponude.</p>
       <ul class="quote-items" id="quoteItems"></ul>
       <div class="quote-total">
         <span class="quote-total-label">Ukupno orijentaciono</span>
@@ -2573,8 +2815,8 @@
       <div class="quote-modal-actions">
         <button type="button" class="qb-btn qb-btn-secondary" id="qmClose">Zatvori</button>
         <a href="#" class="qb-btn qb-btn-primary" id="qmWhatsApp" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
-          Pošalji na WhatsApp
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 0C9.473.028 5.333.344 3.02 2.467 1.302 4.187.7 6.7.633 9.817c-.063 3.115-.139 8.951 5.487 10.535v2.418s-.038.978.606 1.177c.778.243 1.235-.5 1.978-1.3.408-.44.97-1.086 1.395-1.58 3.849.323 6.807-.418 7.143-.527.776-.252 5.171-.816 5.886-6.652.738-6.017-.36-9.823-2.34-11.543l-.012-.005c-.6-.55-3.005-2.302-8.375-2.321 0 0-.395-.025-1.001-.018zm.062 1.717c.515-.005.855.018.855.018 4.541.014 6.71 1.382 7.22 1.842 1.674 1.434 2.53 4.864 1.905 9.897-.599 4.876-4.16 5.184-4.817 5.394-.28.09-2.926.747-6.246.531 0 0-2.473 2.985-3.247 3.762-.12.122-.262.17-.358.144-.135-.034-.172-.193-.17-.428l.02-4.011c-4.756-1.32-4.478-6.289-4.425-8.892.054-2.6.546-4.73 1.996-6.16 1.961-1.769 5.474-2.036 7.114-2.082z"/></svg>
+          Pošalji na Viber
         </a>
       </div>
     </div>
@@ -2595,7 +2837,7 @@
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
-        <a href="planer.html" class="nav-cta">
+        <a href="planer/index.html" class="nav-cta">
         <span class="nav-cta-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </span>
@@ -2630,10 +2872,10 @@
           shadow-softness="0.8"
           environment-image="neutral"
           exposure="1.15"
-          camera-orbit="30deg 75deg auto"
+          camera-orbit="30deg 75deg 105%"
           field-of-view="35deg"
-          min-camera-orbit="auto auto auto"
-          max-camera-orbit="auto auto auto"
+          min-camera-orbit="auto auto 60%"
+          max-camera-orbit="auto auto 300%"
         ></model-viewer>
         <div class="tex-swatches" id="texSwatches">
           <button class="tex-swatch active" data-tex="assets/textures/front-bela-sjaj.jpg" data-bright="1.8" style="background-image: url('assets/textures/front-bela-sjaj.jpg')" title="Bela sjaj"></button>
@@ -2643,6 +2885,7 @@
           <button class="tex-swatch" data-tex="assets/textures/front-zelena.jpg" data-bright="1.3" style="background-image: url('assets/textures/front-zelena.jpg')" title="Zelena"></button>
           <button class="tex-swatch" data-tex="assets/textures/front-krem.jpg" data-bright="1.6" style="background-image: url('assets/textures/front-krem.jpg')" title="Krem"></button>
           <button class="tex-swatch" data-tex="assets/textures/front-crna.jpg" data-bright="2" style="background-image: url('assets/textures/front-crna.jpg')" title="Crna"></button>
+          <button class="tex-swatch" data-tex="assets/textures/A458-3.jpg" data-bright="1.3" data-rotated="1" style="background-image: url('assets/textures/A458-3.jpg')" title="Hrast"></button>
         </div>
       </div>
       <div class="overlay-body">
@@ -2663,8 +2906,8 @@
 
         <div class="ov-section" id="ovColorsSection">
           <h3>Boje i dezeni</h3>
-          <img class="colors-img" src="assets/boje-materijala.jpg" alt="Boje i dezeni — Eldo Design" />
-          <div class="colors-note">10 dezena u ponudi — medijapan visoki sjaj i iverica.</div>
+          <img class="colors-img" src="assets/boje-materijala-v3.png" alt="Boje i dezeni — Eldo Design" />
+          <div class="colors-note">8 dezena u ponudi — medijapan visoki sjaj i iverica.</div>
         </div>
 
         <div class="overlay-price-block">
@@ -2677,7 +2920,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             <span id="ovAddBtnText">Dodaj u ponudu</span>
           </button>
-          <a href="planer.html" class="btn-secondary">Otvori u 3D planeru</a>
         </div>
       </div>
     </div>
@@ -2704,7 +2946,31 @@
     © 2025 Eldo Design • Niš • Matejevački put 94
   </footer>
 
+  <!-- Back to top button -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Vrati se na vrh">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <script>
+    // Back to top button
+    (function () {
+      var btn = document.getElementById('backToTop');
+      if (!btn) return;
+      function toggle() {
+        if (window.scrollY > 400) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+      }
+      window.addEventListener('scroll', toggle, { passive: true });
+      toggle();
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (err) { window.scrollTo(0, 0); }
+        try { document.documentElement.scrollTo({ top: 0, behavior: 'smooth' }); } catch (err) { document.documentElement.scrollTop = 0; }
+        try { document.body.scrollTo({ top: 0, behavior: 'smooth' }); } catch (err) { document.body.scrollTop = 0; }
+      });
+    })();
+
     // Hide skeleton when DOM ready
     (function () {
       function hide() {
@@ -2791,6 +3057,7 @@
     let activeCat = 'all';
     let activePrice = 'all';
     let activeWidth = 'all';
+    let activeHandle = 'all';
     let activeSort = 'popular';
 
     // Quote state — persisted in localStorage
@@ -2838,6 +3105,13 @@
           const [lo, hi] = activeWidth.split('-').map(Number);
           if (p.width < lo || p.width > hi) return false;
         }
+        // Handle filter (Ručice)
+        if (activeHandle !== 'all') {
+          const sub = (p.subcategory || '').toLowerCase();
+          const isBez = sub.includes('bez-rucica') || sub.includes('bez-rucicama') || /^bez/i.test(sub);
+          if (activeHandle === 'bez' && !isBez) return false;
+          if (activeHandle === 'sa' && (isBez || !sub.includes('rucic'))) return false;
+        }
         return true;
       });
 
@@ -2878,7 +3152,7 @@
                 <span>${CATEGORY_LABELS[p.category] || p.category}</span>
               </div>
               <div class="prod-price-row">
-                <div class="prod-price">${fmtPrice(p.price)}<span class="prod-price-currency">RSD</span></div>
+                <div class="prod-price">${p.pricePerCm ? fmtPrice(p.pricePerCm) + '<span class="prod-price-currency">din/cm</span>' : (p.price ? fmtPrice(p.price) + '<span class="prod-price-currency">RSD</span>' : '<span class="prod-price-currency" style="font-size:0.9rem;color:var(--copper-lt)">Po upitu</span>')}</div>
               </div>
             </div>
           </div>
@@ -2929,6 +3203,7 @@
       chip.classList.add('active');
       if (chip.dataset.price) activePrice = chip.dataset.price;
       if (chip.dataset.width) activeWidth = chip.dataset.width;
+      if (chip.dataset.handle) activeHandle = chip.dataset.handle;
       render();
     });
 
@@ -3077,7 +3352,7 @@
       lines.push('', 'Ukupno orijentaciono: ' + fmtPrice(total) + ' RSD');
       const msg = encodeURIComponent(lines.join('\n'));
       document.getElementById('qmWhatsApp').setAttribute('href',
-        'https://wa.me/381611444021?text=' + msg);
+        'viber://forward?text=' + msg);
       quoteModal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -3096,6 +3371,8 @@
     });
 
     searchInput.addEventListener('input', render);
+
+    // Ponuda hint — always visible (no dismiss)
 
     // Detail full-screen view
     const overlay = document.getElementById('overlay');
@@ -3124,14 +3401,43 @@
     });
 
     // Texture swap — primenjuje teksturu na "front" mesh-ove modela
+    // Cache for rotated textures (so we don't re-render canvas every swatch click)
+    const _rotatedTexCache = new Map();
+    async function _loadRotatedDataURL(texPath) {
+      if (_rotatedTexCache.has(texPath)) return _rotatedTexCache.get(texPath);
+      const img = await new Promise((resolve, reject) => {
+        const i = new Image();
+        i.crossOrigin = 'anonymous';
+        i.onload = () => resolve(i);
+        i.onerror = reject;
+        i.src = texPath;
+      });
+      const c = document.createElement('canvas');
+      c.width = img.height; c.height = img.width;
+      const ctx = c.getContext('2d');
+      ctx.translate(c.width / 2, c.height / 2);
+      ctx.rotate(Math.PI / 2);
+      ctx.drawImage(img, -img.width / 2, -img.height / 2);
+      const url = c.toDataURL('image/jpeg', 0.9);
+      _rotatedTexCache.set(texPath, url);
+      return url;
+    }
+
     // Preuzeto iz planera: front meshevi imaju materijale sa imenima koja sadrže
     // CarPaint_Simple_White, A458, FrontColor, ili Color_M01
     async function applyFrontTexture(texPath, brightness) {
       const m = document.getElementById('ov3d');
       if (!m || !m.model) return;
       try {
-        const tex = await m.createTexture(texPath);
-        const frontPattern = /CarPaint_Simple_White|A458|FrontColor|Color_M01/i;
+        // For viseci (gornji) products, rotate texture 90° so wood grain runs horizontally
+        const isGornji = currentDetailProduct && currentDetailProduct.category === 'viseci';
+        const finalPath = isGornji ? await _loadRotatedDataURL(texPath) : texPath;
+        const tex = await m.createTexture(finalPath);
+        // Donji: only CarPaint_Simple_White (the actual door front in donji GLB models)
+        // Gornji: broader pattern (different mesh naming)
+        const frontPattern = isGornji
+          ? /CarPaint_Simple_White|A458|FrontColor|Color_M01/i
+          : /^CarPaint_Simple_White$/i;
         // u planeru se brightness primenjuje preko emissive boje
         const b = parseFloat(brightness) || 1.5;
         // baseColorFactor scale (clamp na 1 da ne overexpose-uje)
@@ -3171,6 +3477,34 @@
       if (active) applyFrontTexture(active.dataset.tex, active.dataset.bright);
     });
 
+    // DEBUG: click on 3D model to identify which material is there
+    document.getElementById('ov3d').addEventListener('click', async (e) => {
+      const mv = document.getElementById('ov3d');
+      if (!mv.model) return;
+      const rect = mv.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      try {
+        // Try materialFromPoint (model-viewer 1.10+)
+        if (typeof mv.materialFromPoint === 'function') {
+          const mat = await mv.materialFromPoint(x, y);
+          if (mat) {
+            console.log('🎯 KLIK NA MATERIJAL:', mat.name);
+            // Briefly flash this material so user knows what they clicked
+            const orig = mat.pbrMetallicRoughness.baseColorFactor || [1,1,1,1];
+            mat.pbrMetallicRoughness.setBaseColorFactor([1, 0.3, 0.1, 1]);
+            setTimeout(() => mat.pbrMetallicRoughness.setBaseColorFactor(orig), 400);
+            return;
+          }
+        }
+        // Fallback: log surface hotspot info
+        const surface = await mv.surfaceFromPoint?.(x, y);
+        if (surface) console.log('🎯 KLIK (surface):', surface);
+      } catch (err) {
+        console.log('Click debug error:', err);
+      }
+    });
+
     function openProduct(p) {
       document.getElementById('ovImg').src = p.image;
       document.getElementById('ovImg').alt = p.fullName || p.name;
@@ -3207,15 +3541,16 @@
       document.getElementById('ovCategories').innerHTML =
         `<span class="label">Kategorije:</span>${cats.join(', ')}`;
 
-      // Specs
-      const specs = [];
-      if (p.width)  specs.push(['Širina', p.width + ' cm']);
-      if (p.depth)  specs.push(['Dubina', p.depth + ' cm']);
-      if (p.height) specs.push(['Visina', p.height + ' cm']);
-      if (p.wallMounted) specs.push(['Montaža', 'Zidna']);
-      document.getElementById('ovSpecs').innerHTML = specs.map(([k, v]) =>
-        `<div class="spec-row"><span class="key">${k}</span><span class="val">${v}</span></div>`
-      ).join('');
+      // Specs — dimensions as compact cards
+      const dims = [];
+      if (p.width)  dims.push(['Širina', p.width]);
+      if (p.depth)  dims.push(['Dubina', p.depth]);
+      if (p.height) dims.push(['Visina', p.height]);
+      let specsHtml = '<div class="dim-cards">' + dims.map(([k, v]) =>
+        `<div class="dim-card"><div class="dim-val">${v}<span>cm</span></div><div class="dim-key">${k}</div></div>`
+      ).join('') + '</div>';
+      if (p.wallMounted) specsHtml += '<div class="spec-row" style="margin-top:14px"><span class="key">Montaža</span><span class="val">Zidna</span></div>';
+      document.getElementById('ovSpecs').innerHTML = specsHtml;
 
       // Materials
       const matsSection = document.getElementById('ovMaterialsSection');
@@ -3229,7 +3564,22 @@
       }
 
       // Price
-      document.getElementById('ovPrice').textContent = fmtPrice(p.priceDetail || p.price);
+      const _pr = p.priceDetail || p.price;
+      const ovPriceEl = document.getElementById('ovPrice');
+      const ovCurEl = ovPriceEl.nextElementSibling;
+      if (p.pricePerCm) {
+        ovPriceEl.textContent = fmtPrice(p.pricePerCm);
+        ovPriceEl.style.fontSize = '2.5rem';
+        if (ovCurEl) { ovCurEl.style.display = ''; ovCurEl.textContent = 'din/cm'; }
+      } else if (_pr) {
+        ovPriceEl.textContent = fmtPrice(_pr);
+        ovPriceEl.style.fontSize = '';
+        if (ovCurEl) { ovCurEl.style.display = ''; ovCurEl.textContent = 'RSD'; }
+      } else {
+        ovPriceEl.textContent = 'Po upitu';
+        ovPriceEl.style.fontSize = '1.6rem';
+        if (ovCurEl) ovCurEl.style.display = 'none';
+      }
 
       // "Dodaj u ponudu" button state
       updateOvAddBtn(p);
@@ -3453,6 +3803,42 @@
       });
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && drawer.classList.contains('open')) close();
+      });
+    })();
+  </script>
+
+  <div class="floating-contact" id="floatingContact">
+    <div class="fc-menu" id="fcMenu">
+      <a href="viber://chat?number=%2B381611444021" class="fc-item fc-vb">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 0C9.473.028 5.333.344 3.02 2.467 1.302 4.187.7 6.7.633 9.817c-.063 3.115-.139 8.951 5.487 10.535v2.418s-.038.978.606 1.177c.778.243 1.235-.5 1.978-1.3.408-.44.97-1.086 1.395-1.58 3.849.323 6.807-.418 7.143-.527.776-.252 5.171-.816 5.886-6.652.738-6.017-.36-9.823-2.34-11.543l-.012-.005c-.6-.55-3.005-2.302-8.375-2.321 0 0-.395-.025-1.001-.018zm.062 1.717c.515-.005.855.018.855.018 4.541.014 6.71 1.382 7.22 1.842 1.674 1.434 2.53 4.864 1.905 9.897-.599 4.876-4.16 5.184-4.817 5.394-.28.09-2.926.747-6.246.531 0 0-2.473 2.985-3.247 3.762-.12.122-.262.17-.358.144-.135-.034-.172-.193-.17-.428l.02-4.011c-4.756-1.32-4.478-6.289-4.425-8.892.054-2.6.546-4.73 1.996-6.16 1.961-1.769 5.474-2.036 7.114-2.082-.16-.005-.014-.015.013-.015zm.116 2.61c-.169-.001-.34.004-.516.018-.214.018-.394.07-.564.158-.224.116-.41.314-.484.557-.165.546.234.987.625 1.213 1.077.62 2.245 1.043 3.422 1.412.93.292 1.876.531 2.842.658 1.094.144 2.198.224 3.296.342.366.04.704-.025.93-.293a.886.886 0 0 0 .136-.85c-.156-.51-.677-.787-1.156-.92-1.61-.45-3.225-.832-4.78-1.402a13.6 13.6 0 0 1-2.18-1.07c-.495-.292-1.073-.475-1.572-.554a4.183 4.183 0 0 0-.4-.04zm.41 1.962c-.21-.005-.422.012-.625.077-.397.127-.694.482-.69.926.005.514.426.93.86 1.166.823.448 1.71.787 2.598 1.094 1.038.358 2.107.635 3.185.835.518.097 1.063.205 1.572.067a.96.96 0 0 0 .68-.836c.05-.467-.265-.886-.694-1.066-.494-.21-1.039-.273-1.555-.41-.836-.225-1.674-.45-2.501-.715-.65-.21-1.295-.444-1.962-.622a4.6 4.6 0 0 0-.868-.116zm.418 2.116c-.214.001-.426.05-.61.158-.336.197-.526.602-.46.997.073.43.444.738.83.886 1.05.402 2.158.626 3.255.825.616.111 1.253.218 1.882.116.418-.067.793-.351.881-.793.099-.493-.225-.962-.671-1.13-.626-.236-1.296-.299-1.946-.43-.756-.151-1.526-.276-2.255-.534a2.61 2.61 0 0 0-.906-.095z"/></svg>
+        <span>Viber</span>
+      </a>
+      <a href="tel:+381611444021" class="fc-item fc-ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Pozovi</span>
+      </a>
+    </div>
+    <button type="button" class="fc-btn" id="fcBtn" aria-label="Kontakt opcije" aria-expanded="false">
+      <svg class="fc-icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <svg class="fc-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+    </button>
+  </div>
+  <script>
+    (function () {
+      var btn = document.getElementById('fcBtn');
+      var menu = document.getElementById('fcMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var isOpen = btn.classList.toggle('open');
+        menu.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+      document.addEventListener('click', function (e) {
+        if (!document.getElementById('floatingContact').contains(e.target) && btn.classList.contains('open')) {
+          btn.classList.remove('open');
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', false);
+        }
       });
     })();
   </script>
