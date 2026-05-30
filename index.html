@@ -3809,7 +3809,8 @@
     .back-to-top:hover svg { transform: translateY(-2px); }
     .back-to-top:active { transform: scale(0.92); }
     /* Hide back-to-top while floating contact menu is open (prevents overlap) */
-    body:has(.fc-menu.open) .back-to-top { opacity: 0; visibility: hidden; pointer-events: none; }
+    body:has(.fc-menu.open) .back-to-top,
+    body:has(.lightbox.open) .back-to-top { opacity: 0; visibility: hidden; pointer-events: none; }
     @media (max-width: 640px) {
       .back-to-top { bottom: 84px; right: 23px;
         width: 40px; height: 40px;

@@ -1119,6 +1119,8 @@
     }
 
     /* Secondary chips bar: price + dimension */
+    /* Filters toggle (collapsible on mobile) — hidden on desktop */
+    .filters-toggle { display: none; }
     .chip-bar {
       max-width: 1320px;
       margin: 0 auto 18px;
@@ -2307,7 +2309,7 @@
         margin: 0 0 4px;
         gap: 8px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         overflow-x: visible;
         flex-wrap: nowrap;
       }
@@ -2316,6 +2318,8 @@
         font-size: 0.78rem;
         gap: 7px;
         justify-content: flex-start;
+        width: 100%;
+        box-sizing: border-box;
       }
       .filter-btn .filter-icon { width: 22px; height: 22px; flex-shrink: 0; }
       .filter-btn .filter-icon svg { width: 11px; height: 11px; }
@@ -2339,6 +2343,44 @@
         grid-column: span 2;
       }
 
+      /* CHIP-BAR — collapsible dropdown on mobile */
+      .filters-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: calc(100% - 40px);
+        margin: 6px 20px 0;
+        padding: 12px 16px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: var(--fg);
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .filters-toggle .ft-left { display: inline-flex; align-items: center; gap: 9px; }
+      .filters-toggle .ft-left > svg { width: 17px; height: 17px; color: var(--copper-lt); }
+      .filters-toggle .ft-count {
+        display: none;
+        min-width: 18px; height: 18px;
+        padding: 0 5px;
+        border-radius: 999px;
+        background: var(--copper);
+        color: #fff;
+        font-size: 0.68rem;
+        font-weight: 700;
+        align-items: center; justify-content: center;
+        line-height: 1;
+      }
+      .filters-toggle .ft-count.show { display: inline-flex; }
+      .filters-toggle .ft-chevron { width: 18px; height: 18px; color: var(--fg-muted); transition: transform 0.28s ease; }
+      .filters-toggle[aria-expanded="true"] .ft-chevron { transform: rotate(180deg); }
+      .filters-toggle[aria-expanded="true"] { border-color: var(--copper-glow-40); }
+
       /* CHIP-BAR — clear sections with labels above chips */
       .chip-bar {
         padding: 0 20px;
@@ -2346,6 +2388,19 @@
         gap: 16px;
         flex-direction: column;
         align-items: stretch;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+        transition: max-height 0.35s ease, opacity 0.28s ease, margin-top 0.28s ease, padding 0.28s ease;
+        padding-top: 0; padding-bottom: 0;
+      }
+      .chip-bar.open {
+        max-height: 600px;
+        opacity: 1;
+        margin-top: 10px;
+        padding-top: 4px;
+        padding-bottom: 4px;
       }
       .chip-group {
         display: flex;
@@ -2735,6 +2790,15 @@
     </button>
   </div>
   </div>
+
+  <button type="button" class="filters-toggle" id="filtersToggle" aria-expanded="false">
+    <span class="ft-left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+      <span>Filteri</span>
+      <span class="ft-count" id="ftCount"></span>
+    </span>
+    <svg class="ft-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
 
   <div class="chip-bar" id="chipBar">
     <div class="chip-group">
@@ -3204,8 +3268,31 @@
       if (chip.dataset.price) activePrice = chip.dataset.price;
       if (chip.dataset.width) activeWidth = chip.dataset.width;
       if (chip.dataset.handle) activeHandle = chip.dataset.handle;
+      updateFilterCount();
       render();
     });
+
+    // Collapsible filters toggle (mobile)
+    (function () {
+      const toggle = document.getElementById('filtersToggle');
+      const bar = document.getElementById('chipBar');
+      if (!toggle || !bar) return;
+      toggle.addEventListener('click', () => {
+        const open = bar.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+
+    function updateFilterCount() {
+      const badge = document.getElementById('ftCount');
+      if (!badge) return;
+      let n = 0;
+      if (activeHandle !== 'all') n++;
+      if (activePrice !== 'all') n++;
+      if (activeWidth !== 'all') n++;
+      badge.textContent = n;
+      badge.classList.toggle('show', n > 0);
+    }
 
     // Sort dropdown (custom)
     (function () {
