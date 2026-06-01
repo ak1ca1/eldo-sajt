@@ -2749,8 +2749,10 @@
       .overlay-content {
         padding: 16px 20px 56px;
         gap: 22px;
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
+      .overlay-content > *, .overlay-body, .overlay-img-side { min-width: 0; }
+      .ov-tags { flex-wrap: wrap; overflow-x: visible; }
       .overlay-img-side {
         padding: 20px;
         min-height: 0;
