@@ -204,6 +204,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <script type="importmap">
+  { "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  } }
+  </script>
+  <script type="module" src="planner-viewer.js"></script>
 
   <!-- FAQ Schema.org markup for Google rich results -->
   <script type="application/ld+json">
@@ -1574,13 +1581,141 @@
 
     .planner-inner {
       position: relative;
-      max-width: 720px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .planner-cta model-viewer.planner-viewer {
+    .planner-cta .planner-viewer {
+      position: relative;
+      display: block;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(125% 90% at 50% 12%, var(--bg2) 0%, var(--bg3) 55%, var(--bg2) 100%);
+      box-shadow:
+        inset 0 1px 0 hsla(0,0%,100%,0.6),
+        0 1px 0 0 hsla(0,0%,100%,0.4),
+        0 40px 70px -34px hsla(225, 40%, 22%, 0.32);
+      overflow: hidden;
+    }
+    .planner-cta .planner-viewer::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 38%;
+      height: 3px;
+      border-radius: 0 0 4px 4px;
+      background: linear-gradient(90deg, transparent, var(--copper), transparent);
+      opacity: 0.85;
+      z-index: 2;
+    }
+    [data-theme="dark"] .planner-cta .planner-viewer {
+      border-color: var(--border-strong);
+      background: radial-gradient(125% 90% at 50% 12%, hsla(225,22%,15%,0.9) 0%, hsla(225,24%,11%,0.95) 60%);
+      box-shadow:
+        inset 0 1px 0 hsla(0,0%,100%,0.05),
+        0 40px 80px -40px hsla(225, 60%, 4%, 0.65);
+    }
+    .planner-cta .planner-viewer::after {
+      content: "Prevucite za rotaciju · skrolujte za zum";
+      position: absolute;
+      left: 50%; bottom: 16px;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--fg-muted);
+      background: var(--nav-pill-bg, hsla(0,0%,100%,0.62));
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 999px;
+      pointer-events: none;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 14px hsla(225,30%,20%,0.12);
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .planner-cta .planner-viewer canvas { display: block; border-radius: inherit; }
+    .pv-poster { position: absolute; inset: 0; pointer-events: none; transition: opacity 0.6s ease; }
+    .pv-hint {
+      position: absolute;
+      left: 50%; top: 46%;
+      width: 46px; height: 46px;
+      margin-left: -23px;
+      color: var(--copper-lt);
+      pointer-events: none;
+      z-index: 3;
+      filter: drop-shadow(0 3px 6px hsla(225,40%,10%,0.35));
+      animation: pvSwipe 2.6s ease-in-out infinite;
+      opacity: 0.92;
+    }
+    .pv-hint svg { width: 100%; height: 100%; }
+    .pv-hint::before {
+      content: "";
+      position: absolute;
+      left: 50%; top: 58%;
+      width: 30px; height: 30px;
+      margin: -15px 0 0 -15px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--copper-glow-30, hsla(30,72%,52%,0.3)) 0%, transparent 70%);
+      animation: pvTap 2.6s ease-in-out infinite;
+    }
+    @keyframes pvSwipe {
+      0%, 100% { transform: translateX(-30px) rotate(-6deg); }
+      50%      { transform: translateX(30px) rotate(6deg); }
+    }
+    @keyframes pvTap {
+      0%, 100% { opacity: 0; transform: scale(0.6); }
+      50%      { opacity: 1; transform: scale(1.1); }
+    }
+    .planner-viewer.touched .pv-hint { opacity: 0; transition: opacity 0.4s ease; animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) { .pv-hint { animation: none; } .pv-hint::before { animation: none; opacity: 0; } }
+    .pv-swatches {
+      max-width: 760px;
+      margin: 22px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pv-swatch-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+    .pv-swatch-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--fg-muted);
+      text-transform: uppercase;
+    }
+    .pv-swatch-set { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pv-swatch {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      border: 2px solid var(--border);
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+    .pv-swatch:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+    .pv-swatch.active {
+      border-color: var(--copper);
+      box-shadow: 0 0 0 3px var(--copper-glow-30, hsla(30,72%,52%,0.3));
+    }
+    @media (max-width: 720px) {
+      .pv-swatches { max-width: 100%; gap: 10px; margin-top: 18px; }
+      .pv-swatch-row { grid-template-columns: 1fr; gap: 6px; }
+      .pv-swatch { width: 38px; height: 38px; }
+    }
+    .planner-cta model-viewer.planner-viewer,
+    .planner-cta .planner-viewer {
       width: 100%;
-      height: 400px;
+      height: 600px;
       background: transparent;
       margin-bottom: 48px;
       --progress-bar-color: var(--copper);
@@ -1590,6 +1725,30 @@
     .planner-cta .section-sub { margin: 0 auto 40px; text-align: center; }
 
     .planner-cta .btn-primary { margin: 0 auto; font-size: 1rem; padding: 16px 40px; }
+    .planner-feats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto 36px;
+    }
+    .planner-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+      padding: 16px 18px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .planner-feat svg { width: 24px; height: 24px; color: var(--copper-lt); flex-shrink: 0; margin-top: 2px; }
+    .planner-feat .pf-title { font-weight: 700; font-size: 0.92rem; color: var(--fg); margin-bottom: 3px; }
+    .planner-feat .pf-desc { font-size: 0.8rem; color: var(--fg-muted); line-height: 1.45; }
+    @media (max-width: 720px) {
+      .planner-feats { grid-template-columns: 1fr; gap: 10px; max-width: 420px; margin-bottom: 28px; }
+      .planner-feat { padding: 13px 15px; }
+    }
 
     /* ── PROCESS ── */
     .process-steps {
@@ -1966,6 +2125,7 @@
       columns: 3;
       column-gap: 18px;
     }
+    .gal-dots { display: none; }
     .gal-card {
       position: relative;
       display: block;
@@ -2204,7 +2364,46 @@
       .lb-next { right: 12px; }
     }
     @media (max-width: 560px) {
-      .gallery-grid { columns: 1; }
+      .gallery-grid {
+        columns: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 4px 2px;
+        margin: 0 -4px;
+      }
+      .gallery-grid::-webkit-scrollbar { display: none; }
+      .gal-card {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        margin: 0;
+      }
+      .gal-card .gal-img { aspect-ratio: 4 / 5; }
+      .gal-card .gal-img img { height: 100%; object-fit: cover; }
+      .gal-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .gal-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 0;
+        padding: 0;
+        background: var(--border-strong);
+        cursor: pointer;
+        transition: background 0.25s, transform 0.25s;
+      }
+      .gal-dot.active {
+        background: var(--copper);
+        transform: scale(1.35);
+      }
 
       /* Touch: overlay text always fully visible (no hover) */
       .gal-overlay {
@@ -2811,7 +3010,8 @@
 
       /* PLANNER CTA */
       .planner-cta { padding: 56px 20px !important; }
-      .planner-cta model-viewer.planner-viewer {
+      .planner-cta model-viewer.planner-viewer,
+      .planner-cta .planner-viewer {
         height: 260px;
         margin-bottom: 24px;
       }
@@ -3244,6 +3444,7 @@
         </div>
       </button>
     </div>
+    <div class="gal-dots" id="galDots" aria-hidden="true"></div>
     <div class="gallery-foot">
       <p class="gal-note">Galerija se kontinuirano dopunjava novim realizacijama.</p>
     </div>
@@ -3313,22 +3514,44 @@
   <!-- PLANNER CTA -->
   <section class="planner-cta" id="planner">
     <div class="planner-inner">
-      <model-viewer
-        class="planner-viewer"
-        src="assets/models/gornji_60cm.glb"
-        alt="Kuhinjski element 3D"
-        camera-controls
-        auto-rotate
-        auto-rotate-delay="500"
-        rotation-per-second="20deg"
-        camera-orbit="20deg 65deg 2.5m"
-        exposure="1.2"
-        shadow-intensity="0.8"
-        environment-image="neutral"
-      ></model-viewer>
+      <div class="planner-viewer" id="plannerViewer" data-src="assets/models/kuhinja-demo.glb" aria-label="3D model kuhinje — Eldo Design">
+        <div class="pv-poster"></div>
+        <div class="pv-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11V6a1.5 1.5 0 0 1 3 0v5"/>
+            <path d="M12 11V4.5a1.5 1.5 0 0 1 3 0V11"/>
+            <path d="M15 11V6.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1.5a6 6 0 0 1-5.3-3.2l-1.8-3.4a1.5 1.5 0 0 1 2.4-1.7L9 13"/>
+          </svg>
+        </div>
+      </div>
+
+      </div>
       <div class="section-tag">3D Planer</div>
       <h2 class="section-title">Dizajnirajte<br/>svoju kuhinju sami</h2>
       <p class="section-sub">Koristite naš interaktivni 3D planer — dodajte elemente, birajte boje i vidite rezultat u realnom vremenu. Brzo, intuitivno, besplatno.</p>
+      <div class="planner-feats">
+        <div class="planner-feat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+          <div>
+            <div class="pf-title">Slažete elemente</div>
+            <div class="pf-desc">Donji, gornji, radne ploče — povlačite i ređate.</div>
+          </div>
+        </div>
+        <div class="planner-feat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2a10 10 0 0 0 0 20 1.5 1.5 0 0 0 1.06-2.56A1.5 1.5 0 0 1 14.5 17h1a4.5 4.5 0 0 0 4.5-4.5A10 10 0 0 0 12 2z"/></svg>
+          <div>
+            <div class="pf-title">Birate boje i dezene</div>
+            <div class="pf-desc">8 dezena — hrast, mat, visoki sjaj.</div>
+          </div>
+        </div>
+        <div class="planner-feat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          <div>
+            <div class="pf-title">Vidite u 3D odmah</div>
+            <div class="pf-desc">Rotirajte i zumirajte u realnom vremenu.</div>
+          </div>
+        </div>
+      </div>
       <a href="planer/index.html" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Pokrenite 3D planer
@@ -3643,6 +3866,39 @@
       const lbClose = document.getElementById('lbClose');
       const cards = Array.from(document.querySelectorAll('.gal-card'));
       let idx = 0;
+
+      // Mobile gallery carousel dots
+      (function () {
+        const grid = document.querySelector('.gallery-grid');
+        const dotsWrap = document.getElementById('galDots');
+        if (!grid || !dotsWrap || !cards.length) return;
+        cards.forEach(function (c, i) {
+          const d = document.createElement('button');
+          d.className = 'gal-dot' + (i === 0 ? ' active' : '');
+          d.type = 'button';
+          d.setAttribute('aria-label', 'Kuhinja ' + (i + 1));
+          d.addEventListener('click', function () {
+            grid.scrollTo({ left: cards[i].offsetLeft - grid.offsetLeft, behavior: 'smooth' });
+          });
+          dotsWrap.appendChild(d);
+        });
+        const dots = Array.from(dotsWrap.children);
+        let raf = null;
+        grid.addEventListener('scroll', function () {
+          if (raf) return;
+          raf = requestAnimationFrame(function () {
+            raf = null;
+            const center = grid.scrollLeft + grid.clientWidth / 2;
+            let best = 0, bestDist = Infinity;
+            cards.forEach(function (c, i) {
+              const cc = c.offsetLeft - grid.offsetLeft + c.clientWidth / 2;
+              const dist = Math.abs(cc - center);
+              if (dist < bestDist) { bestDist = dist; best = i; }
+            });
+            dots.forEach(function (d, i) { d.classList.toggle('active', i === best); });
+          });
+        }, { passive: true });
+      })();
 
       function render(i) {
         const card = cards[i];
