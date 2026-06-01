@@ -151,8 +151,9 @@
     }
   </style>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-  <title>Kuhinjski elementi i proizvodi — Eldo Design Niš</title>
-  <meta name="description" content="Kuhinjski elementi u Nišu — donji i gornji elementi, radne ploče, ručice i oprema. Pregledajte katalog Eldo Design i sklopite svoju montažnu kuhinju." />
+  <title>Kuhinjski elementi Niš — donji, gornji, radne ploče | Eldo Design</title>
+  <meta name="description" content="Kuhinjski elementi u Nišu — donji i gornji (viseći) elementi, radne ploče, sudopere. Medijapan visoki sjaj i iverica, 8 dezena. Pregledajte katalog sa cenama i sklopite montažnu kuhinju — Eldo Design." />
+  <meta name="keywords" content="kuhinjski elementi, kuhinjski elementi Niš, kuhinjski elementi cena, modularne kuhinje po meri, kuhinje po elementima, donji elementi, gornji elementi, viseći elementi, uski kuhinjski elementi, element sa fiokama, element za flaše, radna ploča, sudopera, medijapan visoki sjaj, iverica, nameštaj za kuhinju Niš, kuhinje bez ručica, Eldo Design Niš" />
   <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -717,6 +718,7 @@
     .back-to-top:active { transform: scale(0.92); }
     /* Hide back-to-top while floating contact menu is open (prevents overlap) */
     body:has(.fc-menu.open) .back-to-top { opacity: 0; visibility: hidden; pointer-events: none; }
+    body.overlay-open .back-to-top { opacity: 0; visibility: hidden; pointer-events: none; }
     @media (max-width: 720px) {
       .back-to-top { bottom: 84px; right: 23px;
         width: 40px; height: 40px;
@@ -1121,6 +1123,7 @@
     /* Secondary chips bar: price + dimension */
     /* Filters toggle (collapsible on mobile) — hidden on desktop */
     .filters-toggle { display: none; }
+    .chip-bar-inner { display: contents; }
     .chip-bar {
       max-width: 1320px;
       margin: 0 auto 18px;
@@ -1296,28 +1299,45 @@
     .confirm-modal.open { display: flex; }
     @keyframes cmFade { from { opacity: 0; } to { opacity: 1; } }
     .confirm-card {
+      position: relative;
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      max-width: 440px;
+      border-radius: 22px;
+      max-width: 416px;
       width: 100%;
-      padding: 32px 28px 26px;
+      padding: 38px 32px 28px;
       text-align: center;
-      box-shadow: 0 24px 60px hsla(225, 40%, 4%, 0.5);
+      box-shadow: 0 30px 80px hsla(225, 40%, 4%, 0.6);
       transform: scale(0.92);
       animation: cmIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      overflow: hidden;
+    }
+    .confirm-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, hsl(0,70%,55%), transparent);
+      opacity: 0.75;
     }
     @keyframes cmIn { to { transform: scale(1); } }
     .confirm-icon {
-      width: 56px; height: 56px;
+      position: relative;
+      width: 64px; height: 64px;
       border-radius: 50%;
-      background: hsla(0, 70%, 50%, 0.12);
-      border: 1px solid hsla(0, 70%, 50%, 0.3);
-      color: hsl(0, 70%, 60%);
+      background: radial-gradient(circle at 50% 42%, hsla(0,72%,52%,0.24), hsla(0,72%,52%,0.07));
+      color: hsl(0, 72%, 63%);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
+    }
+    .confirm-icon::after {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      border-radius: 50%;
+      border: 1px solid hsla(0,70%,55%,0.2);
     }
     .confirm-icon svg { width: 26px; height: 26px; }
     .confirm-title {
@@ -1338,8 +1358,15 @@
     .confirm-actions {
       display: flex;
       gap: 10px;
+      margin-top: 4px;
     }
-    .confirm-actions button { flex: 1; }
+    .confirm-actions .qb-btn {
+      flex: 1;
+      justify-content: center;
+      padding: 13px 18px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+    }
 
     @media (max-width: 560px) {
       .quote-bar { left: 12px; right: 12px; bottom: 12px; transform: translateY(140%); padding: 10px 14px; flex-wrap: wrap; }
@@ -1403,6 +1430,8 @@
       margin-bottom: 22px;
       max-height: 320px;
       overflow-y: auto;
+      overflow-x: hidden;
+      padding: 2px;
     }
     .quote-item {
       display: flex;
@@ -1429,7 +1458,50 @@
       flex: 1;
       color: var(--fg);
       font-weight: 500;
+      font-size: 0.875rem;
     }
+    .qi-len {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      margin: 0 0 0 16px;
+      vertical-align: middle;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 0;
+    }
+    .qi-len-btn {
+      width: 26px; height: 26px;
+      border-radius: 0;
+      border: 0;
+      background: transparent;
+      color: var(--copper-lt);
+      font-size: 1.05rem;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: background 0.15s ease;
+    }
+    .qi-len-btn:hover { background: var(--copper-glow-12, rgba(196,124,74,0.12)); color: var(--copper-lt); }
+    .qi-len-input {
+      width: 44px;
+      text-align: center;
+      border: 0;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      background: transparent;
+      color: var(--fg);
+      border-radius: 0;
+      padding: 4px 2px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      -moz-appearance: textfield;
+    }
+    .qi-len-input::-webkit-outer-spin-button, .qi-len-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .qi-len-unit { font-size: 0.7rem; color: var(--fg-muted); padding: 0 8px 0 6px; font-weight: 600; }
     .quote-item .price {
       color: var(--copper-lt);
       font-weight: 700;
@@ -1456,6 +1528,37 @@
     .quote-total-value { color: var(--copper-lt); font-weight: 700; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
     .quote-modal-actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .quote-modal-actions a, .quote-modal-actions button { flex: 1; min-width: 140px; }
+    .quote-modal-utils {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .qm-util-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .qm-util-btn svg { width: 16px; height: 16px; color: var(--copper-lt); flex-shrink: 0; }
+    .qm-util-btn:hover { border-color: var(--copper-soft-bd); background: var(--bg2); }
+    .qm-util-btn.copied { border-color: hsla(140,50%,50%,0.5); color: hsl(140,55%,52%); }
+    .qm-util-btn.copied svg { color: hsl(140,55%,52%); }
+    @media (max-width: 460px) {
+      .quote-modal-utils { flex-direction: column; }
+    }
 
     /* Related products — full-width section at the bottom of detail view */
     .ov-related-section {
@@ -1497,8 +1600,6 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
       padding: 4px 4px 12px;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
     }
     .ov-related-grid::-webkit-scrollbar { display: none; }
     .ov-related-card {
@@ -1980,7 +2081,7 @@
     }
 
     .overlay-img-side {
-      background: var(--bg2);
+      background: radial-gradient(115% 80% at 50% 24%, var(--bg3), var(--bg2) 72%);
       border: 1px solid var(--border);
       position: sticky;
       border-radius: 20px;
@@ -1993,11 +2094,25 @@
       align-self: start;
       overflow: hidden;
     }
+    .overlay-img-side::before {
+      content: "";
+      position: absolute;
+      bottom: 64px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56%;
+      height: 26px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, hsla(225, 40%, 4%, 0.3), transparent 72%);
+      filter: blur(7px);
+      pointer-events: none;
+    }
     .overlay-img-side img {
+      position: relative;
       max-width: 100%;
       max-height: 480px;
       object-fit: contain;
-      filter: drop-shadow(0 24px 48px hsla(225, 40%, 4%, 0.25));
+      filter: drop-shadow(0 28px 44px hsla(225, 40%, 4%, 0.32));
     }
     .overlay-body {
       display: flex;
@@ -2023,8 +2138,33 @@
       font-size: 1.0625rem;
       color: var(--fg);
       line-height: 1.55;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
       max-width: 56ch;
+    }
+    .ov-tags {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 7px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .ov-tags::-webkit-scrollbar { display: none; }
+    .ov-tags .ov-tag { white-space: nowrap; flex-shrink: 0; }
+    .ov-tags .ov-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--copper-lt);
+      background: var(--copper-glow-12, rgba(196,124,74,0.1));
+      border: 1px solid var(--copper-glow-30, rgba(196,124,74,0.28));
+      padding: 5px 11px;
+      border-radius: 100px;
+      white-space: nowrap;
     }
     .overlay-categories {
       padding: 14px 0 16px;
@@ -2033,9 +2173,33 @@
       color: var(--fg);
       font-size: 0.9375rem;
       margin-bottom: 32px;
+      line-height: 1.6;
     }
-    .overlay-categories .label { color: var(--fg-muted); font-weight: 500; margin-right: 6px; }
+    .overlay-categories .label { color: var(--fg-muted); font-weight: 500; margin-right: 6px; display: block; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; }
     .ov-section { margin-bottom: 32px; }
+    .ov-why-list {
+      list-style: none;
+      margin: 16px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .ov-why-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--fg-muted);
+    }
+    .ov-why-list li strong { color: var(--fg); font-weight: 600; }
+    .ov-why-list svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--copper-lt);
+    }
     .ov-section h3 {
       color: var(--copper-lt);
       font-size: 0.75rem;
@@ -2043,6 +2207,23 @@
       text-transform: uppercase;
       font-weight: 700;
       margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ov-section h3::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background: var(--copper);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .ov-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--fg-muted);
+      max-width: 60ch;
     }
     .specs {
       display: flex;
@@ -2089,26 +2270,31 @@
     }
     .materials-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
     }
     .materials-list li {
       color: var(--fg);
-      font-size: 1rem;
-      padding-left: 20px;
+      font-size: 0.9rem;
+      padding-left: 26px;
       position: relative;
-      line-height: 1.6;
+      line-height: 1.5;
     }
     .materials-list li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.65em;
-      width: 6px;
-      height: 6px;
+      top: 0.05em;
+      width: 17px;
+      height: 17px;
       border-radius: 50%;
-      background: var(--copper);
+      background: var(--copper-glow-12, rgba(196,124,74,0.12));
+      border: 1px solid var(--copper-glow-30, rgba(196,124,74,0.3));
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c47c4a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 11px;
     }
     .colors-img {
       width: 100%;
@@ -2123,18 +2309,51 @@
       color: var(--fg-muted);
       font-size: 0.8125rem;
     }
+    .buy-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-top: 4px;
+    }
+    .length-picker {
+      margin-bottom: 16px;
+      padding: 14px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .lp-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .lp-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-muted); font-weight: 600; }
+    .lp-input-wrap { display: inline-flex; align-items: center; gap: 4px; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px; }
+    .lp-input-wrap input { width: 56px; border: 0; background: transparent; color: var(--fg); font-family: inherit; font-size: 0.95rem; font-weight: 700; text-align: right; -moz-appearance: textfield; }
+    .lp-input-wrap input::-webkit-outer-spin-button, .lp-input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .lp-unit { color: var(--fg-muted); font-size: 0.8rem; }
+    .lp-range { width: 100%; accent-color: var(--copper); cursor: pointer; }
+    .lp-total { margin-top: 10px; font-size: 0.85rem; color: var(--fg-muted); }
+    .lp-total strong { color: var(--copper-lt); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
     .overlay-price-block {
       display: flex;
       align-items: baseline;
       gap: 8px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
+    .buy-price-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg-muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .buy-price-row { display: flex; align-items: baseline; gap: 8px; }
     .overlay-price {
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--copper-lt);
       font-variant-numeric: tabular-nums;
       letter-spacing: -0.02em;
+      line-height: 1;
     }
     .overlay-price-currency {
       font-size: 1rem;
@@ -2145,6 +2364,27 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+    }
+    .buy-trust {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .buy-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--fg-muted);
+    }
+    .buy-trust-item svg {
+      width: 17px;
+      height: 17px;
+      color: var(--copper-lt);
+      flex-shrink: 0;
     }
     .btn-primary, .btn-secondary {
       flex: 1;
@@ -2381,26 +2621,26 @@
       .filters-toggle[aria-expanded="true"] .ft-chevron { transform: rotate(180deg); }
       .filters-toggle[aria-expanded="true"] { border-color: var(--copper-glow-40); }
 
-      /* CHIP-BAR — clear sections with labels above chips */
+      /* CHIP-BAR — collapsible: clean show/hide with fade (no overlap, no lag) */
       .chip-bar {
+        display: none;
         padding: 0 20px;
-        margin: 0 auto 14px;
-        gap: 16px;
-        flex-direction: column;
-        align-items: stretch;
-        overflow: hidden;
-        max-height: 0;
-        opacity: 0;
-        margin-top: 0;
-        transition: max-height 0.35s ease, opacity 0.28s ease, margin-top 0.28s ease, padding 0.28s ease;
-        padding-top: 0; padding-bottom: 0;
+        margin: 0;
       }
       .chip-bar.open {
-        max-height: 600px;
-        opacity: 1;
-        margin-top: 10px;
-        padding-top: 4px;
-        padding-bottom: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+        margin: 10px 0 14px;
+        animation: chipBarReveal 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes chipBarReveal {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .chip-bar-inner {
+        display: contents;
       }
       .chip-group {
         display: flex;
@@ -2535,8 +2775,13 @@
       .view-toggle button svg { width: 10px; height: 10px; }
       .view-3d-hint { font-size: 0.62rem; bottom: 8px; }
       .ov-title { font-size: clamp(1.5rem, 6.5vw, 1.85rem); line-height: 1.1; }
+      .overlay-name { font-size: clamp(1.45rem, 5.6vw, 1.8rem); line-height: 1.15; overflow-wrap: anywhere; }
+      .overlay-img-side { aspect-ratio: auto; min-height: 0; max-height: none; overflow: visible; padding: 18px; display: flex; align-items: center; justify-content: center; }
+      .overlay-img-side img { max-height: 300px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
       .ov-desc { font-size: 0.9rem; line-height: 1.65; }
       .ov-price { font-size: 1.4rem; }
+      .materials-list { grid-template-columns: 1fr; }
+      .buy-card { padding: 18px; }
       .ov-3d { height: 100%; max-height: 100%; }
       .tex-swatches { bottom: 10px; padding: 4px 6px; gap: 4px; }
       .tex-swatches button { width: 22px; height: 22px; }
@@ -2697,9 +2942,9 @@
   <header class="page-head">
     <div>
       <div class="section-tag">Katalog</div>
-      <h1 class="section-title">Svi naši proizvodi</h1>
+      <h1 class="section-title">Kuhinjski elementi</h1>
     </div>
-    <p class="section-sub">Pregledajte kompletan asortiman — kuhinjski elementi, ugradni aparati i radne ploče. Spajamo proverene gotove elemente u kuhinju koja staje u vaš prostor.</p>
+    <p class="section-sub">Donji i gornji (viseći) kuhinjski elementi, radne ploče i sudopere — od medijapana visokog sjaja i iverice, u 8 dezena. Pregledajte ceo asortiman sa cenama i sklopite svoju montažnu kuhinju. Izrada i ugradnja u Nišu i okolini.</p>
   </header>
 
   <div class="toolbar" id="toolbar">
@@ -2801,6 +3046,15 @@
   </button>
 
   <div class="chip-bar" id="chipBar">
+    <div class="chip-bar-inner">
+    <div class="chip-group">
+      <span class="chip-group-label">Tip</span>
+      <button class="chip active" data-type="all">Sve</button>
+      <button class="chip" data-type="standardni">Standardni</button>
+      <button class="chip" data-type="fioke">Sa fiokama</button>
+      <button class="chip" data-type="ugaoni">Ugaoni</button>
+      <button class="chip" data-type="stub">Stub za rernu</button>
+    </div>
     <div class="chip-group">
       <span class="chip-group-label">Ručice</span>
       <button class="chip active" data-handle="all">Sve</button>
@@ -2822,6 +3076,7 @@
       <button class="chip" data-width="40-60">40–60</button>
       <button class="chip" data-width="60-80">60–80</button>
       <button class="chip" data-width="80-200">80cm+</button>
+    </div>
     </div>
   </div>
 
@@ -2876,6 +3131,16 @@
         <span class="quote-total-label">Ukupno orijentaciono</span>
         <span class="quote-total-value" id="quoteTotal">0 RSD</span>
       </div>
+      <div class="quote-modal-utils">
+        <button type="button" class="qm-util-btn" id="qmPdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6M9 15l3 3 3-3"/></svg>
+          Preuzmi PDF
+        </button>
+        <button type="button" class="qm-util-btn" id="qmShare">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+          <span id="qmShareText">Kopiraj link</span>
+        </button>
+      </div>
       <div class="quote-modal-actions">
         <button type="button" class="qb-btn qb-btn-secondary" id="qmClose">Zatvori</button>
         <a href="#" class="qb-btn qb-btn-primary" id="qmWhatsApp" target="_blank" rel="noopener">
@@ -2891,7 +3156,7 @@
     <div class="overlay-nav">
       <button class="overlay-back" id="overlayClose">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Nazad na katalog
+        <span class="overlay-back-text">Nazad na katalog</span>
       </button>
       <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Eldo Design" />
@@ -2956,7 +3221,12 @@
         <div class="overlay-crumb" id="ovCrumb"></div>
         <h1 class="overlay-name" id="ovName"></h1>
         <p class="overlay-tagline" id="ovTagline"></p>
-        <div class="overlay-categories" id="ovCategories"></div>
+        <div class="ov-tags" id="ovTags"></div>
+
+        <div class="ov-section" id="ovDescSection">
+          <h3>Opis</h3>
+          <p class="ov-desc" id="ovDesc"></p>
+        </div>
 
         <div class="ov-section">
           <h3>Dimenzije</h3>
@@ -2970,20 +3240,77 @@
 
         <div class="ov-section" id="ovColorsSection">
           <h3>Boje i dezeni</h3>
-          <img class="colors-img" src="assets/boje-materijala-v3.png" alt="Boje i dezeni — Eldo Design" />
-          <div class="colors-note">8 dezena u ponudi — medijapan visoki sjaj i iverica.</div>
+          <img class="colors-img" src="assets/boje-materijala-v3.png" alt="Boje i dezeni kuhinjskih elemenata — medijapan visoki sjaj i iverica, Eldo Design Niš" />
+          <div class="colors-note" id="ovDezeni">8 dezena u ponudi — medijapan visoki sjaj i iverica.</div>
         </div>
 
-        <div class="overlay-price-block">
-          <div class="overlay-price" id="ovPrice"></div>
-          <div class="overlay-price-currency">RSD</div>
+        <div class="ov-section ov-why">
+          <h3>Zašto izabrati nas?</h3>
+          <p class="ov-desc">Kao deo sistema <strong>modularnih kuhinja po meri</strong>, ovaj element slobodno kombinujete sa ostalim delovima iz kataloga — sami birate raspored i sklapate kuhinju koja tačno staje u vaš prostor.</p>
+          <ul class="ov-why-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              <span><strong>Slobodno kombinovanje</strong> — sklapate kuhinju po meri iz gotovih elemenata.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 12l4-4M3 12l4 4"/><path d="M21 12l-4-4M21 12l-4 4"/></svg>
+              <span><strong>Smer otvaranja vrata</strong> po izboru — prilagođava se rasporedu vašeg prostora.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg>
+              <span><strong>8 dezena</strong> medijapana i iverice — od dekora hrasta do mat i visoki-sjaj tonova.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span><strong>Eldo Design, Niš</strong> — besplatno merenje prostora i stručna montaža.</span>
+            </li>
+          </ul>
         </div>
 
-        <div class="overlay-actions">
-          <button type="button" class="btn-primary" id="ovAddBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-            <span id="ovAddBtnText">Dodaj u ponudu</span>
-          </button>
+        <div class="buy-card">
+          <div class="overlay-price-block">
+            <div>
+              <div class="buy-price-label">Cena po komadu</div>
+              <div class="buy-price-row">
+                <div class="overlay-price" id="ovPrice"></div>
+                <div class="overlay-price-currency">RSD</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="length-picker" id="ovLengthPicker" style="display:none;">
+            <div class="lp-head">
+              <span class="lp-label">Dužina</span>
+              <div class="lp-input-wrap">
+                <input type="number" id="ovLengthInput" min="20" max="600" step="1" value="200" />
+                <span class="lp-unit">cm</span>
+              </div>
+            </div>
+            <input type="range" id="ovLengthRange" min="20" max="600" step="1" value="200" class="lp-range" />
+            <div class="lp-total">Ukupno: <strong id="ovLengthTotal">—</strong></div>
+          </div>
+
+          <div class="overlay-actions">
+            <button type="button" class="btn-primary" id="ovAddBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              <span id="ovAddBtnText">Dodaj u ponudu</span>
+            </button>
+          </div>
+
+          <div class="buy-trust">
+            <span class="buy-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v6c0 5-3.5 8-9 10-5.5-2-9-5-9-10z"/><path d="M9 12l2 2 4-4"/></svg>
+              Garancija na elemente
+            </span>
+            <span class="buy-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13l-3-3M16 12l-3 3"/><rect x="2" y="6" width="14" height="12" rx="1"/><path d="M16 9h3l3 3v3h-6"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>
+              Isporuka i montaža za 15–35 dana
+            </span>
+            <span class="buy-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h20M5 7l1.5 12h11L19 7M9 11v5M15 11v5"/></svg>
+              Besplatno merenje prostora
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -3122,6 +3449,7 @@
     let activePrice = 'all';
     let activeWidth = 'all';
     let activeHandle = 'all';
+    let activeType = 'all';
     let activeSort = 'popular';
 
     // Quote state — persisted in localStorage
@@ -3131,6 +3459,23 @@
     })();
     function persistQuote() {
       try { localStorage.setItem('eldo-quote', JSON.stringify(quote)); } catch (e) {}
+    }
+    // Per-cm length state (radna ploča, zidna obloga)
+    let quoteLengths = (function () {
+      try { return JSON.parse(localStorage.getItem('eldo-quote-len') || '{}'); }
+      catch (e) { return {}; }
+    })();
+    function persistLengths() {
+      try { localStorage.setItem('eldo-quote-len', JSON.stringify(quoteLengths)); } catch (e) {}
+    }
+    function itemLength(p) {
+      if (!p || !p.pricePerCm) return null;
+      return quoteLengths[p.id] || p.defaultLength || 100;
+    }
+    function itemPrice(p) {
+      if (!p) return 0;
+      if (p.pricePerCm) return p.pricePerCm * itemLength(p);
+      return p.price || 0;
     }
     function inQuote(id) { return quote.indexOf(id) !== -1; }
     function toggleQuote(id) {
@@ -3152,12 +3497,53 @@
       return p.toLocaleString('sr-RS');
     }
 
+    function injectStructuredData(items) {
+      try {
+        var el = document.getElementById('catalogLd');
+        if (!el) {
+          el = document.createElement('script');
+          el.type = 'application/ld+json';
+          el.id = 'catalogLd';
+          document.head.appendChild(el);
+        }
+        var data = {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Kuhinjski elementi — Eldo Design Niš",
+          "itemListElement": items.map(function (p, i) {
+            return {
+              "@type": "ListItem",
+              "position": i + 1,
+              "item": {
+                "@type": "Product",
+                "name": p.fullName || p.name,
+                "description": p.seoDescription || p.description || "",
+                "category": (p.categories && p.categories[0]) || p.category,
+                "brand": { "@type": "Brand", "name": "Eldo Design" },
+                "offers": {
+                  "@type": "Offer",
+                  "price": p.price || undefined,
+                  "priceCurrency": "RSD",
+                  "availability": "https://schema.org/InStock",
+                  "seller": { "@type": "Organization", "name": "Eldo Design" }
+                }
+              }
+            };
+          })
+        };
+        el.textContent = JSON.stringify(data);
+      } catch (e) { console.warn('LD inject failed', e); }
+    }
+
     function render() {
       const q = searchInput.value.trim().toLowerCase();
       let filtered = products.filter(p => {
         if (p.hidden) return false; // hide products marked as not for sale
         if (activeCat !== 'all' && p.category !== activeCat) return false;
-        if (q && !p.name.toLowerCase().includes(q)) return false;
+        if (q) {
+          var hay = (p.name + ' ' + (p.fullName || '') + ' ' + (p.keywords || []).join(' ')).toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
         // Price filter
         if (activePrice !== 'all') {
           const [lo, hi] = activePrice.split('-').map(Number);
@@ -3175,6 +3561,17 @@
           const isBez = sub.includes('bez-rucica') || sub.includes('bez-rucicama') || /^bez/i.test(sub);
           if (activeHandle === 'bez' && !isBez) return false;
           if (activeHandle === 'sa' && (isBez || !sub.includes('rucic'))) return false;
+        }
+        // Type filter (Tip elementa)
+        if (activeType !== 'all') {
+          const n = (p.name || '').toLowerCase();
+          const isFioke = /fiok/.test(n);
+          const isUgaoni = /ugao|ugaoni|ugл|\bugl/.test(n);
+          const isStub = /stub/.test(n);
+          if (activeType === 'fioke' && !isFioke) return false;
+          if (activeType === 'ugaoni' && !isUgaoni) return false;
+          if (activeType === 'stub' && !isStub) return false;
+          if (activeType === 'standardni' && (isFioke || isUgaoni || isStub)) return false;
         }
         return true;
       });
@@ -3268,6 +3665,7 @@
       if (chip.dataset.price) activePrice = chip.dataset.price;
       if (chip.dataset.width) activeWidth = chip.dataset.width;
       if (chip.dataset.handle) activeHandle = chip.dataset.handle;
+      if (chip.dataset.type) activeType = chip.dataset.type;
       updateFilterCount();
       render();
     });
@@ -3290,6 +3688,7 @@
       if (activeHandle !== 'all') n++;
       if (activePrice !== 'all') n++;
       if (activeWidth !== 'all') n++;
+      if (activeType !== 'all') n++;
       badge.textContent = n;
       badge.classList.toggle('show', n > 0);
     }
@@ -3357,7 +3756,7 @@
       document.getElementById('qbCount').textContent = count;
       const total = quote.reduce((s, id) => {
         const p = products.find(p => p.id === id);
-        return s + (p && p.price ? p.price : 0);
+        return s + (p ? itemPrice(p) : 0);
       }, 0);
       document.getElementById('qbTotal').textContent = fmtPrice(total) + ' RSD orijentaciono';
       bar.classList.toggle('show', count > 0);
@@ -3418,12 +3817,17 @@
       const items = quote.map(id => products.find(p => p.id === id)).filter(Boolean);
       let total = 0;
       list.innerHTML = items.map(p => {
-        total += p.price || 0;
+        const price = itemPrice(p);
+        total += price;
+        const len = itemLength(p);
+        const lenCtrl = p.pricePerCm
+          ? `<span class="qi-len"><button class="qi-len-btn" data-act="dec" data-id="${p.id}">−</button><input class="qi-len-input" data-id="${p.id}" type="number" min="20" max="600" value="${len}" /><span class="qi-len-unit">cm</span><button class="qi-len-btn" data-act="inc" data-id="${p.id}">+</button></span>`
+          : '';
         return `
           <li class="quote-item">
             <img src="${p.image}" alt="" />
-            <span class="name">${p.name}</span>
-            <span class="price">${fmtPrice(p.price)} RSD</span>
+            <span class="name">${p.name}${lenCtrl}</span>
+            <span class="price">${fmtPrice(price)} RSD</span>
             <button class="remove" data-id="${p.id}" aria-label="Ukloni" title="Ukloni">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </button>
@@ -3431,10 +3835,12 @@
         `;
       }).join('');
       document.getElementById('quoteTotal').textContent = fmtPrice(total) + ' RSD';
-      // Build WhatsApp message
+      // Build Viber message
       const lines = ['Zdravo, želim ponudu za sledeće proizvode:', ''];
       items.forEach((p, i) => {
-        lines.push((i + 1) + '. ' + p.name + (p.price ? ' — ' + fmtPrice(p.price) + ' RSD' : ''));
+        const price = itemPrice(p);
+        const lenTxt = p.pricePerCm ? ' (' + itemLength(p) + ' cm)' : '';
+        lines.push((i + 1) + '. ' + p.name + lenTxt + (price ? ' — ' + fmtPrice(price) + ' RSD' : ''));
       });
       lines.push('', 'Ukupno orijentaciono: ' + fmtPrice(total) + ' RSD');
       const msg = encodeURIComponent(lines.join('\n'));
@@ -3451,10 +3857,108 @@
     document.getElementById('qmClose').addEventListener('click', closeQuoteModal);
     quoteModal.addEventListener('click', (e) => { if (e.target === quoteModal) closeQuoteModal(); });
     document.getElementById('quoteItems').addEventListener('click', (e) => {
+      const lenBtn = e.target.closest('.qi-len-btn');
+      if (lenBtn) {
+        const p = products.find(x => x.id === lenBtn.dataset.id);
+        if (!p) return;
+        let v = itemLength(p) + (lenBtn.dataset.act === 'inc' ? 1 : -1);
+        v = Math.min(600, Math.max(20, v));
+        quoteLengths[p.id] = v; persistLengths();
+        openQuoteModal(); updateQuoteUI();
+        return;
+      }
       const btn = e.target.closest('.remove');
       if (!btn) return;
       toggleQuote(btn.dataset.id);
       openQuoteModal(); // refresh
+    });
+    document.getElementById('quoteItems').addEventListener('change', (e) => {
+      const inp = e.target.closest('.qi-len-input');
+      if (!inp) return;
+      const p = products.find(x => x.id === inp.dataset.id);
+      if (!p) return;
+      let v = Math.min(600, Math.max(20, parseInt(inp.value, 10) || 20));
+      quoteLengths[p.id] = v; persistLengths();
+      openQuoteModal(); updateQuoteUI();
+    });
+
+    // --- Share quote link (copy to clipboard) ---
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try { document.execCommand('copy'); cb && cb(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    document.getElementById('qmShare').addEventListener('click', function () {
+      if (!quote.length) return;
+      const url = location.origin + location.pathname + '?ponuda=' + encodeURIComponent(quote.join(','));
+      const btn = this;
+      const txt = document.getElementById('qmShareText');
+      const show = function () {
+        btn.classList.add('copied'); txt.textContent = 'Link kopiran!';
+        setTimeout(function () { btn.classList.remove('copied'); txt.textContent = 'Kopiraj link'; }, 2200);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(show).catch(function () { fallbackCopy(url, show); });
+      } else { fallbackCopy(url, show); }
+    });
+
+    // --- Download quote as PDF (print-friendly window) ---
+    document.getElementById('qmPdf').addEventListener('click', function () {
+      const items = quote.map(id => products.find(p => p.id === id)).filter(Boolean);
+      if (!items.length) return;
+      let total = 0;
+      const rows = items.map((p, i) => {
+        const price = itemPrice(p);
+        total += price;
+        const lenTxt = p.pricePerCm ? itemLength(p) + ' cm × ' + p.pricePerCm + ' din/cm' : [p.width, p.depth, p.height].filter(Boolean).join('×') + ' cm';
+        return '<tr><td class="num">' + (i + 1) + '</td><td>' + p.name +
+          (lenTxt ? '<span class="dim">' + lenTxt + '</span>' : '') +
+          '</td><td class="price">' + fmtPrice(price) + ' RSD</td></tr>';
+      }).join('');
+      const logoUrl = new URL('assets/logo.png', location.href).href;
+      const today = new Date().toLocaleDateString('sr-RS');
+      const html = '<!DOCTYPE html><html lang="sr"><head><meta charset="utf-8"><title>Ponuda — Eldo Design</title>' +
+        '<style>' +
+        '@page{margin:18mm 16mm;}' +
+        '*{box-sizing:border-box;margin:0;padding:0;}' +
+        'body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1c2030;line-height:1.5;}' +
+        '.head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #c47c4a;padding-bottom:16px;margin-bottom:24px;}' +
+        '.head img{height:54px;}' +
+        '.head .meta{text-align:right;font-size:12px;color:#666;}' +
+        'h1{font-size:22px;font-weight:700;margin-bottom:4px;}' +
+        '.sub{color:#666;font-size:13px;margin-bottom:22px;}' +
+        'table{width:100%;border-collapse:collapse;font-size:13px;}' +
+        'th{text-align:left;border-bottom:1px solid #ccc;padding:8px 6px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#888;}' +
+        'td{padding:10px 6px;border-bottom:1px solid #eee;vertical-align:top;}' +
+        'td.num{color:#999;width:28px;}' +
+        'td.price{text-align:right;font-weight:700;color:#c47c4a;white-space:nowrap;}' +
+        '.dim{display:block;font-size:11px;color:#999;margin-top:2px;}' +
+        '.total{display:flex;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:2px solid #1c2030;font-size:16px;font-weight:700;}' +
+        '.total .v{color:#c47c4a;}' +
+        '.note{margin-top:10px;font-size:11px;color:#999;}' +
+        '.foot{margin-top:32px;padding-top:16px;border-top:1px solid #eee;font-size:12px;color:#555;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}' +
+        '.foot b{color:#1c2030;}' +
+        '</style></head><body>' +
+        '<div class="head"><img src="' + logoUrl + '" alt="Eldo Design"><div class="meta">Ponuda<br>' + today + '</div></div>' +
+        '<h1>Vaša ponuda</h1>' +
+        '<p class="sub">Orijentaciona lista kuhinjskih elemenata — Eldo Design, Niš</p>' +
+        '<table><thead><tr><th></th><th>Proizvod</th><th style="text-align:right">Cena</th></tr></thead><tbody>' +
+        rows + '</tbody></table>' +
+        '<div class="total"><span>Ukupno orijentaciono (' + items.length + ' kom)</span><span class="v">' + fmtPrice(total) + ' RSD</span></div>' +
+        '<p class="note">* Cene su orijentacione. Konačna ponuda se pravi nakon besplatnog merenja prostora. Radne ploče i zidne obloge se obračunavaju po dužnom centimetru.</p>' +
+        '<div class="foot"><span><b>Eldo Design</b><br>Matejevački put 94, Niš</span><span>Tel: 0611444021<br>eldodesignnis@gmail.com</span><span>eldodesign.rs<br>@eldo_design_namestaj_</span></div>' +
+        '</body></html>';
+      const w = window.open('', '_blank');
+      if (!w) { alert('Dozvolite pop-up prozore da biste preuzeli PDF.'); return; }
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
+      const logoImg = w.document.querySelector('img');
+      const go = function () { try { w.focus(); w.print(); } catch (e) {} };
+      if (logoImg && !logoImg.complete) { logoImg.onload = go; logoImg.onerror = go; setTimeout(go, 1200); }
+      else { setTimeout(go, 350); }
     });
 
     searchInput.addEventListener('input', render);
@@ -3564,34 +4068,6 @@
       if (active) applyFrontTexture(active.dataset.tex, active.dataset.bright);
     });
 
-    // DEBUG: click on 3D model to identify which material is there
-    document.getElementById('ov3d').addEventListener('click', async (e) => {
-      const mv = document.getElementById('ov3d');
-      if (!mv.model) return;
-      const rect = mv.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      try {
-        // Try materialFromPoint (model-viewer 1.10+)
-        if (typeof mv.materialFromPoint === 'function') {
-          const mat = await mv.materialFromPoint(x, y);
-          if (mat) {
-            console.log('🎯 KLIK NA MATERIJAL:', mat.name);
-            // Briefly flash this material so user knows what they clicked
-            const orig = mat.pbrMetallicRoughness.baseColorFactor || [1,1,1,1];
-            mat.pbrMetallicRoughness.setBaseColorFactor([1, 0.3, 0.1, 1]);
-            setTimeout(() => mat.pbrMetallicRoughness.setBaseColorFactor(orig), 400);
-            return;
-          }
-        }
-        // Fallback: log surface hotspot info
-        const surface = await mv.surfaceFromPoint?.(x, y);
-        if (surface) console.log('🎯 KLIK (surface):', surface);
-      } catch (err) {
-        console.log('Click debug error:', err);
-      }
-    });
-
     function openProduct(p) {
       document.getElementById('ovImg').src = p.image;
       document.getElementById('ovImg').alt = p.fullName || p.name;
@@ -3612,7 +4088,15 @@
       setView('img');
       document.getElementById('ovName').textContent = p.fullName || p.name;
       document.getElementById('ovTagline').textContent = p.tagline ||
-        'Donji kuhinjski element bez ručica — push-to-open mehanizam, čist front bez vidljivih okova. Modularan i kombinuje se sa ostalim Eldo elementima.';
+        'Kuhinjski element iz modularnog sistema Eldo Design Niš — kombinuje se sa ostalim elementima u kompletnu kuhinju.';
+      var ovDescEl = document.getElementById('ovDesc');
+      var ovDescSec = document.getElementById('ovDescSection');
+      if (p.seoDescription || p.description) {
+        ovDescEl.textContent = p.seoDescription || p.description;
+        ovDescSec.style.display = '';
+      } else {
+        ovDescSec.style.display = 'none';
+      }
 
       // Breadcrumb
       const cat = CATEGORY_LABELS[p.category] || p.category;
@@ -3621,12 +4105,23 @@
         `<a href="proizvodi.html">Katalog</a><span class="sep">/</span>${cat}` +
         (sub ? `<span class="sep">/</span>${sub}` : '');
 
-      // Categories line
-      const cats = p.categories && p.categories.length
-        ? p.categories
-        : [cat, sub].filter(Boolean);
-      document.getElementById('ovCategories').innerHTML =
-        `<span class="label">Kategorije:</span>${cats.join(', ')}`;
+      // SEO keyword tags — show a short, curated set (keep keywords array for search)
+      var ovTags = document.getElementById('ovTags');
+      var shortTags = (p.keywords || []).filter(function (k) { return k.length <= 20; }).slice(0, 4);
+      if (shortTags.length) {
+        ovTags.innerHTML = shortTags.map(function (k) {
+          return '<span class="ov-tag">' + k + '</span>';
+        }).join('');
+        ovTags.style.display = 'flex';
+      } else {
+        ovTags.innerHTML = '';
+        ovTags.style.display = 'none';
+      }
+
+      // Dezeni description
+      var ovDezeni = document.getElementById('ovDezeni');
+      if (ovDezeni) ovDezeni.textContent = p.dezeniText ||
+        '8 dezena u ponudi — medijapan visoki sjaj i iverica.';
 
       // Specs — dimensions as compact cards
       const dims = [];
@@ -3650,22 +4145,36 @@
         matsSection.style.display = 'none';
       }
 
-      // Price
+      // Price + length picker (per-cm products)
       const _pr = p.priceDetail || p.price;
       const ovPriceEl = document.getElementById('ovPrice');
       const ovCurEl = ovPriceEl.nextElementSibling;
+      const priceLabel = document.querySelector('.buy-price-label');
+      const lengthPicker = document.getElementById('ovLengthPicker');
       if (p.pricePerCm) {
         ovPriceEl.textContent = fmtPrice(p.pricePerCm);
         ovPriceEl.style.fontSize = '2.5rem';
         if (ovCurEl) { ovCurEl.style.display = ''; ovCurEl.textContent = 'din/cm'; }
-      } else if (_pr) {
-        ovPriceEl.textContent = fmtPrice(_pr);
-        ovPriceEl.style.fontSize = '';
-        if (ovCurEl) { ovCurEl.style.display = ''; ovCurEl.textContent = 'RSD'; }
+        if (priceLabel) priceLabel.textContent = 'Cena po centimetru';
+        // init length picker
+        lengthPicker.style.display = '';
+        const len = itemLength(p);
+        const inp = document.getElementById('ovLengthInput');
+        const rng = document.getElementById('ovLengthRange');
+        inp.value = len; rng.value = Math.min(600, Math.max(20, len));
+        updateLengthTotal(p);
       } else {
-        ovPriceEl.textContent = 'Po upitu';
-        ovPriceEl.style.fontSize = '1.6rem';
-        if (ovCurEl) ovCurEl.style.display = 'none';
+        lengthPicker.style.display = 'none';
+        if (priceLabel) priceLabel.textContent = 'Cena po komadu';
+        if (_pr) {
+          ovPriceEl.textContent = fmtPrice(_pr);
+          ovPriceEl.style.fontSize = '';
+          if (ovCurEl) { ovCurEl.style.display = ''; ovCurEl.textContent = 'RSD'; }
+        } else {
+          ovPriceEl.textContent = 'Po upitu';
+          ovPriceEl.style.fontSize = '1.6rem';
+          if (ovCurEl) ovCurEl.style.display = 'none';
+        }
       }
 
       // "Dodaj u ponudu" button state
@@ -3699,8 +4208,60 @@
       txt.textContent = isIn ? 'Ukloni iz ponude' : 'Dodaj u ponudu';
     }
 
+    // Length picker (per-cm products)
+    function clampLen(v) { v = parseInt(v, 10) || 0; return Math.min(600, Math.max(20, v)); }
+    function updateLengthTotal(p) {
+      if (!p || !p.pricePerCm) return;
+      const len = clampLen(document.getElementById('ovLengthInput').value);
+      const total = p.pricePerCm * len;
+      document.getElementById('ovLengthTotal').textContent = fmtPrice(total) + ' RSD';
+    }
+    (function () {
+      const inp = document.getElementById('ovLengthInput');
+      const rng = document.getElementById('ovLengthRange');
+      // Live update WITHOUT rewriting the input (so manual typing works)
+      function liveFromInput() {
+        const p = currentDetailProduct;
+        if (!p || !p.pricePerCm) return;
+        let raw = parseInt(inp.value, 10);
+        if (isNaN(raw)) return; // allow empty while typing
+        rng.value = Math.min(600, Math.max(20, raw));
+        const total = p.pricePerCm * Math.max(0, raw);
+        document.getElementById('ovLengthTotal').textContent = fmtPrice(total) + ' RSD';
+      }
+      // Commit (clamp + store) on blur / change
+      function commitInput() {
+        const p = currentDetailProduct;
+        if (!p || !p.pricePerCm) return;
+        let v = clampLen(inp.value);
+        inp.value = v; rng.value = v;
+        quoteLengths[p.id] = v; persistLengths();
+        updateLengthTotal(p);
+        if (inQuote(p.id)) updateQuoteUI();
+      }
+      // Range slider: clamp + store live (range can't produce invalid values)
+      function fromRange() {
+        const p = currentDetailProduct;
+        if (!p || !p.pricePerCm) return;
+        let v = clampLen(rng.value);
+        inp.value = v;
+        quoteLengths[p.id] = v; persistLengths();
+        updateLengthTotal(p);
+        if (inQuote(p.id)) updateQuoteUI();
+      }
+      inp.addEventListener('input', liveFromInput);
+      inp.addEventListener('change', commitInput);
+      inp.addEventListener('blur', commitInput);
+      rng.addEventListener('input', fromRange);
+    })();
+
     document.getElementById('ovAddBtn').addEventListener('click', () => {
       if (!currentDetailProduct) return;
+      // For per-cm products, ensure the chosen length is saved
+      if (currentDetailProduct.pricePerCm) {
+        quoteLengths[currentDetailProduct.id] = clampLen(document.getElementById('ovLengthInput').value);
+        persistLengths();
+      }
       toggleQuote(currentDetailProduct.id);
       updateOvAddBtn(currentDetailProduct);
     });
@@ -3824,14 +4385,29 @@
         const params = new URLSearchParams(location.search);
         const catParam = params.get('cat');
         if (catParam) activeCat = catParam;
+
+        // Shared quote from ?ponuda=id1,id2,...
+        const ponuda = params.get('ponuda');
+        if (ponuda) {
+          const ids = ponuda.split(',').map(s => s.trim()).filter(Boolean);
+          const valid = ids.filter(id => products.some(p => p.id === id));
+          if (valid.length) {
+            valid.forEach(id => { if (quote.indexOf(id) === -1) quote.push(id); });
+            persistQuote();
+          }
+        }
+
         buildFilters();
         render();
         updateQuoteUI();
+        injectStructuredData(data);
         // Auto-open product if ?id=xxx in URL
         const id = params.get('id');
         if (id) {
           const p = products.find(p => p.id === id);
           if (p) openProduct(p);
+        } else if (ponuda && quote.length) {
+          openQuoteModal();
         }
       })
       .catch(err => {

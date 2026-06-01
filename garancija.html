@@ -482,6 +482,7 @@
     }
     .g-tips-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
     .g-tips-head .section-tag { display: inline-block; margin-bottom: 12px; }
+    .g-tips-head .section-sub { margin-left: auto; margin-right: auto; }
     .g-tips-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.9rem, 4vw, 2.4rem);
@@ -1533,28 +1534,45 @@
     .confirm-modal.open { display: flex; }
     @keyframes cmFade { from { opacity: 0; } to { opacity: 1; } }
     .confirm-card {
+      position: relative;
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      max-width: 440px;
+      border-radius: 22px;
+      max-width: 416px;
       width: 100%;
-      padding: 32px 28px 26px;
+      padding: 38px 32px 28px;
       text-align: center;
-      box-shadow: 0 24px 60px hsla(225, 40%, 4%, 0.5);
+      box-shadow: 0 30px 80px hsla(225, 40%, 4%, 0.6);
       transform: scale(0.92);
       animation: cmIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      overflow: hidden;
+    }
+    .confirm-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, hsl(0,70%,55%), transparent);
+      opacity: 0.75;
     }
     @keyframes cmIn { to { transform: scale(1); } }
     .confirm-icon {
-      width: 56px; height: 56px;
+      position: relative;
+      width: 64px; height: 64px;
       border-radius: 50%;
-      background: hsla(0, 70%, 50%, 0.12);
-      border: 1px solid hsla(0, 70%, 50%, 0.3);
-      color: hsl(0, 70%, 60%);
+      background: radial-gradient(circle at 50% 42%, hsla(0,72%,52%,0.24), hsla(0,72%,52%,0.07));
+      color: hsl(0, 72%, 63%);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
+    }
+    .confirm-icon::after {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      border-radius: 50%;
+      border: 1px solid hsla(0,70%,55%,0.2);
     }
     .confirm-icon svg { width: 26px; height: 26px; }
     .confirm-title {
@@ -1575,8 +1593,15 @@
     .confirm-actions {
       display: flex;
       gap: 10px;
+      margin-top: 4px;
     }
-    .confirm-actions button { flex: 1; }
+    .confirm-actions .qb-btn {
+      flex: 1;
+      justify-content: center;
+      padding: 13px 18px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+    }
 
     @media (max-width: 560px) {
       .quote-bar { left: 12px; right: 12px; bottom: 12px; transform: translateY(140%); padding: 10px 14px; flex-wrap: wrap; }
@@ -1628,6 +1653,8 @@
       margin-bottom: 22px;
       max-height: 320px;
       overflow-y: auto;
+      overflow-x: hidden;
+      padding: 2px;
     }
     .quote-item {
       display: flex;

@@ -11,21 +11,41 @@
     "price": 4700,
     "wallMounted": false,
     "image": "assets/element-bez-rucica-3050cm-C2pjreFI.png",
-    "fullName": "Kuhinjski element širine 30cm",
+    "fullName": "Donji kuhinjski element 30 cm — bez ručica",
     "categories": [
       "Kuhinjski elementi",
-      "Kuhinjski elementi bez ručica"
+      "Donji elementi",
+      "Bez ručica",
+      "30 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
     ],
     "materials": [
-      "Korpus – iverica 18mm",
-      "Front – medijapan 18mm beli visoki sjaj (8 dezena u ponudi, medijapan/iverica)",
-      "ABS mašinsko kantovanje",
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
       "Štelujuće nogice",
-      "Jedna polica, štelujuća po visini",
-      "Sistemi sa usporivačima"
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
     ],
     "priceDetail": 4700,
-    "tagline": "Uski donji element širine 30 cm — idealan za popunjavanje praznina između standardnih ormarića, sa push-to-open frontom bez vidljivih ručica i štelujućom unutrašnjom policom."
+    "tagline": "Donji element 30 cm sa vratima i policom — front bez ručica.",
+    "description": "Donji kuhinjski element širine 30 cm (30×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element širine 30 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 30cm",
+      "uski kuhinjski elementi",
+      "kuhinje bez ručica"
+    ]
   },
   {
     "id": "bez-rucica-40",
@@ -38,7 +58,40 @@
     "imagePath": "element-bez-rucica-3050cm",
     "price": 5200,
     "wallMounted": false,
-    "image": "assets/element-bez-rucica-3050cm-C2pjreFI.png"
+    "image": "assets/element-bez-rucica-3050cm-C2pjreFI.png",
+    "description": "Donji kuhinjski element širine 40 cm (40×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj donji kuhinjski element širine 40 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "40 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 40cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 40 cm sa vratima i policom — front bez ručica.",
+    "fullName": "Donji kuhinjski element 40 cm — bez ručica"
   },
   {
     "id": "bez-rucica-45",
@@ -51,7 +104,40 @@
     "imagePath": "element-bez-rucica-3050cm",
     "price": 5500,
     "wallMounted": false,
-    "image": "assets/element-bez-rucica-3050cm-C2pjreFI.png"
+    "image": "assets/element-bez-rucica-3050cm-C2pjreFI.png",
+    "description": "Donji kuhinjski element širine 45 cm (45×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element širine 45 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "45 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 45cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 45 cm sa vratima i policom — front bez ručica.",
+    "fullName": "Donji kuhinjski element 45 cm — bez ručica"
   },
   {
     "id": "bez-rucica-50",
@@ -64,7 +150,40 @@
     "imagePath": "element-bez-rucica-3050cm",
     "price": 5700,
     "wallMounted": false,
-    "image": "assets/element-bez-rucica-3050cm-C2pjreFI.png"
+    "image": "assets/element-bez-rucica-3050cm-C2pjreFI.png",
+    "description": "Donji kuhinjski element širine 50 cm (50×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 50 cm širine, ovaj donji kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "50 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 50cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 50 cm sa vratima i policom — front bez ručica.",
+    "fullName": "Donji kuhinjski element 50 cm — bez ručica"
   },
   {
     "id": "bez-rucica-60",
@@ -77,7 +196,40 @@
     "imagePath": "element-bez-rucica-607080cm",
     "price": 5900,
     "wallMounted": false,
-    "image": "assets/element-bez-rucica-607080cm-BfLNzQo6.png"
+    "image": "assets/element-bez-rucica-607080cm-BfLNzQo6.png",
+    "description": "Donji kuhinjski element širine 60 cm (60×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Najtraženija standardna širina koja se lako uklapa u svaki raspored kuhinje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element 60 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 60 cm sa vratima i policom — front bez ručica.",
+    "fullName": "Donji kuhinjski element 60 cm — bez ručica"
   },
   {
     "id": "bez-rucica-70",
@@ -90,7 +242,40 @@
     "imagePath": "element-bez-rucica-607080cm",
     "price": 6300,
     "wallMounted": false,
-    "image": "assets/element-bez-rucica-607080cm-BfLNzQo6.png"
+    "image": "assets/element-bez-rucica-607080cm-BfLNzQo6.png",
+    "description": "Donji kuhinjski element širine 70 cm (70×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Širi element za više prostora za odlaganje posuđa i namirnica. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element širine 70 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "70 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 70cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 70 cm sa vratima i policom — front bez ručica.",
+    "fullName": "Donji kuhinjski element 70 cm — bez ručica"
   },
   {
     "id": "bez-rucica-80",
@@ -103,7 +288,40 @@
     "imagePath": "element-bez-rucica-607080cm",
     "price": 6700,
     "wallMounted": false,
-    "image": "assets/element-bez-rucica-607080cm-BfLNzQo6.png"
+    "image": "assets/element-bez-rucica-607080cm-BfLNzQo6.png",
+    "description": "Donji kuhinjski element širine 80 cm (80×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Širi element za više prostora za odlaganje posuđa i namirnica. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj donji kuhinjski element širine 80 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "80 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 80cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 80 cm sa vratima i policom — front bez ručica.",
+    "fullName": "Donji kuhinjski element 80 cm — bez ručica"
   },
   {
     "id": "bez-rucica-flase-20",
@@ -116,7 +334,43 @@
     "imagePath": "flase-bez-rucica-20cm",
     "price": 5000,
     "wallMounted": false,
-    "image": "assets/flase-bez-rucica-20cm-DQzb9Wdn.png"
+    "image": "assets/flase-bez-rucica-20cm-DQzb9Wdn.png",
+    "description": "Uski kuhinjski element za flaše širine 20 cm — vertikalno odlaganje ulja, sirćeta i začina uz minimalno zauzeće prostora. Front bez vidljivih ručica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Uski element za flaše 20 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Uska izvlačna korpa drži flaše, ulja i začine na dohvat ruke, a staje i u najuži razmak u nizu. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "20 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 20cm",
+      "uski kuhinjski elementi",
+      "element za flaše",
+      "cargo za flaše",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Uski izvlakač 20 cm za flaše, ulja i začine.",
+    "fullName": "Uski element za flaše 20 cm — bez ručica"
   },
   {
     "id": "bez-rucica-fioke-50",
@@ -129,7 +383,43 @@
     "imagePath": "fioke-bez-rucica-5060cm",
     "price": 9800,
     "wallMounted": false,
-    "image": "assets/fioke-bez-rucica-70cm-CO0z6SZt.png"
+    "image": "assets/fioke-bez-rucica-70cm-CO0z6SZt.png",
+    "description": "Donji kuhinjski element sa fiokama na puno izvlačenje, širine 50 cm (50×82×53 cm) — praktičan za pribor, šerpe i sitnice uz pregledan pristup. Front bez vidljivih ručica sa tihim soft-close zatvaračem. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji element sa fiokama 50 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Fioke na metalnim vođicama tiho klize i izvlače se do kraja, sa mekim zatvaranjem (soft-close). Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Fioke na metalnim vođicama, puno izvlačenje",
+      "Soft-close — meko i tiho zatvaranje",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Elementi sa fiokama",
+      "Fiokari",
+      "Bez ručica",
+      "50 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 50cm",
+      "element sa fiokama",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 50 cm sa fiokama.",
+    "fullName": "Donji element sa fiokama 50 cm — bez ručica"
   },
   {
     "id": "bez-rucica-fioke-60",
@@ -142,7 +432,43 @@
     "imagePath": "fioke-bez-rucica-5060cm",
     "price": 9800,
     "wallMounted": false,
-    "image": "assets/fioke-bez-rucica-70cm-CO0z6SZt.png"
+    "image": "assets/fioke-bez-rucica-70cm-CO0z6SZt.png",
+    "description": "Donji kuhinjski element sa fiokama na puno izvlačenje, širine 60 cm (60×82×53 cm) — praktičan za pribor, šerpe i sitnice uz pregledan pristup. Front bez vidljivih ručica sa tihim soft-close zatvaračem. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji element sa fiokama širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Fioke na metalnim vođicama tiho klize i izvlače se do kraja, sa mekim zatvaranjem (soft-close). Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Fioke na metalnim vođicama, puno izvlačenje",
+      "Soft-close — meko i tiho zatvaranje",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Elementi sa fiokama",
+      "Fiokari",
+      "Bez ručica",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "element sa fiokama",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 60 cm sa fiokama.",
+    "fullName": "Donji element sa fiokama 60 cm — bez ručica"
   },
   {
     "id": "bez-rucica-fioke-70",
@@ -155,7 +481,43 @@
     "imagePath": "fioke-bez-rucica-70cm",
     "price": 9800,
     "wallMounted": false,
-    "image": "assets/fioke-bez-rucica-70cm-CO0z6SZt.png"
+    "image": "assets/fioke-bez-rucica-70cm-CO0z6SZt.png",
+    "description": "Donji kuhinjski element sa fiokama na puno izvlačenje, širine 70 cm (70×82×53 cm) — praktičan za pribor, šerpe i sitnice uz pregledan pristup. Front bez vidljivih ručica sa tihim soft-close zatvaračem. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj donji element sa fiokama širine 70 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Fioke na metalnim vođicama tiho klize i izvlače se do kraja, sa mekim zatvaranjem (soft-close). Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Fioke na metalnim vođicama, puno izvlačenje",
+      "Soft-close — meko i tiho zatvaranje",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Elementi sa fiokama",
+      "Fiokari",
+      "Bez ručica",
+      "70 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 70cm",
+      "element sa fiokama",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 70 cm sa fiokama.",
+    "fullName": "Donji element sa fiokama 70 cm — bez ručica"
   },
   {
     "id": "bez-rucica-90",
@@ -168,7 +530,40 @@
     "imagePath": "element-bez-rucica-90cm",
     "price": 8100,
     "wallMounted": false,
-    "image": "assets/element-bez-rucica-90cm-CJJl5v6w.png"
+    "image": "assets/element-bez-rucica-90cm-CJJl5v6w.png",
+    "description": "Donji kuhinjski element širine 90 cm (90×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Front bez vidljivih ručica za čist, moderan izgled. Prostran element velikog kapaciteta za maksimalno odlaganje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 90 cm širine, ovaj donji kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Bez ručica",
+      "90 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 90cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 90 cm sa vratima i policom — front bez ručica.",
+    "fullName": "Donji kuhinjski element 90 cm — bez ručica"
   },
   {
     "id": "bez-rucica-ugao-100",
@@ -181,7 +576,42 @@
     "imagePath": "ugao-bez-rucica-100cm",
     "price": 8600,
     "wallMounted": false,
-    "image": "assets/ugao-bez-rucica-100cm-D6OyuNRb.png"
+    "image": "assets/ugao-bez-rucica-100cm-D6OyuNRb.png",
+    "description": "Ugaoni donji kuhinjski element (levo krilo) širine 100 cm — pametno iskorišćava ćoškove kuhinje koji se inače teško koriste. Front bez vidljivih ručica, izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj ugaoni kuhinjski element širine 100 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Pametno rešava ćošak kuhinje i pretvara mrtav ugao u koristan, lako dostupan prostor. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Spoj dva niza pod uglom 90°",
+      "Polica za ugaoni prostor",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Ugaoni elementi",
+      "Bez ručica",
+      "100 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 100cm",
+      "ugaoni kuhinjski element",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Ugaoni element 100 cm (levo krilo) za ćošak kuhinje.",
+    "fullName": "Ugaoni kuhinjski element 100 cm — levo krilo"
   },
   {
     "id": "bez-rucica-ugao-100-desno",
@@ -194,7 +624,42 @@
     "imagePath": "element-ugao-100cm-desno-bez-rucica",
     "price": 8600,
     "wallMounted": false,
-    "image": "assets/element-ugao-100cm-desno-bez-rucica-BHBdEx9Z.png"
+    "image": "assets/element-ugao-100cm-desno-bez-rucica-BHBdEx9Z.png",
+    "description": "Ugaoni donji kuhinjski element (desno krilo) širine 100 cm — pametno iskorišćava ćoškove kuhinje koji se inače teško koriste. Front bez vidljivih ručica, izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ugaoni kuhinjski element 100 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Pametno rešava ćošak kuhinje i pretvara mrtav ugao u koristan, lako dostupan prostor. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Spoj dva niza pod uglom 90°",
+      "Polica za ugaoni prostor",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Ugaoni elementi",
+      "Bez ručica",
+      "100 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 100cm",
+      "ugaoni kuhinjski element",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Ugaoni element 100 cm (desno krilo) za ćošak kuhinje.",
+    "fullName": "Ugaoni kuhinjski element 100 cm — desno krilo"
   },
   {
     "id": "bez-rucica-ugradni-sporet-60",
@@ -207,7 +672,40 @@
     "imagePath": "ugradni-sporet-bez-rucica-60cm",
     "price": 4500,
     "wallMounted": false,
-    "image": "assets/ugradni-sporet-bez-rucica-60cm-BbyZDMj4.png"
+    "image": "assets/ugradni-sporet-bez-rucica-60cm-BbyZDMj4.png",
+    "description": "Donji element za ugradnu ploču za kuvanje, širine 60 cm (60×82×53 cm). Pripremljen za ugradnju indukcione ili plinske ploče, sa frontom bez vidljivih ručica. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Element za šporet širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Ostavlja tačno odmeren prostor za šporet, poravnat sa ostatkom radnog niza. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Prostor prilagođen ugradnom šporetu",
+      "Usklađen sa visinom radnog reda",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za šporet",
+      "Element za aparate",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Donji element 60 cm za šporet.",
+    "fullName": "Element za šporet 60 cm — bez ručica"
   },
   {
     "id": "bez-rucica-stub-rernu-60",
@@ -220,7 +718,42 @@
     "imagePath": "stub-rernu-bez-rucica-60cm",
     "price": 14500,
     "wallMounted": false,
-    "image": "assets/stub-rernu-bez-rucica-60cm-UuiZHSIT.png"
+    "image": "assets/stub-rernu-bez-rucica-60cm-UuiZHSIT.png",
+    "description": "Visoki kuhinjski stub za ugradnu rernu, dimenzija 60×226×56 cm — objedinjuje prostor za rernu i dodatno odlaganje u jednom elementu. Front bez vidljivih ručica i soft-close okovom. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj visoki element za rernu širine 60 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Visok ormar prima ugradnu rernu i nudi dodatni prostor iznad i ispod. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Nosači i vođice za ugradnu rernu",
+      "Polica iznad i prostor za odlaganje ispod",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za rernu",
+      "Visoki elementi",
+      "Bez ručica",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "stub za rernu",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Visoki element 60 cm za ugradnu rernu.",
+    "fullName": "Visoki element za ugradnu rernu 60 cm — bez ručica"
   },
   {
     "id": "bez-rucica-stub-rernu-95",
@@ -233,7 +766,42 @@
     "imagePath": "stub-rernu-bez-rucica-60cm",
     "price": 16000,
     "wallMounted": false,
-    "image": "assets/stub-rernu-bez-rucica-60cm-UuiZHSIT.png"
+    "image": "assets/stub-rernu-bez-rucica-60cm-UuiZHSIT.png",
+    "description": "Visoki kuhinjski stub za ugradnu rernu, dimenzija 60×241×58 cm — objedinjuje prostor za rernu i dodatno odlaganje u jednom elementu. Front bez vidljivih ručica i soft-close okovom. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Visoki element za rernu 60 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Visok ormar prima ugradnu rernu i nudi dodatni prostor iznad i ispod. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Nosači i vođice za ugradnu rernu",
+      "Polica iznad i prostor za odlaganje ispod",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za rernu",
+      "Visoki elementi",
+      "Bez ručica",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "stub za rernu",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Visoki element 60 cm za ugradnu rernu.",
+    "fullName": "Visoki element za ugradnu rernu 60 cm (viši, 241 cm) — bez ručica"
   },
   {
     "id": "el-30",
@@ -246,7 +814,41 @@
     "imagePath": "element-sa-rucicama-3040",
     "price": 4700,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png"
+    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png",
+    "description": "Donji kuhinjski element širine 30 cm (30×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 30 cm širine, ovaj donji kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "30 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 30cm",
+      "uski kuhinjski elementi",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 30 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 30 cm — sa ručicom"
   },
   {
     "id": "el-40",
@@ -259,7 +861,40 @@
     "imagePath": "element-sa-rucicama-3040",
     "price": 5200,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png"
+    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png",
+    "description": "Donji kuhinjski element širine 40 cm (40×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element 40 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "40 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 40cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 40 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 40 cm — sa ručicom"
   },
   {
     "id": "el-45",
@@ -272,7 +907,40 @@
     "imagePath": "element-sa-rucicama-3040",
     "price": 5500,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png"
+    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png",
+    "description": "Donji kuhinjski element širine 45 cm (45×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 45 cm širine, ovaj donji kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "45 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 45cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 45 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 45 cm — sa ručicom"
   },
   {
     "id": "el-50",
@@ -285,7 +953,40 @@
     "imagePath": "element-sa-rucicama-50",
     "price": 5700,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png"
+    "image": "assets/element-sa-rucicama-50cm-BseYzSI2.png",
+    "description": "Donji kuhinjski element širine 50 cm (50×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element širine 50 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju, a smer otvaranja prilagođava se rasporedu vašeg prostora. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "50 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 50cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 50 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 50 cm — sa ručicom"
   },
   {
     "id": "el-60",
@@ -298,7 +999,40 @@
     "imagePath": "element-sa-rucicama-60",
     "price": 5900,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-60cm-Bbmn56bS.png"
+    "image": "assets/element-sa-rucicama-60cm-Bbmn56bS.png",
+    "description": "Donji kuhinjski element širine 60 cm (60×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Najtraženija standardna širina koja se lako uklapa u svaki raspored kuhinje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj donji kuhinjski element širine 60 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 60 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 60 cm — sa ručicom"
   },
   {
     "id": "el-70",
@@ -311,7 +1045,40 @@
     "imagePath": "element-sa-rucicama-70",
     "price": 6300,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-70cm-DzAB5nQf.png"
+    "image": "assets/element-sa-rucicama-70cm-DzAB5nQf.png",
+    "description": "Donji kuhinjski element širine 70 cm (70×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Širi element za više prostora za odlaganje posuđa i namirnica. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 70 cm širine, ovaj donji kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "70 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 70cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 70 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 70 cm — sa ručicom"
   },
   {
     "id": "el-80",
@@ -324,7 +1091,40 @@
     "imagePath": "element-sa-rucicama-8090",
     "price": 6700,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-70cm-DzAB5nQf.png"
+    "image": "assets/element-sa-rucicama-70cm-DzAB5nQf.png",
+    "description": "Donji kuhinjski element širine 80 cm (80×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Širi element za više prostora za odlaganje posuđa i namirnica. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element 80 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "80 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 80cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 80 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 80 cm — sa ručicom"
   },
   {
     "id": "el-90",
@@ -337,7 +1137,40 @@
     "imagePath": "element-sa-rucicama-8090",
     "price": 8100,
     "wallMounted": false,
-    "image": "assets/element-sa-rucicama-70cm-DzAB5nQf.png"
+    "image": "assets/element-sa-rucicama-70cm-DzAB5nQf.png",
+    "description": "Donji kuhinjski element širine 90 cm (90×82×53 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Prostran element velikog kapaciteta za maksimalno odlaganje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji kuhinjski element širine 90 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Iza vrata se nalazi polica za urednu i preglednu kuhinju. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "90 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 90cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 90 cm sa vratima i policom — klasične ručice.",
+    "fullName": "Donji kuhinjski element 90 cm — sa ručicom"
   },
   {
     "id": "el-ugao-100",
@@ -350,7 +1183,42 @@
     "imagePath": "element-ugao-100cm",
     "price": 8600,
     "wallMounted": false,
-    "image": "assets/element-ugao-100cm-DvZchzQz.png"
+    "image": "assets/element-ugao-100cm-DvZchzQz.png",
+    "description": "Ugaoni donji kuhinjski element (levo krilo) širine 100 cm — pametno iskorišćava ćoškove kuhinje koji se inače teško koriste. Sa klasičnim ručicama, izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ugaoni kuhinjski element 100 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Pametno rešava ćošak kuhinje i pretvara mrtav ugao u koristan, lako dostupan prostor. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Spoj dva niza pod uglom 90°",
+      "Polica za ugaoni prostor",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Ugaoni elementi",
+      "Sa ručicama",
+      "100 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 100cm",
+      "ugaoni kuhinjski element",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Ugaoni element 100 cm (levo krilo) za ćošak kuhinje.",
+    "fullName": "Ugaoni kuhinjski element 100 cm — levo krilo"
   },
   {
     "id": "el-ugao-100-desno",
@@ -363,7 +1231,42 @@
     "imagePath": "element-ugao-100cm-desno",
     "price": 8600,
     "wallMounted": false,
-    "image": "assets/element-ugao-100cm-desno-D8cbTVms.png"
+    "image": "assets/element-ugao-100cm-desno-D8cbTVms.png",
+    "description": "Ugaoni donji kuhinjski element (desno krilo) širine 100 cm — pametno iskorišćava ćoškove kuhinje koji se inače teško koriste. Sa klasičnim ručicama, izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj ugaoni kuhinjski element širine 100 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Pametno rešava ćošak kuhinje i pretvara mrtav ugao u koristan, lako dostupan prostor. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Spoj dva niza pod uglom 90°",
+      "Polica za ugaoni prostor",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Ugaoni elementi",
+      "Sa ručicama",
+      "100 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 100cm",
+      "ugaoni kuhinjski element",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Ugaoni element 100 cm (desno krilo) za ćošak kuhinje.",
+    "fullName": "Ugaoni kuhinjski element 100 cm — desno krilo"
   },
   {
     "id": "fioke-50",
@@ -376,7 +1279,43 @@
     "imagePath": "fioke-50",
     "price": 9800,
     "wallMounted": false,
-    "image": "assets/fioke-50cm-B-GXKSXI.png"
+    "image": "assets/fioke-50cm-B-GXKSXI.png",
+    "description": "Donji kuhinjski element sa fiokama na puno izvlačenje, širine 50 cm (50×82×53 cm) — praktičan za pribor, šerpe i sitnice uz pregledan pristup. Klasične ručice i tih soft-close zatvarač. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji element sa fiokama 50 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Četiri fioke na metalnim vođicama tiho klize i izvlače se do kraja, sa mekim zatvaranjem (soft-close). Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Fioke na metalnim vođicama, puno izvlačenje",
+      "Soft-close — meko i tiho zatvaranje",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Elementi sa fiokama",
+      "Fiokari",
+      "Sa ručicama",
+      "50 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 50cm",
+      "element sa fiokama",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 50 cm sa 4 fioke.",
+    "fullName": "Donji element sa 4 fioke 50 cm — sa ručicom"
   },
   {
     "id": "fioke-60",
@@ -389,7 +1328,43 @@
     "imagePath": "fioke-60",
     "price": 13400,
     "wallMounted": false,
-    "image": "assets/fioke-50cm-B-GXKSXI.png"
+    "image": "assets/fioke-50cm-B-GXKSXI.png",
+    "description": "Donji kuhinjski element sa fiokama na puno izvlačenje, širine 60 cm (60×85×60 cm) — praktičan za pribor, šerpe i sitnice uz pregledan pristup. Klasične ručice i tih soft-close zatvarač. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji element sa fiokama širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Četiri fioke na metalnim vođicama tiho klize i izvlače se do kraja, sa mekim zatvaranjem (soft-close). Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Fioke na metalnim vođicama, puno izvlačenje",
+      "Soft-close — meko i tiho zatvaranje",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Elementi sa fiokama",
+      "Fiokari",
+      "Sa ručicama",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "element sa fiokama",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 60 cm sa 4 fioke.",
+    "fullName": "Donji element sa 4 fioke 60 cm — sa ručicom"
   },
   {
     "id": "fioke-70",
@@ -402,7 +1377,43 @@
     "imagePath": "fioke-70",
     "price": 14400,
     "wallMounted": false,
-    "image": "assets/fioke-50cm-B-GXKSXI.png"
+    "image": "assets/fioke-50cm-B-GXKSXI.png",
+    "description": "Donji kuhinjski element sa fiokama na puno izvlačenje, širine 70 cm (70×85×60 cm) — praktičan za pribor, šerpe i sitnice uz pregledan pristup. Klasične ručice i tih soft-close zatvarač. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj donji element sa fiokama širine 70 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Četiri fioke na metalnim vođicama tiho klize i izvlače se do kraja, sa mekim zatvaranjem (soft-close). Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Fioke na metalnim vođicama, puno izvlačenje",
+      "Soft-close — meko i tiho zatvaranje",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Elementi sa fiokama",
+      "Fiokari",
+      "Sa ručicama",
+      "70 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 70cm",
+      "element sa fiokama",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 70 cm sa 4 fioke.",
+    "fullName": "Donji element sa 4 fioke 70 cm — sa ručicom"
   },
   {
     "id": "fioke-flase-20",
@@ -415,7 +1426,46 @@
     "imagePath": "fioke-za-flase",
     "price": 5000,
     "wallMounted": false,
-    "image": "assets/fioke-za-flase-20cm-DusxCEB3.png"
+    "image": "assets/fioke-za-flase-20cm-DusxCEB3.png",
+    "description": "Uski kuhinjski element za flaše širine 20 cm — vertikalno odlaganje ulja, sirćeta i začina uz minimalno zauzeće prostora. Sa ručicom. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Uski element za flaše širine 20 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Uska izvlačna korpa drži flaše, ulja i začine na dohvat ruke, a staje i u najuži razmak u nizu. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Fioke na metalnim vođicama, puno izvlačenje",
+      "Soft-close — meko i tiho zatvaranje",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Elementi sa fiokama",
+      "Fiokari",
+      "Sa ručicama",
+      "20 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 20cm",
+      "uski kuhinjski elementi",
+      "element sa fiokama",
+      "element za flaše",
+      "cargo za flaše",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Uski izvlakač 20 cm za flaše, ulja i začine.",
+    "fullName": "Uski element za flaše 20 cm — sa ručicom"
   },
   {
     "id": "ugradni-sporet-60",
@@ -428,7 +1478,40 @@
     "imagePath": "ugradni-sporet",
     "price": 4500,
     "wallMounted": false,
-    "image": "assets/ugradni-sporet-60cm-Wef905-d.png"
+    "image": "assets/ugradni-sporet-60cm-Wef905-d.png",
+    "description": "Donji element za ugradnu ploču za kuvanje, širine 60 cm (60×82×53 cm). Pripremljen za ugradnju indukcione ili plinske ploče, sa klasičnim ručicama. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Element za šporet širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Ostavlja tačno odmeren prostor za šporet, poravnat sa ostatkom radnog niza. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Prostor prilagođen ugradnom šporetu",
+      "Usklađen sa visinom radnog reda",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za šporet",
+      "Element za aparate",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 60 cm za šporet.",
+    "fullName": "Element za šporet 60 cm — sa ručicom"
   },
   {
     "id": "sudopera-80",
@@ -441,7 +1524,39 @@
     "imagePath": "sudopera-80",
     "price": 12000,
     "wallMounted": false,
-    "image": "assets/sudopera-80-NhaDzSLz.png"
+    "image": "assets/sudopera-80-NhaDzSLz.png",
+    "description": "Donji element sa koritom za sudoperu — sudopera širine 80 cm, dimenzija 80×85×60 cm. Pripremljen za ugradnju sudopere i sifona, sa prostorom za odlaganje ispod. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj donji element za sudoperu širine 80 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Prilagođen je ugradnji sudopere, sa skrivenim prostorom za sifon i instalacije. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Otvoren prostor za sifon i instalacije",
+      "Vodootporno tretiran korpus",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za sudoperu",
+      "80 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "element za sudoperu",
+      "donji element za sudoperu",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 80 cm za sudoperu.",
+    "fullName": "Element za sudoperu 80 cm"
   },
   {
     "id": "sudopera-mala",
@@ -454,7 +1569,39 @@
     "imagePath": "sudopera-mala",
     "price": 8000,
     "wallMounted": false,
-    "image": "assets/sudopera-mala-xsyKs9KM.png"
+    "image": "assets/sudopera-mala-xsyKs9KM.png",
+    "description": "Donji element sa koritom za sudoperu — kompaktna sudopera za manje kuhinje (60 cm), dimenzija 60×85×60 cm. Pripremljen za ugradnju sudopere i sifona, sa prostorom za odlaganje ispod. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Donji element za sudoperu širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Prilagođen je ugradnji sudopere, sa skrivenim prostorom za sifon i instalacije. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Otvoren prostor za sifon i instalacije",
+      "Vodootporno tretiran korpus",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za sudoperu",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "element za sudoperu",
+      "donji element za sudoperu",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Donji element 60 cm za sudoperu.",
+    "fullName": "Element za sudoperu 60 cm"
   },
   {
     "id": "masina-za-sudove-60",
@@ -468,7 +1615,39 @@
     "price": 28000,
     "wallMounted": false,
     "image": "assets/dishwasher-preview-8Eox--ed.png",
-    "hidden": true
+    "hidden": true,
+    "description": "Ugradni element za mašinu za sudove širine 60 cm — front se uklapa sa ostatkom kuhinje za jedinstven izgled. Standardne dimenzije 60×82×60 cm. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ugradna mašina za sudove 60 cm koja se neprimetno uklapa u kuhinjski niz iza fronta. Dostupna uz modularne kuhinje po meri — Eldo Design, Niš.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Prostor za ugradnu mašinu za sudove",
+      "Priprema za priključke",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za mašinu za sudove",
+      "Element za aparate",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "ugradni aparati za kuhinju",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Ugradna mašina za sudove 60 cm.",
+    "fullName": "Ugradna mašina za sudove 60 cm"
   },
   {
     "id": "masina-za-sudove-45",
@@ -482,7 +1661,39 @@
     "price": 25000,
     "wallMounted": false,
     "image": "assets/dishwasher-preview-8Eox--ed.png",
-    "hidden": true
+    "hidden": true,
+    "description": "Ugradni element za mašinu za sudove širine 45 cm — front se uklapa sa ostatkom kuhinje za jedinstven izgled. Standardne dimenzije 45×82×60 cm. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ugradna mašina za sudove 45 cm koja se neprimetno uklapa u kuhinjski niz iza fronta. Dostupna uz modularne kuhinje po meri — Eldo Design, Niš.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Prostor za ugradnu mašinu za sudove",
+      "Priprema za priključke",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za mašinu za sudove",
+      "Element za aparate",
+      "45 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "ugradni aparati za kuhinju",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Ugradna mašina za sudove 45 cm.",
+    "fullName": "Ugradna mašina za sudove 45 cm"
   },
   {
     "id": "sporet-60",
@@ -496,7 +1707,39 @@
     "price": 30000,
     "wallMounted": false,
     "image": "assets/stove-preview-BBzDB8vk.png",
-    "hidden": true
+    "hidden": true,
+    "description": "Samostojeći šporet širine 60 cm — uklapa se između kuhinjskih elemenata uz usklađene dimenzije (60×85×60 cm). Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Šporet 60 cm — dostupan uz modularne kuhinje po meri, Eldo Design, Niš.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Prostor prilagođen ugradnom šporetu",
+      "Usklađen sa visinom radnog reda",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za šporet",
+      "Element za aparate",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "ugradni aparati za kuhinju",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Šporet 60 cm.",
+    "fullName": "Šporet 60 cm"
   },
   {
     "id": "aspirator-60",
@@ -510,7 +1753,39 @@
     "price": 18000,
     "wallMounted": true,
     "image": "assets/viseci-aspirator-D-vo3qU5.png",
-    "hidden": true
+    "hidden": true,
+    "description": "Viseći element sa ugrađenim aspiratorom širine 60 cm — kombinuje odlaganje i odvod pare iznad ploče za kuvanje. Sa klasičnim ručicama. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Aspirator 60 cm efikasno odvodi paru i mirise iznad ploče za kuvanje, uz tih i moderan rad. Dostupan uz kuhinju — Eldo Design, Niš.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Otvor i prostor za aspirator",
+      "Sistem za vešanje na zid",
+      "Šarke sa usporivačem"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Element za aspirator",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "ugradni aparati za kuhinju",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Aspirator 60 cm.",
+    "fullName": "Aspirator 60 cm"
   },
   {
     "id": "indukciona-ploca-60",
@@ -524,7 +1799,39 @@
     "price": 24000,
     "wallMounted": false,
     "image": "assets/induction-cooktop-preview-CxM8T1rs.png",
-    "hidden": true
+    "hidden": true,
+    "description": "Ugradna indukciona ploča za kuvanje širine 60 cm — energetski efikasna, brza i laka za održavanje. Ugrađuje se u donji element pripremljen za ploču. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ugradna indukciona ploča 60 cm — brza, precizna i laka za čišćenje. Dostupna uz kuhinju — Eldo Design, Niš.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "ugradni aparati za kuhinju",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Ugradna indukciona ploča 60 cm.",
+    "fullName": "Ugradna indukciona ploča 60 cm"
   },
   {
     "id": "ugradna-rerna-electrolux-60",
@@ -538,7 +1845,39 @@
     "price": 22000,
     "wallMounted": false,
     "image": "assets/built-in-oven-preview-DfIpUNc1.png",
-    "hidden": true
+    "hidden": true,
+    "description": "Ugradna rerna Electrolux (60 cm) — pouzdana i energetski efikasna, ugrađuje se u kuhinjski stub za rernu. Deo opreme za montažne kuhinje Eldo Design Niš.",
+    "seoDescription": "Ugradna rerna 60 cm savremenog dizajna, za ugradnju u stub ili donji niz. Dostupna uz kuhinju — Eldo Design, Niš.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Nosači za ugradnu rernu",
+      "Usklađen sa radnim redom",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za rernu",
+      "Element za aparate",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "ugradni aparati za kuhinju",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Ugradna rerna 60 cm.",
+    "fullName": "Ugradna rerna 60 cm"
   },
   {
     "id": "radna-ploca-200",
@@ -551,7 +1890,35 @@
     "imagePath": "radne-ploce",
     "wallMounted": false,
     "image": "assets/radne-ploce.png",
-    "pricePerCm": 47
+    "pricePerCm": 47,
+    "description": "Kuhinjska radna ploča debljine 4 cm — otporna na vlagu, ogrebotine i toplotu, dostupna u 8 dezena koji prate front kuhinje. Cena se računa po dužnom centimetru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Radna ploča je srce svake kuhinje — izdržljiva, otporna na vlagu i toplotu i jednostavna za održavanje. Seče se po meri (cena po dužnom centimetru), a bira se iz više dezena za savršeno uklapanje sa frontovima. Deo sistema modularnih kuhinja po meri — Eldo Design, Niš.",
+    "dezeniText": "Dostupno u više dekora — imitacija drveta, kamena i jednobojne površine, da se uklopi uz front kuhinje.",
+    "materials": [
+      "Otporna na vlagu, toplotu i habanje",
+      "Lako održavanje",
+      "Seče se po meri (47 din/cm)"
+    ],
+    "categories": [
+      "Radne ploče",
+      "Kuhinjske radne površine",
+      "Radna površina",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "kuhinjska radna ploča",
+      "radna ploča cena",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "defaultLength": 200,
+    "price": 9400,
+    "tagline": "Radna ploča — seče se po meri, cena po centimetru.",
+    "fullName": "Kuhinjska radna ploča"
   },
   {
     "id": "zidna-obloga-200",
@@ -564,7 +1931,35 @@
     "imagePath": "radne-ploce",
     "wallMounted": true,
     "image": "assets/radne-ploce.png",
-    "pricePerCm": 20
+    "pricePerCm": 20,
+    "description": "Zidna obloga (panel) za prostor između donjih i gornjih elemenata — štiti zid od vlage i masnoće i lako se održava. Usklađuje se sa radnom pločom. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Zidna obloga zaokružuje izgled kuhinje i štiti zid između donjih i gornjih elemenata. Seče se po meri (cena po dužnom centimetru), lako se čisti i dolazi u više dezena usklađenih sa frontovima. Idealan završni detalj za modularne kuhinje po meri — Eldo Design, Niš.",
+    "dezeniText": "Više dezena — uz dezene frontova i radne ploče za usklađen izgled kuhinje.",
+    "materials": [
+      "Štiti zid od vlage i masnoće",
+      "Lako se čisti",
+      "Seče se po meri (20 din/cm)"
+    ],
+    "categories": [
+      "Zidne obloge",
+      "Kuhinjski paneli",
+      "Zaštita zida",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "zidna obloga za kuhinju",
+      "radna ploča cena",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "defaultLength": 200,
+    "price": 4000,
+    "tagline": "Zidna obloga — seče se po meri, cena po centimetru.",
+    "fullName": "Kuhinjska zidna obloga"
   },
   {
     "id": "stub-rernu-60",
@@ -577,7 +1972,42 @@
     "imagePath": "stub-rernu-60cm",
     "price": 14500,
     "wallMounted": false,
-    "image": "assets/stub-rernu-60cm-Bz168ztk.png"
+    "image": "assets/stub-rernu-60cm-Bz168ztk.png",
+    "description": "Visoki kuhinjski stub za ugradnu rernu, dimenzija 60×226×56 cm — objedinjuje prostor za rernu i dodatno odlaganje u jednom elementu. Sa klasičnim ručicama i soft-close okovom. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj visoki element za rernu širine 60 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Visok ormar prima ugradnu rernu i nudi dodatni prostor iznad i ispod. Postavljen je na podesive nogice za lako nivelisanje, čak i na neravnom podu. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Nosači i vođice za ugradnu rernu",
+      "Polica iznad i prostor za odlaganje ispod",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za rernu",
+      "Visoki elementi",
+      "Sa ručicama",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "stub za rernu",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Visoki element 60 cm za ugradnu rernu.",
+    "fullName": "Visoki element za ugradnu rernu 60 cm — sa ručicom"
   },
   {
     "id": "stub-rernu-60-95",
@@ -590,11 +2020,46 @@
     "imagePath": "stub-rernu-60cm",
     "price": 16000,
     "wallMounted": false,
-    "image": "assets/stub-rernu-60cm-Bz168ztk.png"
+    "image": "assets/stub-rernu-60cm-Bz168ztk.png",
+    "description": "Visoki kuhinjski stub za ugradnu rernu, dimenzija 60×241×58 cm — objedinjuje prostor za rernu i dodatno odlaganje u jednom elementu. Sa klasičnim ručicama i soft-close okovom. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Visoki element za rernu širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Visok ormar prima ugradnu rernu i nudi dodatni prostor iznad i ispod. Podesive nogice omogućavaju precizno nivelisanje i lako čišćenje ispod kuhinje. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Nosači i vođice za ugradnu rernu",
+      "Polica iznad i prostor za odlaganje ispod",
+      "Štelujuće nogice"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Element za rernu",
+      "Visoki elementi",
+      "Sa ručicama",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "donji kuhinjski elementi",
+      "donji element 60cm",
+      "stub za rernu",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Visoki element 60 cm za ugradnu rernu.",
+    "fullName": "Visoki element za ugradnu rernu 60 cm (viši, 241 cm) — sa ručicom"
   },
   {
     "id": "frizider-60",
-    "name": "FriÅ¾ider",
+    "name": "Frižider",
     "category": "aparati-i-sudopere",
     "subcategory": null,
     "width": 60,
@@ -604,7 +2069,39 @@
     "price": 45000,
     "wallMounted": false,
     "image": "assets/built-in-oven-preview-DfIpUNc1.png",
-    "hidden": true
+    "hidden": true,
+    "description": "Donji kuhinjski element širine 60 cm (60×175×60 cm) — osnovni modul radne zone kuhinje sa policom za odlaganje. Sa klasičnim ručicama i soft-close okovom. Najtraženija standardna širina koja se lako uklapa u svaki raspored kuhinje. Izrađen od kvalitetne oplemenjene iverice u 8 dezena po izboru. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Frižider 60 cm za ugradnju u kuhinjski niz, neprimetno skriven iza fronta. Dostupan uz kuhinju — Eldo Design, Niš.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Štelujuće nogice",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Donji elementi",
+      "Sa ručicama",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Montažne kuhinje",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "ugradni aparati za kuhinju",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Frižider 60 cm.",
+    "fullName": "Frižider 60 cm"
   },
   {
     "id": "gornji-30",
@@ -617,7 +2114,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 4500,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 30 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 30 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "30 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 30cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 30 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 30 cm — sa ručicom"
   },
   {
     "id": "gornji-40",
@@ -630,7 +2162,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 5100,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 40 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 40 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "40 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 40cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 40 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 40 cm — sa ručicom"
   },
   {
     "id": "gornji-45",
@@ -643,7 +2210,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 5300,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 45 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 45 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "45 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 45cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 45 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 45 cm — sa ručicom"
   },
   {
     "id": "gornji-50",
@@ -656,7 +2258,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 5500,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 50 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element širine 50 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "50 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 50cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 50 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 50 cm — sa ručicom"
   },
   {
     "id": "gornji-60",
@@ -669,7 +2306,42 @@
     "imagePath": "viseci-sa-rucicama-6080cm",
     "price": 6600,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 60 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Najtraženija standardna širina koja se lako uklapa u svaki raspored kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 60 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "60 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 60 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 60 cm — sa ručicom"
   },
   {
     "id": "gornji-70",
@@ -682,7 +2354,42 @@
     "imagePath": "viseci-sa-rucicama-6080cm",
     "price": 7500,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 70 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 70 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "70 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 70cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 70 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 70 cm — sa ručicom"
   },
   {
     "id": "gornji-80",
@@ -695,7 +2402,42 @@
     "imagePath": "viseci-sa-rucicama-6080cm",
     "price": 7900,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 80 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 80 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "80 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 80cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 80 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 80 cm — sa ručicom"
   },
   {
     "id": "gornji-90",
@@ -708,7 +2450,42 @@
     "imagePath": "viseci-sa-rucicama-90cm",
     "price": 8500,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-90cm-BcZ6tj9z.png"
+    "image": "assets/viseci-sa-rucicama-90cm-BcZ6tj9z.png",
+    "description": "Gornji (viseći) kuhinjski element širine 90 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Prostran element velikog kapaciteta za maksimalno odlaganje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element širine 90 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "90 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 90cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 90 cm, visina 80 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 90 cm — sa ručicom"
   },
   {
     "id": "gornji-aspirator",
@@ -721,7 +2498,41 @@
     "imagePath": "gornji-aspirator-sa-rucicama",
     "price": 7100,
     "wallMounted": true,
-    "image": "assets/gornji-aspirator-sa-rucicama-DEDv6GOW.png"
+    "image": "assets/gornji-aspirator-sa-rucicama-DEDv6GOW.png",
+    "description": "Viseći element sa ugrađenim aspiratorom širine 60 cm — kombinuje odlaganje i odvod pare iznad ploče za kuvanje. Sa klasičnim ručicama. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 60 cm širine, ovaj gornji element za aspirator pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Prilagođen je ugradnom aspiratoru i neprimetno se uklapa u gornji niz. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Otvor i prostor za aspirator",
+      "Sistem za vešanje na zid",
+      "Šarke sa usporivačem"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Element za aspirator",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 60 cm za ugradni aspirator.",
+    "fullName": "Gornji element za aspirator 60 cm — sa ručicom"
   },
   {
     "id": "gornji-95-30",
@@ -734,7 +2545,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 5700,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 30 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 30 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "30 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 30cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 30 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 30 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-40",
@@ -747,7 +2593,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 6300,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 40 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 40 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "40 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 40cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 40 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 40 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-45",
@@ -760,7 +2641,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 6500,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 45 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 45 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "45 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 45cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 45 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 45 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-50",
@@ -773,7 +2689,42 @@
     "imagePath": "viseci-sa-rucicama-3050cm",
     "price": 6700,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 50 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 50 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "50 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 50cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 50 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 50 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-60",
@@ -786,7 +2737,42 @@
     "imagePath": "viseci-sa-rucicama-6080cm",
     "price": 7800,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 60 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Najtraženija standardna širina koja se lako uklapa u svaki raspored kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "60 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 60 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 60 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-70",
@@ -799,7 +2785,42 @@
     "imagePath": "viseci-sa-rucicama-6080cm",
     "price": 8700,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 70 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 70 cm je spoj modernog dizajna i svakodnevne praktičnosti. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "70 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 70cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 70 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 70 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-80",
@@ -812,7 +2833,42 @@
     "imagePath": "viseci-sa-rucicama-6080cm",
     "price": 9100,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png"
+    "image": "assets/viseci-sa-rucicama-6080cm-BqedZKPu.png",
+    "description": "Gornji (viseći) kuhinjski element širine 80 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 80 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "80 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 80cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 80 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 80 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-90",
@@ -825,7 +2881,42 @@
     "imagePath": "viseci-sa-rucicama-90cm",
     "price": 9700,
     "wallMounted": true,
-    "image": "assets/viseci-sa-rucicama-90cm-BcZ6tj9z.png"
+    "image": "assets/viseci-sa-rucicama-90cm-BcZ6tj9z.png",
+    "description": "Gornji (viseći) kuhinjski element širine 90 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Sa klasičnim ručicama i policom unutra. Prostran element velikog kapaciteta za maksimalno odlaganje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 90 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Sa ručicama",
+      "90 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 90cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 90 cm, visina 95 cm — klasične ručice.",
+    "fullName": "Gornji (viseći) kuhinjski element 90 cm (visina 95 cm) — sa ručicom"
   },
   {
     "id": "gornji-95-aspirator",
@@ -838,7 +2929,41 @@
     "imagePath": "gornji-aspirator-sa-rucicama",
     "price": 8300,
     "wallMounted": true,
-    "image": "assets/gornji-aspirator-sa-rucicama-DEDv6GOW.png"
+    "image": "assets/gornji-aspirator-sa-rucicama-DEDv6GOW.png",
+    "description": "Viseći element sa ugrađenim aspiratorom širine 60 cm — kombinuje odlaganje i odvod pare iznad ploče za kuvanje. Sa klasičnim ručicama. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji element za aspirator 60 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Diskretna ručica na frontu daje sofisticiran izgled koji prati najnovije trendove enterijera. Prilagođen je ugradnom aspiratoru i neprimetno se uklapa u gornji niz. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Otvor i prostor za aspirator",
+      "Sistem za vešanje na zid",
+      "Šarke sa usporivačem"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Element za aspirator",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinjski elementi sa ručicama"
+    ],
+    "tagline": "Gornji element 60 cm za ugradni aspirator.",
+    "fullName": "Gornji element za aspirator 60 cm — sa ručicom"
   },
   {
     "id": "gornji-bez-rucica-30",
@@ -851,7 +2976,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 4500,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 30 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 30 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "30 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 30cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 30 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 30 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-40",
@@ -864,7 +3024,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 5100,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 40 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 40 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "40 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 40cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 40 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 40 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-45",
@@ -877,7 +3072,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 5300,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 45 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 45 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "45 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 45cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 45 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 45 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-50",
@@ -890,7 +3120,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 5500,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 50 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element širine 50 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "50 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 50cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 50 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 50 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-60",
@@ -903,7 +3168,42 @@
     "imagePath": "gornji-bez-rucica-6070cm",
     "price": 6600,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png"
+    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png",
+    "description": "Gornji (viseći) kuhinjski element širine 60 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Najtraženija standardna širina koja se lako uklapa u svaki raspored kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 60 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "60 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 60 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 60 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-70",
@@ -916,7 +3216,42 @@
     "imagePath": "gornji-bez-rucica-6070cm",
     "price": 7500,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png"
+    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png",
+    "description": "Gornji (viseći) kuhinjski element širine 70 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 70 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "70 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 70cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 70 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 70 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-80",
@@ -929,7 +3264,42 @@
     "imagePath": "gornji-bez-rucica-8090cm",
     "price": 7900,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png"
+    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png",
+    "description": "Gornji (viseći) kuhinjski element širine 80 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 80 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "80 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 80cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 80 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 80 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-90",
@@ -942,7 +3312,42 @@
     "imagePath": "gornji-bez-rucica-8090cm",
     "price": 8500,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png"
+    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png",
+    "description": "Gornji (viseći) kuhinjski element širine 90 cm — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Prostran element velikog kapaciteta za maksimalno odlaganje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element širine 90 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "90 cm",
+      "Standardni (80 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 90cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 90 cm, visina 80 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 90 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-30",
@@ -955,7 +3360,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 5700,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 30 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 30 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "30 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 30cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 30 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 30 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-40",
@@ -968,7 +3408,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 6300,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 40 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Savršen za popunjavanje uskih praznina između ormarića i bolje iskorišćenje svakog centimetra kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 40 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "40 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 40cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 40 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 40 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-45",
@@ -981,7 +3456,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 6500,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 45 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 45 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "45 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 45cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 45 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 45 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-50",
@@ -994,7 +3504,42 @@
     "imagePath": "gornji-bez-rucica-3050cm",
     "price": 6700,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png"
+    "image": "assets/gornji-bez-rucica-30-50cm-CeaH3kv3.png",
+    "description": "Gornji (viseći) kuhinjski element širine 50 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Kompaktno rešenje za manje kuhinje i precizno planiranje rasporeda. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 50 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "50 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 50cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 50 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 50 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-60",
@@ -1007,7 +3552,42 @@
     "imagePath": "gornji-bez-rucica-6070cm",
     "price": 7800,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png"
+    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png",
+    "description": "Gornji (viseći) kuhinjski element širine 60 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Najtraženija standardna širina koja se lako uklapa u svaki raspored kuhinje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element širine 60 cm unosi toplinu i eleganciju u svaku modernu kuhinju po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "60 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 60 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 60 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-70",
@@ -1020,7 +3600,42 @@
     "imagePath": "gornji-bez-rucica-6070cm",
     "price": 8700,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png"
+    "image": "assets/gornji-bez-rucica-60-70cm-D-OHpExs.png",
+    "description": "Gornji (viseći) kuhinjski element širine 70 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Ovaj gornji (viseći) kuhinjski element širine 70 cm je spoj modernog dizajna i svakodnevne praktičnosti. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "70 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 70cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 70 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 70 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-80",
@@ -1033,7 +3648,42 @@
     "imagePath": "gornji-bez-rucica-8090cm",
     "price": 9100,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png"
+    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png",
+    "description": "Gornji (viseći) kuhinjski element širine 80 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Širi element za više prostora za odlaganje posuđa i namirnica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Sa 80 cm širine, ovaj gornji (viseći) kuhinjski element pruža prefinjen izgled i punu praktičnost u kuhinji po meri. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Stabilan korpus i kvalitetan front dostupni su u 8 dezena — od toplog dekora hrasta do elegantnih mat i visoki-sjaj tonova — pa se lako uklapa u svaki prostor. Deo modularnog sistema — slobodno ga kombinujete sa ostalim elementima u kuhinju po meri. Gotov za ugradnju, Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "80 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 80cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 80 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 80 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-90",
@@ -1046,7 +3696,42 @@
     "imagePath": "gornji-bez-rucica-8090cm",
     "price": 9700,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png"
+    "image": "assets/gornji-bez-rucica-80-90cm-CBBHtjLL.png",
+    "description": "Gornji (viseći) kuhinjski element širine 90 cm, viša varijanta 95 cm za veći kapacitet odlaganja — za odlaganje posuđa, čaša i namirnica iznad radne površine. Front bez vidljivih ručica za moderan, čist izgled. Prostran element velikog kapaciteta za maksimalno odlaganje. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji (viseći) kuhinjski element 90 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Sa policom unutra savršeno se slaže iznad radne površine. Viša izvedba donosi još više prostora. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Sistem za vešanje na zid (montažne šine)",
+      "Polica, štelujuća po visini",
+      "Šarke sa usporivačem (soft-close)"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Bez ručica",
+      "90 cm",
+      "Viši (95 cm)",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 90cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 90 cm, visina 95 cm — front bez ručica.",
+    "fullName": "Gornji (viseći) kuhinjski element 90 cm (visina 95 cm) — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-95-aspirator",
@@ -1059,7 +3744,41 @@
     "imagePath": "gornji-bez-rucica-aspirator",
     "price": 8300,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-aspirator-BF2xWqH_.png"
+    "image": "assets/gornji-bez-rucica-aspirator-BF2xWqH_.png",
+    "description": "Viseći element sa ugrađenim aspiratorom širine 60 cm — kombinuje odlaganje i odvod pare iznad ploče za kuvanje. Front bez vidljivih ručica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji element za aspirator 60 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Prilagođen je ugradnom aspiratoru i neprimetno se uklapa u gornji niz. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Otvor i prostor za aspirator",
+      "Sistem za vešanje na zid",
+      "Šarke sa usporivačem"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Element za aspirator",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 60 cm za ugradni aspirator.",
+    "fullName": "Gornji element za aspirator 60 cm — bez ručica"
   },
   {
     "id": "gornji-bez-rucica-aspirator-80",
@@ -1072,6 +3791,40 @@
     "imagePath": "gornji-bez-rucica-aspirator",
     "price": 7100,
     "wallMounted": true,
-    "image": "assets/gornji-bez-rucica-aspirator-BF2xWqH_.png"
+    "image": "assets/gornji-bez-rucica-aspirator-BF2xWqH_.png",
+    "description": "Viseći element sa ugrađenim aspiratorom širine 60 cm — kombinuje odlaganje i odvod pare iznad ploče za kuvanje. Front bez vidljivih ručica. Deo modularnog sistema montažnih kuhinja Eldo Design Niš.",
+    "seoDescription": "Gornji element za aspirator 60 cm spaja čiste, savremene linije sa funkcionalnošću koju koristite svaki dan. Glatki front bez vidljivih ručica daje miran, minimalistički i urban izgled. Prilagođen je ugradnom aspiratoru i neprimetno se uklapa u gornji niz. Lako se montira na zid i poravnava sa ostatkom gornjeg niza. Front od medijapana visokog sjaja ili iverice birate u 8 boja i dezena, od prirodnog drveta do modernih jednobojnih tonova. Kao deo sistema modularnih kuhinja po meri, lako se uklapa sa ostalim elementima iz ponude. Eldo Design.",
+    "dezeniText": "Front se bira iz 8 dezena: beli i crni visoki sjaj, bež, zelena, i četiri dezena hrasta (medijapan visoki sjaj ili oplemenjena iverica). Korpus standardno bele boje.",
+    "materials": [
+      "Korpus – iverica 18 mm (oplemenjena, otporna na vlagu)",
+      "Front – medijapan visoki sjaj 18 mm ili iverica (8 dezena)",
+      "ABS mašinsko kantovanje ivica",
+      "Otvor i prostor za aspirator",
+      "Sistem za vešanje na zid",
+      "Šarke sa usporivačem"
+    ],
+    "categories": [
+      "Kuhinjski elementi",
+      "Gornji elementi",
+      "Viseći elementi",
+      "Element za aspirator",
+      "60 cm",
+      "Medijapan visoki sjaj",
+      "Iverica",
+      "Niš"
+    ],
+    "keywords": [
+      "kuhinjski elementi",
+      "modularne kuhinje po meri",
+      "kuhinje po elementima",
+      "kuhinjski elementi Niš",
+      "nameštaj za kuhinju",
+      "gornji kuhinjski elementi",
+      "viseći elementi",
+      "gornji element 60cm",
+      "kuhinje bez ručica"
+    ],
+    "tagline": "Gornji element 60 cm za ugradni aspirator.",
+    "fullName": "Gornji element za aspirator 60 cm — bez ručica"
   }
 ]
